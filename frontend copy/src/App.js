@@ -5,8 +5,10 @@ import LoginForm from './components/Profile/loginForm';
 import WeatherPage from './components/Homepage/WeatherPage';
 import HomePage from './components/Homepage/HomePage'
 import ProfilePage from './components/Profile/ProfilePage'
+import MessageBoard from './components/MessageBoard/MessageBoard'
 import NavBar from './components/Homepage/NavBar'
 import GardenPage from './components/Garden/GardenPage'
+import NewPost from './components/MessageBoard/NewPost'
 import { BrowserRouter, Route, useHistory, Switch } from 'react-router-dom'
 import SignUp from './components/Profile/signUp'
 import AddACrop from './components/Garden/AddACrop'
@@ -57,6 +59,8 @@ function App() {
 	return (
 		<BrowserRouter >
 			<NavBar />
+			<Route exact path="/message_board" component={MessageBoard} />
+			<Route exact path="/newPost" component={NewPost} />
 			<Route exact path='/' component={HomePage} />
 			<Route exact path="/weather" component={WeatherPage} />
 			<Route exact path="/crops/:id" component={CropPage} />
