@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 
 export default function HomepageButton() {
@@ -8,10 +8,10 @@ export default function HomepageButton() {
 
     return(
         <Button
-        style={{ marginLeft: '01em' }}
         color="green"
+        style={{ marginLeft: '01em' }}
         onClick={() => history.push('/')}>
-            Homepage
+            Home <Icon fitted name="home"></Icon>
         </Button>
     )
 }

@@ -58,6 +58,7 @@ const getWidth = () => {
           marginTop: mobile ? '0.5em' : '1.5em',
         }}
       />
+      {/* consider paler green */}
       <Button color='huge brown'>
         <a text-decoration="bold" href="/signUp" >Sign Up for an Account</a>
         <Icon name='right arrow' />

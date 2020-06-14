@@ -6,6 +6,7 @@ import HomepageButton from './NavBarButtons/HomepageButton'
 import WeatherPageButton from './NavBarButtons/WetherPageButton'
 import LoginButton from './NavBarButtons/LoginButton'
 import SignUpButton from './NavBarButtons/SignUpButton'
+import MessageBoardButton from './NavBarButtons/MessageBoardButton'
 import { useSelector } from 'react-redux'
 import { Menu } from 'semantic-ui-react'
 
@@ -17,7 +18,8 @@ export default function NavBar () {
     return(
         <div class="ui inverted segment" style={{ backgroundColor: 'tan' }}>
     
-            <HomepageButton class="item"/> 
+            <HomepageButton class="item" /> 
+            <MessageBoardButton class="item" />
             {user != null ? <WeatherPageButton class="item" /> : null }
             {user != null ? <ProfileButton class="item"/> : <LoginButton class="item"/> }
             {user != null ? <LogOutButton class="item"/> : <SignUpButton class="item" /> }

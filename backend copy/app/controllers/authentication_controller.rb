@@ -36,6 +36,7 @@ class AuthenticationController < ApplicationController
                 username: user.username,
                 email:  user.email,
                 id:     user.id,
+                city: user.city,
                 garden: garden
             }
         

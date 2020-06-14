@@ -34,12 +34,14 @@ export default function SignUp(props) {
 				console.log("user signing up", x)
 
 				if (x.success) {
+					console.log(x.user)
 					localStorage.city = x.user.city
 					dispatch({ type: 'SIGN_UP', user: x.user })
 					dispatch({ type: 'ACCESS_GARDEN', crops: x.crops })
 					history.push("/")
 				}
 				else {
+					console.log(x.success == false)
 					dispatch({ type: 'FAIL_SIGN_UP', errorMessage: 'This username already exists' })
 				}
 			})

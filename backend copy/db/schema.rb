@@ -10,42 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_181810) do
-
-  create_table "comments", force: :cascade do |t|
-    t.string "content"
-    t.integer "post_id"
-  end
-
-  create_table "crops", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.string "sun_requirements"
-    t.string "sowing_method"
-    t.integer "height"
-    t.string "image_path"
-    t.integer "growing_days"
-    t.string "day_planted"
-    t.integer "number_planted"
-    t.integer "garden_id"
-  end
-
-  create_table "gardens", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.string "body"
-    t.integer "user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
-    t.string "city"
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end

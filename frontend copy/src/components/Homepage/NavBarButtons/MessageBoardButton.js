@@ -2,16 +2,16 @@ import React from 'react'
 import { Button, Icon } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 
-export default function WeatherPageButton() {
-
+export default function MessageBoard() {
     let history = useHistory()
 
     return(
         <Button
-        style={{ marginLeft: '01em' }}
         color="green"
-        onClick={() => history.push('/weather')}>
-            Weather    <Icon fitted name="cloud"></Icon>
+        // floated="left"
+        style={{ marginLeft: '01em' }}
+        onClick={() => history.push('/message_board')}>
+            Message Board  <Icon fitted name="list"></Icon>
         </Button>
     )
 }
