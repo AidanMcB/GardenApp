@@ -15,7 +15,8 @@ import { createStore } from 'redux'
 let initialState = {
 	user: null,
 	crops: [],
-	searchResults: []
+	searchResults: [],
+	posts: []
 }
 //pass in initialState below
 const store = createStore(MainReducer, initialState)

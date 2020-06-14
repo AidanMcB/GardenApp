@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   post('/login', to: 'authentication#login')
   get('/login', to: 'authentication#login')
 
+  post('/create', to: 'posts#create')
+  get('/create', to: 'posts#create')
+  
   post('/logout', to: 'authentication#logout')
 
   get('/get_user', to: 'users#get_user')

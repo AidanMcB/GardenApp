@@ -1,6 +1,9 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 export default function NewPost() {
+
+    let history = useHistory()
 
     const uploadImageHandler=(e)=>{
         e.preventDefault()
@@ -9,6 +12,10 @@ export default function NewPost() {
         method: 'POST',
         body: body, 
         credentials: 'include'
+        })
+        .then( res => res.json())
+        .then( resp => {
+            history.push('/message_board')
         })
     }
 
