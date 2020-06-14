@@ -15,6 +15,7 @@ import { createStore } from 'redux'
 let initialState = {
 	user: null,
 	crops: [],
+	displayedCrops: [],
 	searchResults: [],
 	posts: []
 }
