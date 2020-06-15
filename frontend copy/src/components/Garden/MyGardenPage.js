@@ -54,8 +54,8 @@ export default function GardenPage(props) {
     return (
         //this page may only render if user is logged in
         <div>
-            <Header style={{ textAlign: "center" }}>Garden Name
-        
+            <Header as="h1" style={{ textAlign: "center" }}>{user.username}'s Garden
+        <br/>
         <Button onClick={() => history.push('/add_crop')}>Add a Crop</Button>
             </Header>
             <Grid style={{ marginLeft: "10px", marginRight: "10px" }} columns={3} divided>

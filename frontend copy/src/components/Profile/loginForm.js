@@ -34,7 +34,7 @@ export default function LoginForm(props) {
 					dispatch({ type: 'LOGIN', user: response.user })
 					dispatch({ type: 'ACCESS_GARDEN', crops: response.crops})
 					localStorage.city = response.user.city
-					history.push('/profile')
+					history.push('/my_garden')
 				}
 				else {
 					dispatch({ type: 'FAIL_LOGIN', errorMessage: 'Incorrect Username or Password' })

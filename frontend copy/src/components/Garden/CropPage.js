@@ -76,7 +76,7 @@ export default function CropPage(props) {
             .then(deleteResp => {
                 if (deleteResp.success) {
                     dispatch({ type: 'DELETE_A_CROP', crop })
-                    history.push('/garden')
+                    history.push('/my_garden')
                 }
             })
 
@@ -122,7 +122,7 @@ export default function CropPage(props) {
         return <h1>loading...</h1>
     }
     return (
-        console.log(crop),
+        // console.log(crop),
         <div class="crop show page" >
             <Grid columns={2} divided >
                 <Grid.Column >
@@ -168,7 +168,7 @@ export default function CropPage(props) {
                 </Grid.Column>
                 <Grid.Column >
                     <div>
-                        <Header>{crop.name} Information</Header>
+                        <Header as="h1">{crop.name} Information</Header>
                         <Label>Days I've been growing:</Label>
                         {daysGrowing(crop.day_planted)}
                         <br /> <br />
