@@ -11,6 +11,10 @@ class Crops < ActiveRecord::Migration[6.0]
         t.string :day_planted
         t.integer :number_planted
 
+        t.integer :current_height
+        t.integer :quantity_returned
+        t.string :status_of_plant
+
         t.integer :garden_id
       end
   end

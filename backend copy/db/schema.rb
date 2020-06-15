@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 2020_06_14_003348) do
     t.integer "growing_days"
     t.string "day_planted"
     t.integer "number_planted"
+    t.integer "current_height"
+    t.integer "quantity_returned"
+    t.string "status_of_plant"
     t.integer "garden_id"
   end
 

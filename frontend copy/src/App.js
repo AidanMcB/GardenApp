@@ -6,6 +6,7 @@ import WeatherPage from './components/Homepage/WeatherPage';
 import HomePage from './components/Homepage/HomePage'
 import ProfilePage from './components/Profile/ProfilePage'
 import MessageBoard from './components/MessageBoard/MessageBoard'
+import MyGardenPage from './components/Garden/MyGardenPage'
 import NavBar from './components/Homepage/NavBar'
 import GardenPage from './components/Garden/GardenPage'
 import NewPost from './components/MessageBoard/NewPost'
@@ -67,9 +68,9 @@ function App() {
 			<Route exact path="/login" component={() => <LoginForm />} />
 			<Route exact path="/signUp" component={() => <SignUp />} />
 			<Route exact path="/profile/:id" component={() => <ProfilePage createAGarden={createAGarden} />} />
-	
-				<Route exact path="/garden/:id" component={GardenPage} />
-		
+
+			<Route exact path="/garden/:id" component={GardenPage} />
+			<Route exact path="/my_garden" component={MyGardenPage} />
 			<Route exact path="/add_crop" component={AddACrop} />
 
 		</BrowserRouter>

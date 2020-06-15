@@ -16,7 +16,7 @@ export default function ProfileButton (props) {
         color="green"
         floated="right"
         style={{ marginRight: '01em' }}
-        onClick={() => history.push(`/garden/${garden.id}`)}
+        onClick={() => history.push(`/my_garden`)}
         >
             {user.username}
         </Button>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import { useHistory } from 'react-router-dom'
-import { Header, Label, Grid, Image, Button, Segment, Card, Icon, Item, Input, CardDescription } from 'semantic-ui-react'
+import { Modal, Header, Checkbox, Form, Label, Grid, Image, Button, Segment, Card, Icon, Item, Input, CardDescription } from 'semantic-ui-react'
 
 export default function CropPage(props) {
 
@@ -16,7 +16,27 @@ export default function CropPage(props) {
     let history = useHistory()
     let dispatch = useDispatch()
     let params = useParams()
+
     let [crop, setCrop] = useState()
+
+    let [form, openForm] = useState(false)
+
+    const openWindow = () => {
+        openForm(true)
+    }
+
+    const closeWindow = () => {
+        openForm(false)
+    }
+
+
+	let [editedCrop, editCrop] = useState({    	})
+	// console.log("signup function", user)
+
+	let setValue = (key, value) => {
+		editCrop({ ...editedCrop, [key]: value })
+	}
+
 
     useEffect(() => {
         fetch(`http://localhost:3000/crops/${params.id}`)
@@ -25,9 +45,28 @@ export default function CropPage(props) {
                 setCrop({
                     ...crop
                 })
+                setValue("id", crop.id)
             })
         //rerender when crops is changed(not needed because of history.push)
     }, [])
+
+    const updateCrop = (cropInfo) => {
+        closeWindow()
+        fetch(`http://localhost:3000/crops/${cropInfo.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }, body: JSON.stringify({ cropInfo })
+        })
+            .then(res => res.json())
+            .then(resp => {
+                console.log(resp)
+                setCrop(
+                    ...resp
+                )
+            })
+    }
 
     const handleDelete = (crop) => {
         fetch(`http://localhost:3000/crops/${crop.id}`, {
@@ -74,8 +113,8 @@ export default function CropPage(props) {
         let planted = new Date(plantedDay)
         let diffTime = Math.abs(today - planted)
         let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
-        console.log(diffTime + " milliseconds")
-        console.log(diffDays + " days")
+        // console.log(diffTime + " milliseconds")
+        // console.log(diffDays + " days")
         return diffDays
     }
 
@@ -128,18 +167,62 @@ export default function CropPage(props) {
                         Remove Crop From My Garden </Button>
                 </Grid.Column>
                 <Grid.Column >
-                    <div> 
-                    <Header>{crop.name} Information</Header>
-                    <Label>Days I've been growing:</Label>
-                    {daysGrowing(crop.day_planted)}
-                    <br /> <br />
-                    <Label>Amount Planted:</Label>
-                    {crop.number_planted}
-                    <br /> <br />
-                    <Label>Days Until Expected Harvest:</Label>
-                    {crop.growing_days == null ? (80 - (daysGrowing(crop.day_planted))) : (crop.growing_days - (daysGrowing(crop.day_planted)))}
-                    {/* <Label>Current Height:</Label>
-                    <Input placeholder='Height in inches'></Input> */}
+                    <div>
+                        <Header>{crop.name} Information</Header>
+                        <Label>Days I've been growing:</Label>
+                        {daysGrowing(crop.day_planted)}
+                        <br /> <br />
+                        <Label>Amount Planted:</Label>
+                        {crop.number_planted}
+                        <br /> <br />
+                        <Label>Days Until Expected Harvest:</Label>
+                        {crop.growing_days == null ? (80 - (daysGrowing(crop.day_planted))) : (crop.growing_days - (daysGrowing(crop.day_planted)))}
+                        <br /> <br />
+                        <Label>Current Height:</Label>
+                        {crop.current_height == null ? 0 + " inches" : crop.current_height + " inches"}
+                        <br /> <br />
+                        <Label>Quantity Returned</Label>
+                        {crop.quantity_returned == null ? 0 : crop.quantity_returned}
+                        <br /> <br />
+                        <Label>Current Status of Crop</Label>
+                        {crop.status_of_plant}
+                        <br /> <br />
+                        <Label>Update Crop Info</Label>
+
+                        <br />
+                        <Button
+                            onClick={openWindow}>
+                            Update
+                    </Button>
+                        <Modal open={form}>
+                            <Form style={{ textAlign: "center" }}>
+                                <Form.Field style={{ textAlign: "center" }}>
+                                    <Label>Current Height:</Label>
+                                    <br /> <br />
+                                    <Input 
+                                    onChange={(e) => setValue("current_height", e.target.value)}
+                                    placeholder={crop.current_height} />
+                                </Form.Field>
+                                <Form.Field style={{ textAlign: "center" }}>
+                                    <Label>Quantity Returned</Label>
+                                    <br /><br />
+                                    <Input 
+                                    onChange={(e) => setValue("quantity_returned", e.target.value)}
+                                    placeholder={crops.qunatity_returned} />
+                                </Form.Field>
+                                <Form.Field>
+                                    <Label>Current Status of Crop</Label>
+                                    <br /><br />
+                                    <Input 
+                                    onChange={(e) => setValue("status_of_plant", e.target.value)}
+                                    placeholder={crops.status_of_plant} />
+                                </Form.Field>
+                                <Button 
+                                onClick={() => updateCrop(editedCrop)}
+                                type='submit'>Submit</Button>
+                            </Form>
+                        </Modal>
+
                     </div>
                 </Grid.Column>
             </Grid>

@@ -11,28 +11,30 @@ export default function GardenPage(props) {
     let history = useHistory()
     
     let [crop, setCrop] = useState()
-    
+    let user = useSelector( state => state.user)
     let crops = useSelector(state => state.displayedCrops)
-    let user = useSelector(state => state.user)
     
-    let dispatch = useDispatch()
-    let gardenId = props.match.params.id
-    console.log(gardenId)
-    let garden = useSelector(state => state.garden)
-    console.log(garden)
-    //build a default farm logo for crops without images
-
-    // fetch specific garden crops
-    useEffect( () => {
-        fetch(`http://localhost:3000/gardens/${gardenId}`)
-            .then(res => res.json())
-            .then(garden => {
-                console.log(garden)
-                dispatch({type: 'DISPLAYED_CROPS', crops: garden.crops})
-                dispatch({type: 'SET_A_GARDEN', garden: garden})
+    useEffect(() => {
+		fetch(`http://localhost:3000/get_user`, {
+			credentials: 'include'
+		})
+			.then(resp => resp.json())
+			.then(userLogin => {
+                console.log(userLogin)
+                if (userLogin.error == undefined) {
+					localStorage.city = userLogin.city
+                    dispatch({ type: 'LOGIN', user: userLogin })
+                    dispatch({type: 'DISPLAYED_CROPS', crops: userLogin.garden.crops})
+                    dispatch({type: 'SET_A_GARDEN', garden: userLogin.garden})
+                }
             })
-    }, [] )
+        }, [] )
+	
+    console.log("current user", user)
 
+    let dispatch = useDispatch()
+   
+    // let garden = user.city.garden.id
 
     const handleClick = (id) => {
         fetch(`http://localhost:3000/crops/${id}`)
@@ -45,16 +47,16 @@ export default function GardenPage(props) {
             })
     }
 
-    if (user == undefined) {
+    if (user == undefined || user == null) {
         return <h1>loading...</h1>
     }
-    console.log(crops, garden)
+    // console.log(crops, garden)
     return (
         //this page may only render if user is logged in
         <div>
-            <Header style={{ textAlign: "center" }}>{garden.name}
-        {console.log(garden.id)}
-        {/* <Button onClick={() => history.push('/add_crop')}>Add a Crop</Button> */}
+            <Header style={{ textAlign: "center" }}>Garden Name
+        
+        <Button onClick={() => history.push('/add_crop')}>Add a Crop</Button>
             </Header>
             <Grid style={{ marginLeft: "10px", marginRight: "10px" }} columns={3} divided>
                 {crops.map(crop =>
