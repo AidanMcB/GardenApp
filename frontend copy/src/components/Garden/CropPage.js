@@ -118,11 +118,11 @@ export default function CropPage(props) {
         return diffDays
     }
 
-    if (crop == undefined) {
+    if (crop == undefined || user == null) {
         return <h1>loading...</h1>
     }
     return (
-        // console.log(crop),
+        console.log(crop, user),
         <div class="crop show page" >
             <Grid columns={2} divided >
                 <Grid.Column >
@@ -159,12 +159,13 @@ export default function CropPage(props) {
                             </a>
                         </div>
                     </div>
-
+                    {user.id == crop.garden.user_id ?  
                     <Button
                         color="red"
                         onClick={() => handleDelete(crop)}
                         style={{ marginLeft: "35px" }}>
                         Remove Crop From My Garden </Button>
+                        : null }
                 </Grid.Column>
                 <Grid.Column >
                     <div>
@@ -187,13 +188,17 @@ export default function CropPage(props) {
                         <Label>Current Status of Crop</Label>
                         {crop.status_of_plant}
                         <br /> <br />
+                        {user.id == crop.garden.user_id ? 
+                        <div>
                         <Label>Update Crop Info</Label>
 
-                        <br />
+                        <br /> <br />
                         <Button
                             onClick={openWindow}>
                             Update
                     </Button>
+                    </div>
+                    : null }
                         <Modal open={form}>
                             <Form style={{ textAlign: "center" }}>
                                 <Form.Field style={{ textAlign: "center" }}>

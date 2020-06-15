@@ -7,7 +7,7 @@ class CropsController < ApplicationController
 
     def show 
         crop = Crop.find(params[:id])
-        render(json: crop)
+        render(json: crop, :include => [:garden])
     end
 
     def create 
