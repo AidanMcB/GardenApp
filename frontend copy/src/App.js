@@ -66,7 +66,7 @@ function App() {
 			<Route exact path="/crops/:id" component={CropPage} />
 			<Route exact path="/login" component={() => <LoginForm />} />
 			<Route exact path="/signUp" component={() => <SignUp />} />
-			<Route exact path="/profile" component={() => <ProfilePage createAGarden={createAGarden} />} />
+			<Route exact path="/profile/:id" component={() => <ProfilePage createAGarden={createAGarden} />} />
 	
 				<Route exact path="/garden/:id" component={GardenPage} />
 		

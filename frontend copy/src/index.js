@@ -17,7 +17,8 @@ let initialState = {
 	crops: [],
 	displayedCrops: [],
 	searchResults: [],
-	posts: []
+	posts: [],
+	garden: {}
 }
 //pass in initialState below
 const store = createStore(MainReducer, initialState)

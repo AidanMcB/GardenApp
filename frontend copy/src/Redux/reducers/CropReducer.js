@@ -7,6 +7,13 @@ const CropReducer = (state, action) => {
                 crops: action.crops
             }
             break
+        case 'SET_A_GARDEN':
+            console.log(action.garden)
+            return {
+                ...state,
+                garden: action.garden
+            }
+            break
         case 'DISPLAYED_CROPS':
             return {
                 ...state,

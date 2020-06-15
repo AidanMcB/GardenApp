@@ -47,7 +47,7 @@ export default function MessageBoard() {
         fetch(`http://localhost:3000/posts`)
             .then(res => res.json())
             .then(allPosts => {
-                // console.log(allPosts)
+                console.log(allPosts)
                 dispatch({ type: 'SET_POSTS', allPosts })
             })
     }, [])
@@ -71,8 +71,10 @@ export default function MessageBoard() {
             <br /> <br />
             {posts.map(post => (
                 <Container>
+                    <Label size="big green">{post.title}</Label>
                     <Label
-                        size="big green">{post.title}</Label>
+                    onClick={() => history.push(`/garden/${post.user.garden.id}`)}
+                    >By {post.user.username}</Label>
                     {user == null || user.id == undefined || user.id != post.user_id ?
                         null
                         :

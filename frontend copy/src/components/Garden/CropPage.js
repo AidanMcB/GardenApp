@@ -110,7 +110,7 @@ export default function CropPage(props) {
                             </div> <br />
                             <div>
                                 <label>Days to full grown: </label>
-                                {crop.growing_days == null ? "(not available)" : crop.growing_days}
+                                {crop.growing_days == null ? 80 : crop.growing_days}
                             </div> <br />
                         </div>
                         <div class="extra content">
@@ -136,6 +136,8 @@ export default function CropPage(props) {
                     <Label>Amount Planted:</Label>
                     {crop.number_planted}
                     <br /> <br />
+                    <Label>Days Until Expected Harvest:</Label>
+                    {crop.growing_days == null ? (80 - (daysGrowing(crop.day_planted))) : (crop.growing_days - (daysGrowing(crop.day_planted)))}
                     {/* <Label>Current Height:</Label>
                     <Input placeholder='Height in inches'></Input> */}
                     </div>

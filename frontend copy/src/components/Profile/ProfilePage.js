@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 export default function ProfilePage(props) {
+    console.log(props)
     let user = useSelector(state => state.user)
     let history = useHistory()
 

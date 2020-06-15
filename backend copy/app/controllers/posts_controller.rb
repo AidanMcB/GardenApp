@@ -2,12 +2,14 @@ class PostsController < ApplicationController
 
     def index 
         posts = Post.all 
-        render(json: posts, :methods => :url)
+        # render(json: posts, :methods => :url, include: :user)
+        render :json => posts.to_json(:methods => :url, :include => [ {:user => { :include => :garden }}])
+        # render :json => users.to_json(:include => [ {:posts => { :methods => :url }}, { :garden => {:include =>:crops}}])
     end
 
     def show 
         post = Post.find(params[:id])
-        render(json: post, :methods => :url)
+        render(json: post, :methods => :url, include: [:user])
     end
 
     def create

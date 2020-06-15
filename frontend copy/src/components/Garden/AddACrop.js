@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Grid, Image, Button, Message, Search, Input, Label, Popup } from 'semantic-ui-react'
+import { MissouriDepAgLogo } from '../images/MissouriDepAgLogo.png'
+import veggieVillage from '../images/veggieVillage.png'
+import { Grid, Image, Button, Message, Search, Input, Label, Popup, Segment } from 'semantic-ui-react'
 import UserReducer from '../../Redux/reducers/UserReducer'
 
 export default function AddACrop(props) {
@@ -49,7 +51,7 @@ export default function AddACrop(props) {
                     sowing_method: cropInfo.sowing_method,
                     height: cropInfo.height,
                     image_path: cropInfo.main_image_path,
-                    growing_days: cropInfo.growind_degree_days,
+                    growing_days: cropInfo.growing_degree_days,
                     day_planted: new Date(),
                     number_planted: amount,
                     garden_id: user.garden.id
@@ -58,7 +60,7 @@ export default function AddACrop(props) {
                 .then(resp => resp.json())
                 .then(newCrop => {
                     dispatch({ type: 'ADD_CROP_TO_MY_GARDEN', newCrop })
-                    history.push('/garden')
+                    history.push(`/garden/${user.garden.id}`)
                 })
         }
 
@@ -67,7 +69,7 @@ export default function AddACrop(props) {
     return (
         // consider switching to a search bar?
         //consider adding confirmation
-        <div class="wholePage" style={{ textAlign: "center" }} >
+        <div class="wholePage" style={{ textAlign: "center" }}>
             <div class="ui action input">
                 <input onChange={(e) => changeSearch({ search: e.target.value })}
                     type="text" placeholder="Search..." />
@@ -80,6 +82,7 @@ export default function AddACrop(props) {
             <div style={{ textAlign: "center" }}>
                 {searchResults != [] ? searchResults.map(crop => (
                     <div >
+                    <Segment >
                         <Label
                             size='big'
                             color="olive"
@@ -87,11 +90,18 @@ export default function AddACrop(props) {
                         <Button
                             onClick={() => AddCrop(crop, numberPlanted)}>Confirm</Button>
                         <br /> <br />
+                   
+                        {/* style={{ backgroundImage: `url(${veggieVillage})`}} */}
+                            
                         <img
                             class="ui medium centered image"
-                            src={crop.attributes.main_image_path}
-                            alt={crop.attributes.name}
-                        /> <br />
+                            // style={{ backgroundImage: `url(${MissouriDepAgLogo})` }}
+                        // src={MissouriDepAgLogo}
+                        src={crop.attributes.main_image_path}
+                        // alt={MissouriDepAgLogo}
+                        alt={crop.attributes.name}
+                        /> 
+                        <br />
                         <Button icon='minus'
                             onClick={() => setNumberPlanted(
                                 numberPlanted > 0 ? numberPlanted -= 1 : numberPlanted = 0)}
@@ -100,6 +110,7 @@ export default function AddACrop(props) {
                             onClick={() => setNumberPlanted(numberPlanted += 1)}
                         />
                         <label>{numberPlanted}</label>
+                        </Segment>
                         <br /><br />
                     </div>
                 ))
