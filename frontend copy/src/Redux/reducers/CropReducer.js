@@ -7,6 +7,14 @@ const CropReducer = (state, action) => {
                 crops: action.crops
             }
             break
+        case 'GARDEN_BACKGROUND':
+            console.log(action.background)
+            return {
+                ...state,
+                background: action.background
+            }
+            break
+
         case 'SET_A_GARDEN':
             console.log(action.garden)
             return {
@@ -32,12 +40,13 @@ const CropReducer = (state, action) => {
                 searchResults: action.cropsFound
             }
         case 'DELETE_A_CROP':
-            
+
             return {
                 ...state,
-                crops: [...state.crops.filter( crop => crop.id != action.crop.id)]
+                crops: [...state.crops.filter(crop => crop.id != action.crop.id)]
             }
     }
+    console.log(state)
     return state
 }
 export default CropReducer

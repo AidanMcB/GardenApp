@@ -60,7 +60,8 @@ export default function AddACrop(props) {
                 .then(resp => resp.json())
                 .then(newCrop => {
                     dispatch({ type: 'ADD_CROP_TO_MY_GARDEN', newCrop })
-                    history.push(`/garden/${user.garden.id}`)
+                    //user.garden.id
+                    history.push(`/my_garden`)
                 })
         }
 

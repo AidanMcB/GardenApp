@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_06_14_003348) do
     t.string "email"
     t.string "password_digest"
     t.string "city"
+    t.string "zip"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

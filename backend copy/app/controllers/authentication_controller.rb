@@ -22,7 +22,8 @@ class AuthenticationController < ApplicationController
                 username: params[:newUserInfo][:username],
                 password: params[:newUserInfo][:password],
                 email: params[:newUserInfo][:email],
-                city: params[:newUserInfo][:city]
+                city: params[:newUserInfo][:city],
+                zip: params[:newUserInfo][:zip],
             })
             session[:user_id] = user.id
             #create a garden with each unique user
@@ -37,6 +38,7 @@ class AuthenticationController < ApplicationController
                 email:  user.email,
                 id:     user.id,
                 city: user.city,
+                zip: user.zip,
                 garden: garden
             }
         

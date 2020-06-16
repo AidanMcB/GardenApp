@@ -9,7 +9,8 @@ export default function HomepageButton() {
     return(
         <Button
         color="green"
-        style={{ marginLeft: '01em' }}
+        style={{ marginLeft: '01em',
+        border:"1px solid green" }}
         onClick={() => history.push('/')}>
             Home <Icon fitted name="home"></Icon>
         </Button>

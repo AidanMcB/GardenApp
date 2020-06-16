@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Header, Grid, Image, Button, Segment } from 'semantic-ui-react'
+import { Header, Container, Grid, Image, Button, Segment } from 'semantic-ui-react'
 import AddACrop from './AddACrop'
 import { useHistory } from 'react-router-dom'
 import { useParams } from 'react-router'
@@ -59,14 +59,16 @@ export default function GardenPage(props) {
             <Grid style={{ marginLeft: "10px", marginRight: "10px" }} columns={3} divided>
                 {crops.map(crop =>
                     <Grid.Column>
-                        <div onClick={() => handleClick(crop.id)}>
+                        <Container 
+                        style={{padding:"10px", border:"2px solid green", borderRadius:"25px"}}     
+                        onClick={() => handleClick(crop.id)}>
                             <Header>{crop.name}</Header>
                             <p>({crop.number_planted})</p>
                             <label>Planted:</label>
                             <br />
                             <text>{crop.day_planted.substr(0, 10)}</text>
                             <Image src={crop.image_path} circular />
-                        </div>
+                        </Container>
                     </Grid.Column>
                 )}
             </Grid>

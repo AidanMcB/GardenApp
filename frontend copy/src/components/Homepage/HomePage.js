@@ -41,7 +41,7 @@ const getWidth = () => {
           fontSize: mobile ? '3em' : '5em',
           fontWeight: 'bold',
           marginBottom: 0,
-          marginTop: mobile ? '1.5em' : '1.5em',
+          marginTop: mobile ? '1.5em' : '0em',
           color:"green",
           textShadow:"3px 3px 0 #000"
           // textShadow:"-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
@@ -53,16 +53,16 @@ const getWidth = () => {
         inverted
         style={{
           fontSize: mobile ? '1.5em' : '1.7em',
-          fontWeight: 'normal',
-          color:"white",
+          fontWeight: 'bold',
+          color:"black",
           marginTop: mobile ? '0.5em' : '.7em',
         }}
       />
       {/* consider paler green */}
       <Button 
-      style={{borderStyle:"solid"}}
+      style={{borderStyle:"solid", marginTop: '21.5em', textShadow:"2px 2px 0 #000"}}
       color='huge brown'>
-        <a style={{color:"white"}} href="/signUp" >Sign Up for an Account</a>
+        <a style={{color:"white", textShadow:"1.5px 1.5px 0 #000"}} href="/signUp" >Sign Up for an Account</a>
         <Icon name='right arrow' />
       </Button>
     </Container>

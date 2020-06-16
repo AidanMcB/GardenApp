@@ -18,14 +18,15 @@ let initialState = {
 	displayedCrops: [],
 	searchResults: [],
 	posts: [],
-	garden: {}
+	garden: {},
+	background: '',
 }
 //pass in initialState below
 const store = createStore(MainReducer, initialState)
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<App  />
 	</Provider>,
 	document.getElementById('root')
 );

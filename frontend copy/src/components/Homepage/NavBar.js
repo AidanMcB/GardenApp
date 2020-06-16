@@ -16,7 +16,8 @@ export default function NavBar () {
     let history = useHistory()
 
     return(
-        <div class="ui inverted segment" style={{ backgroundColor: 'tan' }}>
+        <div class="ui inverted segment" style={{ backgroundColor: 'burlywood',
+        borderBottom:"1px solid black", }}>
     
             <HomepageButton class="item" /> 
             <MessageBoardButton class="item" />

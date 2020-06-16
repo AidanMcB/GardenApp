@@ -1,3 +1,5 @@
+import PostsReducer from "./PostsReducer"
+
 const UserReducer = (state, action) => {
  
     let user = action.user
@@ -10,6 +12,11 @@ const UserReducer = (state, action) => {
             }
             break
         case 'FAIL_LOGIN':
+            return {
+                ...state,
+                errorMessage: action.errorMessage
+            }
+        case 'INVALID_ZIP_CODE':
             return {
                 ...state,
                 errorMessage: action.errorMessage

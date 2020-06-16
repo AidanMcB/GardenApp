@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react'
 import { useDispatch, useSelector} from 'react-redux'
 import UserReducer from '../../../Redux/reducers/UserReducer'
 
@@ -15,10 +15,11 @@ export default function ProfileButton (props) {
         <Button
         color="green"
         floated="right"
-        style={{ marginRight: '01em' }}
+        style={{ marginRight: '01em',
+        border:"1px solid green" }}
         onClick={() => history.push(`/my_garden`)}
         >
-            {user.username}
+            {user.username} <Icon fitted name="user" />
         </Button>
 
     )

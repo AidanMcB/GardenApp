@@ -18,6 +18,7 @@ import { useSelector, useDispatch } from 'react-redux'
 function App() {
 
 	let user = useSelector(state => state.user)
+	let background = useSelector(state => state.background)
 
 	let dispatch = useDispatch()
 	let history = useHistory()
@@ -47,7 +48,7 @@ function App() {
 			.then(userLogin => {
 				// if there is a user, send action to go in as user(.user?)
 				if (userLogin.error == undefined) {
-					localStorage.city = userLogin.city
+					localStorage.zip = userLogin.zip
 					dispatch({ type: 'LOGIN', user: userLogin })
 					dispatch({ type: 'ACCESS_GARDEN', crops: userLogin.garden.crops })
 				}
@@ -56,8 +57,9 @@ function App() {
 
 	}, [])
 
-	
+	//current background in state
 	return (
+		<div style={{backgroundColor:`${background}`, height:"100%"	}}>
 		<BrowserRouter >
 			<NavBar />
 			<Route exact path="/message_board" component={MessageBoard} />
@@ -74,6 +76,7 @@ function App() {
 			<Route exact path="/add_crop" component={AddACrop} />
 
 		</BrowserRouter>
+		</div>
 	);
 }
 

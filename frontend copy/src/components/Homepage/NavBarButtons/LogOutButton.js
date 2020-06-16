@@ -25,7 +25,8 @@ export default function LogOutButton(props) {
         <Button
             color="green"
             floated="right"
-            style={{ marginRight: '01em' }}
+            style={{ marginRight: '01em',
+            border:"1px solid green" }}
             onClick={HandleLogOut}>
             Log Out
         </Button>
