@@ -11,10 +11,22 @@ const CropReducer = (state, action) => {
             console.log(action.background)
             return {
                 ...state,
-                background: action.background
+                background: {
+                    ...state.background,
+                    color: action.background,
+                    // height: "window.innerHeight"
+                }
             }
             break
-
+        case 'HOME_BACKGROUND':
+            return {
+                ...state,
+                background: {
+                    ...state.background, 
+                    position: ""
+                }
+            }
+            break
         case 'SET_A_GARDEN':
             console.log(action.garden)
             return {
@@ -32,6 +44,16 @@ const CropReducer = (state, action) => {
             return {
                 ...state,
                 crops: [...state.crops, action.newCrop]
+            }
+            break
+        case 'UPDATE_CROPS':
+            console.log(action.crop)
+            let index = state.crops.findIndex( crop => crop.id == action.crop.id)
+            return {
+                ...state,
+                crops: [
+                    ...state.crops.slice(0, index), action.crop, ...state.crops.slice(index +1)
+                ] 
             }
             break
         case 'SEARCH_RESULTS':

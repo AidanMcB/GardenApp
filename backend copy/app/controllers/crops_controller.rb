@@ -29,7 +29,7 @@ class CropsController < ApplicationController
     def update
         crop = Crop.find(params[:id])
         # byebug
-        crop = Crop.update({
+        crop.update({
             # name: params[:cropInfo][:name],
             # description: params[:cropInfo][:description],
             # sun_requirements: params[:cropInfo][:sun_requirements],

@@ -73,7 +73,7 @@ export default function MessageBoard() {
                 <Container>
                     <Label size="big green">{post.title}</Label>
                     <Label
-                    onClick={() => history.push(`/garden/${post.user.garden.id}`)}
+                    onClick={() => {user.id == post.user.id ? history.push('my_garden') :history.push(`/garden/${post.user.garden.id}`)}}
                     >By {post.user.username}</Label>
                     {user == null || user.id == undefined || user.id != post.user_id ?
                         null

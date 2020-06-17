@@ -56,27 +56,34 @@ function App() {
 		//add a .then or fetch inside
 
 	}, [])
-
+	// backgroundSize:"cover"
 	//current background in state
+	//crop page floating outside or inside
 	return (
-		<div style={{backgroundColor:`${background}`, height:"100%"	}}>
-		<BrowserRouter >
-			<NavBar />
-			<Route exact path="/message_board" component={MessageBoard} />
-			<Route exact path="/newPost" component={NewPost} />
-			<Route exact path='/' component={HomePage} />
-			<Route exact path="/weather" component={WeatherPage} />
-			<Route exact path="/crops/:id" component={CropPage} />
-			<Route exact path="/login" component={() => <LoginForm />} />
-			<Route exact path="/signUp" component={() => <SignUp />} />
-			<Route exact path="/profile/:id" component={() => <ProfilePage createAGarden={createAGarden} />} />
+		<div style={{
+			backgroundColor: "rgb(34,139,34,0.65)",
+			backgroundSize: '100% auto',
+			height:"100vh",
+			overflow:"scroll"
+			
+		}}>
+			<BrowserRouter >
+				<NavBar />
+				<Route exact path="/message_board" component={MessageBoard} />
+				<Route exact path="/newPost" component={NewPost} />
+				<Route exact path='/' component={HomePage} />
+				<Route exact path="/weather" component={WeatherPage} />
+				<Route exact path="/crops/:id" component={CropPage} />
+				<Route exact path="/login" component={() => <LoginForm />} />
+				<Route exact path="/signUp" component={() => <SignUp />} />
+				<Route exact path="/profile/:id" component={() => <ProfilePage createAGarden={createAGarden} />} />
 
-			<Route exact path="/garden/:id" component={GardenPage} />
-			<Route exact path="/my_garden" component={MyGardenPage} />
-			<Route exact path="/add_crop" component={AddACrop} />
+				<Route exact path="/garden/:id" component={GardenPage} />
+				<Route exact path="/my_garden" component={MyGardenPage} />
+				<Route exact path="/add_crop" component={AddACrop} />
 
-		</BrowserRouter>
-		</div>
+			</BrowserRouter>
+		</div >
 	);
 }
 

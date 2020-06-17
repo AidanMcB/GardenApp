@@ -66,8 +66,8 @@ export default function AddACrop(props) {
         }
 
     }
-
     return (
+        
         // consider switching to a search bar?
         //consider adding confirmation
         <div class="wholePage" style={{ textAlign: "center" }}>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-import { Grid, Header, Image, Button, Search, Input, Label, Popup } from 'semantic-ui-react'
+import { Grid, Header, Message, Image, Button, Search, Input, Label, Popup } from 'semantic-ui-react'
 
 
 export default function WeatherPage() {
@@ -21,7 +21,9 @@ export default function WeatherPage() {
     //visibility in meters
     visibility: '',
     //perc clouds
-    cloudy: ''
+    cloudy: '',
+    main: '',
+    description: ''
   })
 
 
@@ -48,7 +50,9 @@ export default function WeatherPage() {
           sunset: weather.sys.sunset,
           //visibility in meters
           visibility: weather.visibility,
-          cloudy: weather.clouds.all
+          cloudy: weather.clouds.all,
+          main: weather.weather[0].main,
+          description: weather.weather[0].description
         })
       })
   }, [])
@@ -105,7 +109,16 @@ export default function WeatherPage() {
     return <h1>Loading...</h1>
   }
   return (
+    console.log(weather),
     <div style={{ height:"100%", marginLeft:"20px" }}>
+    <Message>
+      <Message.Header>Current Weather Advisories:</Message.Header>
+      <Message.List>{weather.temperature < 40 ? "It's getting cold! Put a frost cloth out to sheild your crops from the weather" : null }</Message.List>
+      <Message.List>{weather.main != "Rain" ? "Don't forget to water!" : "The rain will take care of it today"}</Message.List>
+      <Message.List>{weather.temperature > 75 && weather.main != "Rain" ? "It's hot today, be sure to water a little extra" : null }</Message.List>
+      <Message.List>{weather.windSpeed > 15 ? "It's getting windy! Consider moving potted plants or putting up a wind break" : null }</Message.List>
+      <Message.List></Message.List>
+    </Message>
       <Header
         as="h1"
         color="blue">

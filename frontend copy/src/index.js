@@ -22,7 +22,7 @@ let initialState = {
 	background: '',
 }
 //pass in initialState below
-const store = createStore(MainReducer, initialState)
+const store = createStore(MainReducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
 	<Provider store={store}>

@@ -11,7 +11,7 @@ export default function CropPage(props) {
     //consider adding when you planted it, how longs its been growing, other info 
     //on the right side of the page
     let user = useSelector(state => state.user)
-    let crops = useSelector(state => state.crops)
+    // let crops = useSelector(state => state.crops)
 
     let history = useHistory()
     let dispatch = useDispatch()
@@ -37,7 +37,9 @@ export default function CropPage(props) {
         editCrop({ ...editedCrop, [key]: value })
     }
 
-
+    let crops = useSelector(state => state.crops)
+    // let crop = crops.find(crop => crop.id == params.id)
+    
     useEffect(() => {
         fetch(`http://localhost:3000/crops/${params.id}`)
             .then(res => res.json())
@@ -60,11 +62,12 @@ export default function CropPage(props) {
             }, body: JSON.stringify({ cropInfo })
         })
             .then(res => res.json())
-            .then(resp => {
-                console.log(resp)
-                setCrop(
-                    ...resp
-                )
+            .then(newCrop => {
+                console.log(newCrop)
+                dispatch({type: 'UPDATE_CROPS', crop: newCrop})
+                setCrop({
+                    ...crop, ...newCrop
+                })
             })
     }
 
@@ -118,7 +121,7 @@ export default function CropPage(props) {
         return diffDays
     }
 
-    if (crop == undefined || user == null) {
+    if (crop == undefined || user == null || crop.garden == undefined) {
         return <h1>loading...</h1>
     }
     return (
