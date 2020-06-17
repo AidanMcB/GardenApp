@@ -128,8 +128,8 @@ export default function CropPage(props) {
         // console.log(crop, user),
         <div class="crop show page"             >
 
-            <Grid columns={2} divided >
-                <Grid.Column >
+            <Grid columns={2} divided>
+                <Grid.Column style={{marginLeft:"150px"}}>
                     <div class="ui card" style={{ marginLeft: "20px" }}>
                         <div class="image"><img src={crop.image_path} /></div>
                         <div class="content">
@@ -171,7 +171,7 @@ export default function CropPage(props) {
                             Remove Crop From My Garden </Button>
                         : null}
                 </Grid.Column>
-                <Grid.Column >
+                <Grid.Column style={{marginLeft:"-160px"}}>
                     <div>
                         <Header as="h1">{crop.name} Information</Header>
                         <Label size="large teal">Days I've been growing:</Label>
