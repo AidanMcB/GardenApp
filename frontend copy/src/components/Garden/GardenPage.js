@@ -56,7 +56,7 @@ export default function GardenPage(props) {
                 style={{
                     textAlign: "center",
                     color:"rgb(255,250,250)",
-                    fontFamily:"fantasy",
+                    // fontFamily:"fantasy",
                     fontSize:"46px",
                     textShadow:"1px 1px 0 black"}} >{garden.name}
       {/* {console.log(garden.id)} */}

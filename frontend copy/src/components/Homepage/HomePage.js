@@ -60,7 +60,10 @@ const getWidth = () => {
       />
       {/* consider paler green */}
       <Button 
-      style={{borderStyle:"solid", marginTop: '21.5em', textShadow:"2px 2px 0 #000"}}
+      style={{
+        borderStyle:"solid", 
+        marginTop: '21.5em', 
+        textShadow:"2px 2px 0 #000"}}
       color='huge brown'>
         <a style={{color:"white", textShadow:"1.5px 1.5px 0 #000"}} href="/signUp" >Sign Up for an Account</a>
         <Icon name='right arrow' />
@@ -192,7 +195,9 @@ const getWidth = () => {
           <Grid.Row>
             <Grid.Column textAlign='center'>
               <Button 
-              
+               style={{
+        borderStyle:"solid", 
+        textShadow:"2px 2px 0 #000"}}
               color='brown' size='huge'><a style={{color:"white"}} href="message_board">Message Board</a></Button>
             </Grid.Column>
           </Grid.Row>
@@ -298,3 +303,4 @@ const getWidth = () => {
     </ResponsiveContainer>
   )
 } 
+//add email links and stuff

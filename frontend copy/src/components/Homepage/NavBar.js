@@ -18,7 +18,9 @@ export default function NavBar() {
     return (
         <div class="ui inverted segment"
             style={{
-                backgroundColor: '#9f6d5c',
+                // backgroundColor: '#9f6d5c',
+                backgroundColor:"#1b1c1d",
+                opacity:"90%",
                 borderBottom: "1px solid black",
             }}>
 

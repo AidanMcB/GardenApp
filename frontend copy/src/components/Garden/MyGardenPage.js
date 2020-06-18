@@ -68,7 +68,7 @@ export default function GardenPage(props) {
                     textAlign: "center",
                     color:"rgb(255,250,250)",
                     fontSize:"46px",
-                    fontFamily:"fantasy",
+                    // fontFamily:"fantasy",
                     textShadow:"1px 1px 0 black" 
                 }}>{user.username}'s Garden
         <br />
