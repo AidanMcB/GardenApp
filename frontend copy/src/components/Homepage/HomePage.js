@@ -170,9 +170,11 @@ const getWidth = () => {
   export default function HomePage() {
       return(
     <ResponsiveContainer >
-      <Segment style={{ padding: '8em 0em', backgroundColor:"lightgreen" }} vertical>
-        <Grid container stackable verticalAlign='middle'>
-          <Grid.Row>
+      <Segment style={{ 
+        padding: '8em 0em',
+         }} vertical>
+        <Grid  container stackable verticalAlign='middle'>
+          <Grid.Row >
             <Grid.Column width={8}>
               <Header as='h3' style={{ fontSize: '2em' }}>
                 Keep track of your Garden with live weather updates!
@@ -189,7 +191,10 @@ const getWidth = () => {
               </p>
             </Grid.Column>
             <Grid.Column floated='right' width={6}>
-              <Image bordered rounded size='big' src={veggieGarden} />
+              <Image bordered rounded
+              style={{
+                border:"2px solid black"
+              }} size='big' src={veggieGarden} />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
@@ -227,7 +232,7 @@ const getWidth = () => {
         </Grid>
       </Segment>
   
-      <Segment style={{ padding: '8em 0em', backgroundColor:"lightgreen" }} vertical>
+      <Segment style={{ padding: '8em 0em'  }} vertical>
         <Container text>
           <Header as='h3' style={{ fontSize: '2em' }}>
             About Me
@@ -238,10 +243,7 @@ const getWidth = () => {
            From planting asparagus, to picking blackberries, to propagating succuelnts, I got a lot of experience in the garden world there. 
            This project was a chance for me to showcase my Software Engineering skills as well as my knowledge of gardening at the same time.
           </p>
-          {/* <Button as='a' size='large brown'>
-            Read More
-          </Button>
-   */}
+
           <Divider
             as='h4'
             className='header'
@@ -260,9 +262,6 @@ const getWidth = () => {
            For the front end I used React-Redux. React-Redux allows for an easier manipulation and tracking of the state in the app with reducers.
            To style the application I mostly used Semantic-UI-React along with some CSS where necessary to achieve certain effects.
           </p>
-          {/* <Button as='a' size='large brown'>
-            I'm Still Quite Interested
-          </Button> */}
         </Container>
       </Segment>
   
@@ -271,29 +270,30 @@ const getWidth = () => {
           <Grid divided inverted stackable>
             <Grid.Row>
               <Grid.Column width={3}>
-                <Header inverted as='h4' content='Contact Info' />
+                <Header inverted as='h4' content='Info' />
                 <List link inverted>
-                  <List.Item ><a href="https://github.com/AidanMcB">GitHub</a></List.Item>
+                  <List.Item as='a' href="https://github.com/AidanMcB">GitHub</List.Item>
                   <List.Item as='a' href="https://www.linkedin.com/in/aidan-mcbride-52b6261a9/">Linkdin</List.Item>
-                  <List.Item as='a'>Religious Ceremonies</List.Item>
-                  <List.Item as='a'>Gazebo Plans</List.Item>
+                  <List.Item as='a' href="https://www.youtube.com/channel/UCO5m40AxTx4AuitZQGx3Q4w">YouTube</List.Item>
+                  <List.Item as='a' href="https://medium.com/@aidankmcbride">Medium</List.Item>
                 </List>
               </Grid.Column>
               <Grid.Column width={3}>
-                <Header inverted as='h4' content='Services' />
+                <Header inverted as='h4' content='APIs' />
                 <List link inverted>
-                  <List.Item as='a'>Banana Pre-Order</List.Item>
-                  <List.Item as='a'>DNA FAQ</List.Item>
-                  <List.Item as='a'>How To Access</List.Item>
-                  <List.Item as='a'>Favorite X-Men</List.Item>
+                  <List.Item as='a' href="https://openweathermap.org/api">Open Weather Map</List.Item>
+                  <List.Item as='a' href="https://openfarm.cc/api">Open Farm</List.Item>
                 </List>
               </Grid.Column>
               <Grid.Column width={7}>
                 <Header as='h4' inverted>
-                  Footer Header
+                  Aidan McBride
                 </Header>
                 <p>
-                  Extra space for a call to action inside the footer that could help re-engage users.
+                  If you enjoyed this web application, check out my other projects on GitHub and YouTube, or send me an email.
+                  <List link inverted>
+                  <List.Item as='a' href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSHwCnhfggPzbPKWXnLMqnWmcLsfhGxsBMwWPPvvbFDZjwLndSvpPVrVPVJBtLqXcGbVBLrM">aidankmcbride@gmail.com</List.Item>
+                  </List>
                 </p>
               </Grid.Column>
             </Grid.Row>

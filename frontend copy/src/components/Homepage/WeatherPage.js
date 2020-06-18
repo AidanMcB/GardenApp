@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
+import a_sky_image from '../images/a_sky_image.jpeg'
+import skyimage from '../images/skyimage.jpg'
 import { Grid, Container, Header, Message, Image, Button, Search, Input, Label, Popup } from 'semantic-ui-react'
 
 
@@ -110,8 +112,14 @@ export default function WeatherPage() {
   }
   return (
     console.log(weather),
-    <div style={{ height: "100%", marginLeft: "20px" }}>
-
+    <div style={{
+    backgroundImage: `url(${skyimage})`,
+    backgroundSize:'cover',
+    height:"100vh",
+    
+       }}>
+    {/* <Image size="large" src={a_sky_image} /> */}
+    {/* <Image size="large" src={skyimage} /> */}
 
       <Container style={{
         margin: "30px",
