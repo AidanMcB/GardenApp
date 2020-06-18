@@ -271,10 +271,10 @@ const getWidth = () => {
           <Grid divided inverted stackable>
             <Grid.Row>
               <Grid.Column width={3}>
-                <Header inverted as='h4' content='About' />
+                <Header inverted as='h4' content='Contact Info' />
                 <List link inverted>
-                  <List.Item as='a'>Sitemap</List.Item>
-                  <List.Item as='a'>Contact Us</List.Item>
+                  <List.Item ><a href="https://github.com/AidanMcB">GitHub</a></List.Item>
+                  <List.Item as='a' href="https://www.linkedin.com/in/aidan-mcbride-52b6261a9/">Linkdin</List.Item>
                   <List.Item as='a'>Religious Ceremonies</List.Item>
                   <List.Item as='a'>Gazebo Plans</List.Item>
                 </List>

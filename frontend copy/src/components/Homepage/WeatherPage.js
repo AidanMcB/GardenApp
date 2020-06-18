@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-import { Grid, Header, Message, Image, Button, Search, Input, Label, Popup } from 'semantic-ui-react'
+import { Grid, Container, Header, Message, Image, Button, Search, Input, Label, Popup } from 'semantic-ui-react'
 
 
 export default function WeatherPage() {
@@ -111,121 +111,187 @@ export default function WeatherPage() {
   return (
     console.log(weather),
     <div style={{ height: "100%", marginLeft: "20px" }}>
-      <Message
-        style={{
-          backgroundColor: "rgb(255,250,250, .55)"
-        }}>
-        <Message.Header>Current Weather Advisories:</Message.Header>
-        <marquee behavior="scroll" direction="left">
-          <Message.List>{weather.temperature < 40 ? "It's getting cold! Put a frost cloth out to sheild your crops from the weather" : null}</Message.List>
-          <Message.List>{weather.main != "Rain" ? "Don't forget to water!" : "The rain will take care of it today"}</Message.List>
-          <Message.List>{weather.temperature > 75 && weather.main != "Rain" ? "It's hot today, be sure to water a little extra" : null}</Message.List>
-          <Message.List>{weather.windSpeed > 15 ? "It's getting windy! Consider moving potted plants or putting up a wind break" : null}</Message.List>
-          <Message.List></Message.List>
-        </marquee>
-      </Message>
 
-      <Header
-        as="h1"
+
+      <Container style={{
+        margin: "30px",
+        border: "2px solid black",
+        borderRadius: "25px",
+        padding: "20px",
+        fontWeight: "bold",
+        backgroundColor: "#1b1c1d",
+        opacity: "75%"
+      }}>
+        <Header
+          as="h1"
+          style={{
+            fontSize: "48px",
+            textAlign: "center",
+            color: "rgb(255,250,250)",
+            // color: "#9f6d5c",
+            textShadow: "2px 2px black"
+          }}
+        >
+          Today's forecast for {weather.city}, {localStorage.zip} </Header>
+      </Container>
+      <Grid divided columns={2}
+      style={{
+        justifyContent:"center"
+      }} >
+        <Grid.Column style={{
+          backgroundColor: "rgb(255,250,250, .55)",
+          border: "2px solid black",
+          borderRadius: "25px",
+          boxShadow: "5px 5px",
+          padding: "20px",
+          marginBottom: "20px",
+          marginRight:"5%",
+          width:"35%"
+        }}>
+          <Label
+            style={{
+              backgroundColor: "green",
+              color: "white"
+            }}
+            size="big">Current temperature in {localStorage.zip}</Label>
+          <h1 style={{
+            display: "inline",
+            color: "black",
+            // textShadow: "1px 1px white"
+            // fontSize: "18px",
+          }}
+          >&emsp;{weather.temperature + " " + String.fromCharCode(176) + "F"}</h1>
+          <br /> <br />
+          <Label style={{
+            backgroundColor: "green",
+            color: "white"
+          }}
+            size="big">Humidity: </Label>
+          <h1 style={{
+            display: "inline",
+            color: "black",
+            // textShadow: "1px 1px black"
+          }}
+          >&emsp;{weather.humidity}%</h1>
+          <br /> <br />
+          <Label style={{
+            backgroundColor: "green",
+            color: "white"
+          }}
+            size="big">Wind Speed: </Label>
+          <h1 style={{
+            display: "inline",
+            color: "black",
+            // textShadow: "1px 1px black"
+          }}
+          >&emsp;{weather.windSpeed} miles/hour </h1>
+          <br /> <br />
+          <Label style={{
+            backgroundColor: "green",
+            color: "white"
+          }}
+            size="big">Wind Direction:</Label>
+          <h1 style={{
+            display: "inline",
+            color: "black",
+            // textShadow: "1px 1px black"
+          }}
+          >&emsp;{() => console.log(weather.windDirection)}
+            {getCardinal(weather.windDirection)}</h1>
+          <br /> <br />
+          <Label style={{
+            backgroundColor: "green",
+            color: "white"
+          }}
+            size="big">Sunrise:</Label>
+          <h1 style={{
+            display: "inline",
+            color: "black",
+            // textShadow: "1px 1px black"
+          }}
+          >&emsp;{timeConverter(weather.sunrise)}</h1>
+          <br /> <br />
+          <Label style={{
+            backgroundColor: "green",
+            color: "white"
+          }}
+            size="big">Sunset:</Label>
+          <h1 style={{
+            display: "inline",
+            color: "black",
+            // textShadow: "1px 1px black"
+          }}
+          >&emsp;{timeConverter(weather.sunset)}</h1>
+          <br /> <br />
+          <Label style={{
+            backgroundColor: "green",
+            color: "white"
+          }}
+            size="big">Visibility:</Label>
+          <h1 style={{
+            display: "inline",
+            color: "black",
+            // textShadow: "1px 1px black"
+          }}
+          >&emsp;{weather.visibility} meters</h1>
+          <br />  <br />
+          <Label style={{
+            backgroundColor: "green",
+            color: "white"
+          }}
+            size="big">Cloudiness:</Label>
+          <h1 style={{
+            display: "inline",
+            color: "black",
+            // textShadow: "1px 1px black"
+          }}
+          >&emsp;{weather.cloudy}%</h1>
+        
+          <br />  <br />
+            <Label style={{
+            backgroundColor: "green",
+            color: "white"
+          }}
+            size="big">Description:</Label>
+          <h1 style={{
+            display: "inline",
+            color: "black",
+            // textShadow: "1px 1px black"
+          }}
+          >&emsp;{weather.description}</h1>
+        </Grid.Column>
+        <Grid.Column 
         style={{
-          fontSize: "48px",
-          border: "1px solid black",
-          textAlign: "center",
-          color:"green",
-          // color: "#9f6d5c",
-          textShadow:"2px 2px black"
-        }}
-      >
-        Today's forecast for {weather.city}, {localStorage.zip} </Header>
-      <Label
-        style={{
-          backgroundColor: "green",
-          color: "white"
-        }}
-        size="big">Current temperature in {localStorage.zip}</Label>
-      <p style={{
-        display: "inline",
-        fontSize: "18px"
-      }}
-      >&emsp;{weather.temperature + " " + String.fromCharCode(176) + "F"}</p>
-      <br /> <br />
-      <Label style={{
-        backgroundColor: "green",
-        color: "white"
-      }}
-        size="big">Humidity: </Label>
-      <p style={{
-        display: "inline",
-        fontSize: "18px"
-      }}
-      >&emsp;{weather.humidity}%</p>
-      <br /> <br />
-      <Label style={{
-        backgroundColor: "green",
-        color: "white"
-      }}
-        size="big">Wind Speed: </Label>
-      <p style={{
-        display: "inline",
-        fontSize: "18px"
-      }}
-      >&emsp;{weather.windSpeed} miles/hour </p>
-      <br /> <br />
-      <Label style={{
-        backgroundColor: "green",
-        color: "white"
-      }}
-        size="big">Wind Direction:</Label>
-      <p style={{
-        display: "inline",
-        fontSize: "18px"
-      }}
-      >&emsp;{() => console.log(weather.windDirection)}
-        {getCardinal(weather.windDirection)}</p>
-      <br /> <br />
-      <Label style={{
-        backgroundColor: "green",
-        color: "white"
-      }}
-        size="big">Sunrise:</Label>
-      <p style={{
-        display: "inline",
-        fontSize: "18px"
-      }}
-      >&emsp;{timeConverter(weather.sunrise)}</p>
-      <br /> <br />
-      <Label style={{
-        backgroundColor: "green",
-        color: "white"
-      }}
-        size="big">Sunset:</Label>
-      <p style={{
-        display: "inline",
-        fontSize: "18px"
-      }}
-      >&emsp;{timeConverter(weather.sunset)}</p>
-      <br /> <br />
-      <Label style={{
-        backgroundColor: "green",
-        color: "white"
-      }}
-        size="big">Visibility:</Label>
-      <p style={{
-        display: "inline",
-        fontSize: "18px"
-      }}
-      >&emsp;{weather.visibility} meters</p>
-      <br />  <br />
-      <Label style={{
-        backgroundColor: "green",
-        color: "white"
-      }}
-        size="big">Cloudiness:</Label>
-      <p style={{
-        display: "inline",
-        fontSize: "18px"
-      }}
-      >&emsp;{weather.cloudy}%</p>
+          backgroundColor: "rgb(255,250,250, .55)",
+          border: "2px solid black",
+          borderRadius: "25px",
+          boxShadow: "5px 5px",
+          padding: "20px",
+          marginBottom: "20px",
+          width:"35%"
+        }}>
+          
+            <Label
+            style={{
+            backgroundColor: "green",
+            color: "white"
+          }} size="big" >Current Weather Advisories:</Label>
+            {/* <marquee behavior="scroll" direction="left"></marquee> */}
+            <ul>
+            {/* under 40F */}
+            <h1>{weather.temperature < 40 ? <li> It's getting cold! Put a frost cloth out to sheild your crops from the weather</li> : null}</h1>
+            {/* No rain vs rain */}
+            <h1>{weather.main != "Rain" ? <li>Don't forget to water!</li> : <li>The rain will take care of it today</li>}</h1>
+            {/* Over 75 and no rain */}
+            <h1>{weather.temperature > 75 && weather.main != <li>Rain</li> ? <li>It's hot today, be sure to water a little extra</li> : null}</h1>
+            {/* Windy */}
+            <h1>{weather.windSpeed > 15 ? <li>It's getting windy! Consider moving potted plants or putting up a wind break</li> : null}</h1>
+            <h1></h1>
+            </ul>
+
+          
+        </Grid.Column>
+      </Grid>
     </div>
   )
 }
