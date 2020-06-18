@@ -8,7 +8,8 @@ export default function WeatherPageButton() {
 
     return(
         <Button
-        style={{ marginLeft: '01em' }}
+        style={{ marginLeft: '01em',
+        border:"1px solid green" }}
         color="green"
         onClick={() => history.push('/weather')}>
             Weather    <Icon fitted name="cloud"></Icon>

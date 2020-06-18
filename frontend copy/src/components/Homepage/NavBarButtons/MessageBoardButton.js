@@ -9,7 +9,8 @@ export default function MessageBoard() {
         <Button
         color="green"
         // floated="left"
-        style={{ marginLeft: '01em' }}
+        style={{ marginLeft: '01em',
+        border:"1px solid green" }}
         onClick={() => history.push('/message_board')}>
             Message Board  <Icon fitted name="list"></Icon>
         </Button>

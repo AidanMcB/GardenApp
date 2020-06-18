@@ -15,14 +15,18 @@ import { createStore } from 'redux'
 let initialState = {
 	user: null,
 	crops: [],
-	searchResults: []
+	displayedCrops: [],
+	searchResults: [],
+	posts: [],
+	garden: {},
+	background: '',
 }
 //pass in initialState below
-const store = createStore(MainReducer, initialState)
+const store = createStore(MainReducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<App  />
 	</Provider>,
 	document.getElementById('root')
 );

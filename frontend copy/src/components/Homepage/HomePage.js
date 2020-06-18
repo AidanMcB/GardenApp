@@ -35,13 +35,13 @@ const getWidth = () => {
       <Header
         as='h1'
         
-        content='GardenTracker'
+        content='Backyard Garden'
         inverted
         style={{
           fontSize: mobile ? '3em' : '5em',
           fontWeight: 'bold',
           marginBottom: 0,
-          marginTop: mobile ? '1.5em' : '1.5em',
+          marginTop: mobile ? '1.5em' : '0em',
           color:"green",
           textShadow:"3px 3px 0 #000"
           // textShadow:"-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
@@ -53,14 +53,16 @@ const getWidth = () => {
         inverted
         style={{
           fontSize: mobile ? '1.5em' : '1.7em',
-          fontWeight: 'normal',
+          fontWeight: 'bold',
           color:"black",
-          marginTop: mobile ? '0.5em' : '1.5em',
+          marginTop: mobile ? '0.5em' : '.7em',
         }}
       />
       {/* consider paler green */}
-      <Button color='huge brown'>
-        <a text-decoration="bold" href="/signUp" >Sign Up for an Account</a>
+      <Button 
+      style={{borderStyle:"solid", marginTop: '21.5em', textShadow:"2px 2px 0 #000"}}
+      color='huge brown'>
+        <a style={{color:"white", textShadow:"1.5px 1.5px 0 #000"}} href="/signUp" >Sign Up for an Account</a>
         <Icon name='right arrow' />
       </Button>
     </Container>
@@ -76,7 +78,7 @@ const getWidth = () => {
    */
   class DesktopContainer extends Component {
     state = {}
-  
+   
     hideFixedMenu = () => this.setState({ fixed: false })
     showFixedMenu = () => this.setState({ fixed: true })
   
@@ -170,27 +172,28 @@ const getWidth = () => {
           <Grid.Row>
             <Grid.Column width={8}>
               <Header as='h3' style={{ fontSize: '2em' }}>
-                We Help Companies and Companions
+                Keep track of your Garden with live weather updates!
               </Header>
               <p style={{ fontSize: '1.33em' }}>
-                We can give your company superpowers to do things that they never thought possible.
-                Let us delight your customers and empower your needs... through pure data analytics.
+              After signing in and providing your city, check your weather tabs to see your local weather.
+              Know when to bust out the frost cloth, water a little extra, or put up some wind barricades for your garden!
               </p>
               <Header as='h3' style={{ fontSize: '2em' }}>
-                We Make Bananas That Can Dance
+                Gardener's MessageBoard
               </Header>
               <p style={{ fontSize: '1.33em' }}>
-                Yes that's right, you thought it was the stuff of dreams, but even bananas can be
-                bioengineered.
+                Head over to the message board to see the latest posts from gardener's around the world! See pictures from their garden and find out how their crops are doing. If you like what you see, you can even head over to their garden and see what they have planted.
               </p>
             </Grid.Column>
             <Grid.Column floated='right' width={6}>
-              <Image bordered rounded size='large' src={veggieGarden} />
+              <Image bordered rounded size='big' src={veggieGarden} />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
             <Grid.Column textAlign='center'>
-              <Button color='brown' size='huge'>Check Them Out</Button>
+              <Button 
+              
+              color='brown' size='huge'><a style={{color:"white"}} href="message_board">Message Board</a></Button>
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -201,17 +204,18 @@ const getWidth = () => {
           <Grid.Row textAlign='center'>
             <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
               <Header as='h3' style={{ fontSize: '2em' }}>
-                "What a Company"
+                Find your crop
               </Header>
-              <p style={{ fontSize: '1.33em' }}>That is what they all say about us</p>
+              <p style={{ fontSize: '1.33em' }}>
+              Search an extensive databse of crops to find the one you want to plant</p>
             </Grid.Column>
             <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
               <Header as='h3' style={{ fontSize: '2em' }}>
-                "I shouldn't have gone with their competitor."
+                Local Weather
               </Header>
               <p style={{ fontSize: '1.33em' }}>
                 {/* <Image avatar src='/images/avatar/large/nan.jpg' /> */}
-                <b>Nan</b> Chief Fun Officer Acme Toys
+                See your city's temperature, wind speed, humidity and more to predict how to care for your garden
               </p>
             </Grid.Column>
           </Grid.Row>
@@ -221,37 +225,39 @@ const getWidth = () => {
       <Segment style={{ padding: '8em 0em', backgroundColor:"lightgreen" }} vertical>
         <Container text>
           <Header as='h3' style={{ fontSize: '2em' }}>
-            Breaking The Grid, Grabs Your Attention
+            About Me
           </Header>
           <p style={{ fontSize: '1.33em' }}>
-            Instead of focusing on content creation and hard work, we have learned how to master the
-            art of doing nothing by providing massive amounts of whitespace and generic content that
-            can seem massive, monolithic and worth your attention.
+           I am a Software Engineer recently graduated from Flatiron Academy in Houston, Texas. 
+           I have a background in gardening, farming, and agriculture in general as I worked at my town's local farm market since I was 15 years old.
+           From planting asparagus, to picking blackberries, to propagating succuelnts, I got a lot of experience in the garden world there. 
+           This project was a chance for me to showcase my Software Engineering skills as well as my knowledge of gardening at the same time.
           </p>
-          <Button as='a' size='large brown'>
+          {/* <Button as='a' size='large brown'>
             Read More
           </Button>
-  
+   */}
           <Divider
             as='h4'
             className='header'
             horizontal
             style={{ margin: '3em 0em', textTransform: 'uppercase' }}
           >
-            <a href='#'>Case Studies</a>
+            <p>Technical Info</p>
           </Divider>
   
           <Header as='h3' style={{ fontSize: '2em' }}>
-            Did We Tell You About Our Bananas?
+            Technologies Used to Build This Application
           </Header>
           <p style={{ fontSize: '1.33em' }}>
-            Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but
-            it's really true. It took years of gene splicing and combinatory DNA research, but our
-            bananas can really dance.
+           I used a Ruby on Rails for the backend of this project. I used the Rails app as an API to store my data. 
+           Authentication exists on the back end and the front end.
+           For the front end I used React-Redux. React-Redux allows for an easier manipulation and tracking of the state in the app with reducers.
+           To style the application I mostly used Semantic-UI-React along with some CSS where necessary to achieve certain effects.
           </p>
-          <Button as='a' size='large brown'>
+          {/* <Button as='a' size='large brown'>
             I'm Still Quite Interested
-          </Button>
+          </Button> */}
         </Container>
       </Segment>
   

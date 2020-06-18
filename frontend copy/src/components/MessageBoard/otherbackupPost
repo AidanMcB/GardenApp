@@ -1,0 +1,71 @@
+import React, { useState } from 'react'
+import {
+    Input,
+    TextArea,
+    Button,
+    Form,
+    Label,
+} from 'semantic-ui-react'
+
+export default function NewPost() {
+
+    let [post, setPostInfo] = useState({
+        title: '',
+        bodyInfo: ''
+    })
+
+    let setValue = (key, value) => {
+        setPostInfo({ ...post, [key]: value })
+    }
+
+    const uploadImageHandler = (e) => {
+        e.preventDefault()
+        // let body = new FormData(e.target)
+        fetch('http://localhost:3000/posts', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ post 
+            })
+        })
+                .then(res => res.json())
+                .then(response => {
+                    console.log(response)
+                })
+      
+    }
+
+    const fileSelectedHandler = (e) => {
+        console.log(e.target.files[0])
+    }
+
+
+    return (
+        <Form
+            onSubmit={uploadImageHandler}
+            style={{padding:"100px"}}
+            >
+            <Form.Field 
+                label="Title"
+                placeholder="Post Title"
+                name='title'
+                control={Input}
+                onChange={(e) => setValue("title", e.target.value)}
+               />
+            <Form.Field 
+                style={{height:"25.5em"}}
+                type='text field'
+                placeholder="Tell everyone about your garden"
+                name='bodyInfo'
+                control={TextArea}
+                onChange={(e) => setValue("bodyInfo", e.target.value)}
+            />
+            {/* <button >Upload Photo</button> */}
+            <Button>Submit</Button>
+        </Form>
+    )
+
+}

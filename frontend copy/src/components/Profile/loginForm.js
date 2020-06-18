@@ -29,15 +29,17 @@ export default function LoginForm(props) {
 		})
 			.then(resp => resp.json())
 			.then(response => {
-				console.log(response.user.city)
+				console.log(response)
 				if (response.success) {
+					//check this here!!!!
 					dispatch({ type: 'LOGIN', user: response.user })
 					dispatch({ type: 'ACCESS_GARDEN', crops: response.crops})
-					localStorage.city = response.user.city
-					history.push('/profile')
+					localStorage.zip = response.user.zip
+					history.push('/my_garden')
 				}
 				else {
 					dispatch({ type: 'FAIL_LOGIN', errorMessage: 'Incorrect Username or Password' })
+					
 				}
 			})
 	}
@@ -51,20 +53,29 @@ export default function LoginForm(props) {
 	let setValue = (key, value) => {
 		setUser({ ...user, [key]: value })
 	}
-
+	let randomId = Math.floor((Math.random() * 10000) + 1);
+	
 	return (
 		<Grid centered columns={2}>
 			<Grid.Column>
 				<Header as="h1" textAlign="center">
 					Login
       </Header>
-				{errorMessage != undefined ? <Message color='red'>{errorMessage}</Message> : null}
+		{errorMessage != undefined ? <Message color='red'>{errorMessage}</Message> : null}
 				<Segment>
 					<Form size="large"
+						autoComplete="off"
+						role="presentation"
+						style={{autoComplete:"off", role:"presentation"}}
 						onSubmit={(e) => handleLogin(user, e)}>
 						<Label>Username</Label>
+		       	<input type="password" style={{"width": 0, "height": 0, "visibility": "hidden", "position":"absolute", "left":0, "top":0}}/>
 						<Form.Input
+							style={{autoComplete:"off", role:"presentation"}}
+							autoComplete="off"
+							role="presentation"
 							fluid
+							id={randomId}
 							icon="user"
 							iconPosition="left"
 							placeholder="Username"
@@ -72,7 +83,10 @@ export default function LoginForm(props) {
 							onChange={(e) => setValue("username", e.target.value)}
 						/>
 						<Label>Password</Label>
+
 						<Form.Input
+							style={{autoComplete:"off"}}
+							autoComplete="off"
 							fluid
 							icon="lock"
 							iconPosition="left"

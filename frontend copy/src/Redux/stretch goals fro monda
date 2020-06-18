@@ -1,8 +1,23 @@
-//default logo 
-//upload your own image
-//synopsis in CropShowPage on how your crop is doing
-//Posts with pictures
-//comments 
 //search by name for people's garden
-//about me page
-//finish homepage
+//default logo 
+//synopsis in CropShowPage on how your crop is doing
+//comments ?
+
+
+
+//incorperate weather info on crop page
+//refresh when clicking on Farmer's garden page!!
+//LOGIN ERROR FOR CITY CHECK THIS OUT ???
+
+//make sure timing days growing is working properly
+//Styling Mon to Wed
+!- MyGarden + Garden/:id page
+    -> Determined Image width and height or semantic styled?
+
+
+//navabar image?
+//include more containers
+    // !=> Style Weathe Page !!//
+//avoid empty/white space 
+
+    login to see profile put error message you have to log in

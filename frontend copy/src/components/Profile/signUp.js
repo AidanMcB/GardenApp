@@ -17,9 +17,17 @@ export default function SignUp(props) {
 	let history = useHistory()
 	let dispatch = useDispatch()
 
+	function isValidUSZip(sZip) {
+		return /^\d{5}(-\d{4})?$/.test(sZip);
+	 }
+
 	// *SIGN UP* //
 	const handleSignUp = (newUserInfo, e) => {
 		e.preventDefault()
+		console.log(newUserInfo.zip)
+		if(isValidUSZip(newUserInfo.zip) == false){
+			dispatch({type: 'INVALID_ZIP_CODE', errorMessage: 'Invalid Zip Code. Must be a valid U.S. zip code with 5 numeric digits'})
+		}else{
 		fetch('http://localhost:3000/signUp', {
 			credentials: 'include',
 			method: 'POST',
@@ -35,7 +43,8 @@ export default function SignUp(props) {
 
 				if (x.success) {
 					console.log(x.user)
-					localStorage.city = x.user.city
+					//check here as well!!!
+					localStorage.zip = x.user.zip
 					dispatch({ type: 'SIGN_UP', user: x.user })
 					dispatch({ type: 'ACCESS_GARDEN', crops: x.crops })
 					history.push("/")
@@ -45,14 +54,16 @@ export default function SignUp(props) {
 					dispatch({ type: 'FAIL_SIGN_UP', errorMessage: 'This username already exists' })
 				}
 			})
+		}
 	}
-
+	
 
 	let [user, setUser] = useState({
 		username: '',
 		email: '',
 		password: '',
-		city: ''
+		city: '',
+		zip: ''
 	})
 	// console.log("signup function", user)
 
@@ -91,6 +102,7 @@ export default function SignUp(props) {
 						/>
 						<Label>Password</Label>
 						<Form.Input
+							pattern="[0-9]*"
 							fluid
 							icon="lock"
 							iconPosition="left"
@@ -107,6 +119,15 @@ export default function SignUp(props) {
 							placeholder="City"
 							name="city"
 							onChange={(e) => setValue("city", e.target.value)}
+						/>
+						<Label>Zip Code</Label>
+						<Form.Input
+							fluid
+							icon="user"
+							iconPosition="left"
+							placeholder="Zip Code"
+							name="zip"
+							onChange={(e) => setValue("zip", e.target.value)}
 						/>
 
 						<Button color="blue" fluid size="large">
