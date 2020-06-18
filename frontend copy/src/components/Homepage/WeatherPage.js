@@ -25,7 +25,8 @@ export default function WeatherPage() {
     //perc clouds
     cloudy: '',
     main: '',
-    description: ''
+    description: '',
+    city: ''
   })
 
 
@@ -112,17 +113,23 @@ export default function WeatherPage() {
   }
   return (
     console.log(weather),
-    <div style={{
+    <Container style={{
     backgroundImage: `url(${skyimage})`,
     backgroundSize:'cover',
-    height:"100vh",
+    height:"100%",
+    width:"100%",
+    marginTop:"-25px"
     
        }}>
     {/* <Image size="large" src={a_sky_image} /> */}
     {/* <Image size="large" src={skyimage} /> */}
-
+       <div style={{
+         width:"100%",
+         height:"100%"
+       }}>
       <Container style={{
-        margin: "30px",
+        marginBottom: "30px",
+        marginTop:"25px",
         border: "2px solid black",
         borderRadius: "25px",
         padding: "20px",
@@ -137,7 +144,8 @@ export default function WeatherPage() {
             textAlign: "center",
             color: "rgb(255,250,250)",
             // color: "#9f6d5c",
-            textShadow: "2px 2px black"
+            textShadow: "2px 2px black",
+            marginTop:"0px"
           }}
         >
           Today's forecast for {weather.city}, {localStorage.zip} </Header>
@@ -289,7 +297,7 @@ export default function WeatherPage() {
             {/* under 40F */}
             <h1>{weather.temperature < 40 ? <li> It's getting cold! Put a frost cloth out to sheild your crops from the weather</li> : null}</h1>
             {/* No rain vs rain */}
-            <h1>{weather.main != "Rain" ? <li>Don't forget to water!</li> : <li>The rain will take care of it today</li>}</h1>
+            <h1>{weather.main != "Rain" ? <li>Don't forget to water!</li> : <li>No need to water, the rain will take care of it today</li>}</h1>
             {/* Over 75 and no rain */}
             <h1>{weather.temperature > 75 && weather.main != <li>Rain</li> ? <li>It's hot today, be sure to water a little extra</li> : null}</h1>
             {/* Windy */}
@@ -300,6 +308,7 @@ export default function WeatherPage() {
           
         </Grid.Column>
       </Grid>
-    </div>
+      </div>
+    </Container>
   )
 }

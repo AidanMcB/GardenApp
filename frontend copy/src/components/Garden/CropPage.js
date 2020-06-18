@@ -194,7 +194,7 @@ export default function CropPage(props) {
                         
                             display: "inline",
                             fontSize: "18px"
-                        }}>&emsp;{daysGrowing(crop.day_planted)} day</p>
+                        }}>&emsp;{daysGrowing(crop.day_planted)}{daysGrowing(crop.day_planted) > 1 ? " days" : " day"}</p>
                         <br /> <br />
                         <Label size="big blue">Amount Planted:</Label>
                         <p style={{
@@ -206,7 +206,7 @@ export default function CropPage(props) {
                         <p style={{
                             display:"inline",
                             fontSize:"18px",
-                        }}>&emsp;{crop.growing_days == null ? (80 - (daysGrowing(crop.day_planted))) : (crop.growing_days - (daysGrowing(crop.day_planted)))}</p>
+                        }}>&emsp;{crop.growing_days == null ? (80 - (daysGrowing(crop.day_planted))) : (crop.growing_days - (daysGrowing(crop.day_planted))) } days</p>
                         <br /> <br />
                         <Label size="big blue">Current Height:</Label>
                         <p style={{
