@@ -186,7 +186,7 @@ const getWidth = () => {
               </p>
             </Grid.Column>
             <Grid.Column floated='right' width={6}>
-              <Image bordered rounded size='large' src={veggieGarden} />
+              <Image bordered rounded size='big' src={veggieGarden} />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>

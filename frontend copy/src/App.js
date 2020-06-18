@@ -61,7 +61,7 @@ function App() {
 	//crop page floating outside or inside
 	return (
 		<div style={{
-			backgroundColor: "rgb(34,139,34,0.65)",
+			backgroundColor: "rgb(34,139,34,0.50)",
 			backgroundSize: '100% auto',
 			height:"100vh",
 			overflow:"scroll"

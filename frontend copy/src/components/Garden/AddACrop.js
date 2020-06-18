@@ -80,10 +80,15 @@ export default function AddACrop(props) {
             </div>
             <br /><br />
             {errorMessage != "" ? <Message color="red">{errorMessage}</Message> : null}
-            <div style={{ textAlign: "center" }}>
+            <div style={{ 
+                textAlign: "center" }}>
                 {searchResults != [] ? searchResults.map(crop => (
                     <div >
-                        <Segment >
+                        <Segment style={{
+                            backgroundColor:"rgb(34,139,34,0.50)",
+                            marginLeft:"80px",
+                            marginRight:"80px"
+                        }}>
                             <Label
                                 size='big'
                                 color="olive"

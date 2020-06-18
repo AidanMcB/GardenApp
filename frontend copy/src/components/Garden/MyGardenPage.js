@@ -66,9 +66,9 @@ export default function GardenPage(props) {
             <Header  size="huge" 
                 style={{
                     textAlign: "center",
-                    color:"white",
+                    color:"rgb(255,250,250)",
+                    fontSize:"46px",
                     fontFamily:"fantasy",
-                    fontSize:"38px",
                     textShadow:"1px 1px 0 black" 
                 }}>{user.username}'s Garden
         <br />
@@ -94,7 +94,12 @@ export default function GardenPage(props) {
                             <label>Planted:</label>
                             <br />
                             <text>{crop.day_planted.substr(0, 10)}</text>
-                            <Image src={crop.image_path} circular />
+                            <Image  
+                            style={{
+                                height:"200px",
+                                width:"200px"
+                            }}
+                            size="circular medium" src={crop.image_path}/>
                         </Container>
                     </Grid.Column>
                 )}

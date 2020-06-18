@@ -39,6 +39,7 @@ export default function LoginForm(props) {
 				}
 				else {
 					dispatch({ type: 'FAIL_LOGIN', errorMessage: 'Incorrect Username or Password' })
+					
 				}
 			})
 	}
@@ -53,14 +54,14 @@ export default function LoginForm(props) {
 		setUser({ ...user, [key]: value })
 	}
 	let randomId = Math.floor((Math.random() * 10000) + 1);
-
+	
 	return (
 		<Grid centered columns={2}>
 			<Grid.Column>
 				<Header as="h1" textAlign="center">
 					Login
       </Header>
-				{errorMessage != undefined ? <Message color='red'>{errorMessage}</Message> : null}
+		{errorMessage != undefined ? <Message color='red'>{errorMessage}</Message> : null}
 				<Segment>
 					<Form size="large"
 						autoComplete="off"
@@ -82,6 +83,7 @@ export default function LoginForm(props) {
 							onChange={(e) => setValue("username", e.target.value)}
 						/>
 						<Label>Password</Label>
+
 						<Form.Input
 							style={{autoComplete:"off"}}
 							autoComplete="off"

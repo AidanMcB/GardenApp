@@ -39,7 +39,7 @@ export default function CropPage(props) {
 
     let crops = useSelector(state => state.crops)
     // let crop = crops.find(crop => crop.id == params.id)
-    
+
     useEffect(() => {
         fetch(`http://localhost:3000/crops/${params.id}`)
             .then(res => res.json())
@@ -64,7 +64,7 @@ export default function CropPage(props) {
             .then(res => res.json())
             .then(newCrop => {
                 console.log(newCrop)
-                dispatch({type: 'UPDATE_CROPS', crop: newCrop})
+                dispatch({ type: 'UPDATE_CROPS', crop: newCrop })
                 setCrop({
                     ...crop, ...newCrop
                 })
@@ -126,10 +126,16 @@ export default function CropPage(props) {
     }
     return (
         // console.log(crop, user),
-        <div class="crop show page"             >
-
-            <Grid columns={2} divided>
-                <Grid.Column style={{marginLeft:"150px"}}>
+        <div class="crop show page" >
+            <Grid
+                style={{
+                    marginTop: "100px",
+                    marginLeft: "280px",
+                    marginRight: "380px"
+                }}
+                columns={2}
+                divided>
+                <Grid.Column >
                     <div class="ui card" style={{ marginLeft: "20px" }}>
                         <div class="image"><img src={crop.image_path} /></div>
                         <div class="content">
@@ -171,61 +177,94 @@ export default function CropPage(props) {
                             Remove Crop From My Garden </Button>
                         : null}
                 </Grid.Column>
-                <Grid.Column style={{marginLeft:"-160px"}}>
+                <Grid.Column style={{}}>
                     <div>
-                        <Header as="h1">{crop.name} Information</Header>
-                        <Label size="large teal">Days I've been growing:</Label>
-                        {daysGrowing(crop.day_planted)}
+                        <Header style={{
+                            color: "white",
+                            fontSize: "46px",
+                            fontFamily: "fantasy",
+                            textShadow: "1px 1px 0 black"
+                        }}
+                            as="h1">{crop.name} Information</Header>
+                        <Label size="big green">Days I've been growing:</Label>
+                        <p style={{
+                        
+                            display: "inline",
+                            fontSize: "18px"
+                        }}>&emsp;{daysGrowing(crop.day_planted)} day</p>
                         <br /> <br />
-                        <Label size="large teal">Amount Planted:</Label>
-                        {crop.number_planted}
+                        <Label size="big green">Amount Planted:</Label>
+                        <p style={{
+                            display:"inline",
+                            fontSize:"18px"
+                            }}>&emsp;{crop.number_planted}</p>
                         <br /> <br />
-                        <Label size="large teal">Days Until Expected Harvest:</Label>
-                        {crop.growing_days == null ? (80 - (daysGrowing(crop.day_planted))) : (crop.growing_days - (daysGrowing(crop.day_planted)))}
+                        <Label size="big green">Days Until Expected Harvest:</Label>
+                        <p style={{
+                            display:"inline",
+                            fontSize:"18px",
+                        }}>&emsp;{crop.growing_days == null ? (80 - (daysGrowing(crop.day_planted))) : (crop.growing_days - (daysGrowing(crop.day_planted)))}</p>
                         <br /> <br />
-                        <Label size="large teal">Current Height:</Label>
-                        {crop.current_height == null ? 0 + " inches" : crop.current_height + " inches"}
+                        <Label size="big green">Current Height:</Label>
+                        <p style={{
+                            display:"inline",
+                            fontSize:"18px",
+                        }}>&emsp;{crop.current_height == null ? 0 + " inches" : crop.current_height + " inches"}</p>
                         <br /> <br />
-                        <Label size="large teal">Quantity Returned</Label>
-                        {crop.quantity_returned == null ? 0 : crop.quantity_returned}
+                        <Label size="big green">Quantity Returned</Label>
+                        <p style={{
+                         
+                            display:"inline",
+                            fontSize:"18px",
+                        }}>&emsp;{crop.quantity_returned == null ? 0 : crop.quantity_returned}</p>
                         <br /> <br />
-                        <Label size="large teal">Current Status of Crop</Label>
-                        {crop.status_of_plant}
+                        <Label size="big green">Current Status of Crop</Label>
+                        <p style={{
+                            display:"inline",
+                            fontSize:"18px",
+                        }}>&emsp;{crop.status_of_plant}</p>
                         <br /> <br />
                         {user.id == crop.garden.user_id ?
                             <div>
                                 {/* <Label>Update Crop Info</Label> */}
-                                  
-                                <Button style={{marginBottom:"30px"}}
+
+                                <Button style={{ marginBottom: "30px" }}
                                     onClick={openWindow}>
                                     Update Crop Info
                     </Button>
                             </div>
                             : null}
                         <Modal open={form}>
-                            <Form style={{ textAlign: "center" }}>
+                            <Form style={{
+                                textAlign: "center",
+                                marginLeft: "60px",
+                                marginRight: "60px",
+                                marginTop: "20px",
+                                marginBottom: "20px"
+                            }}>
                                 <Form.Field style={{ textAlign: "center" }}>
-                                    <Label>Current Height:</Label>
+                                    <Label size="large blue">Current Height:</Label>
                                     <br /> <br />
                                     <Input
                                         onChange={(e) => setValue("current_height", e.target.value)}
                                         placeholder={crop.current_height} />
                                 </Form.Field>
                                 <Form.Field style={{ textAlign: "center" }}>
-                                    <Label>Quantity Returned</Label>
+                                    <Label size="large blue">Quantity Returned</Label>
                                     <br /><br />
                                     <Input
                                         onChange={(e) => setValue("quantity_returned", e.target.value)}
                                         placeholder={crops.qunatity_returned} />
                                 </Form.Field>
                                 <Form.Field>
-                                    <Label>Current Status of Crop</Label>
+                                    <Label size="large blue">Current Status of Crop</Label>
                                     <br /><br />
                                     <Input
                                         onChange={(e) => setValue("status_of_plant", e.target.value)}
                                         placeholder={crops.status_of_plant} />
                                 </Form.Field>
                                 <Button
+                                    color="green"
                                     onClick={() => updateCrop(editedCrop)}
                                     type='submit'>Submit</Button>
                             </Form>

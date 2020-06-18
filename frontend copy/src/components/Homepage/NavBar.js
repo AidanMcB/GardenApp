@@ -10,21 +10,24 @@ import MessageBoardButton from './NavBarButtons/MessageBoardButton'
 import { useSelector } from 'react-redux'
 import { Menu } from 'semantic-ui-react'
 
-export default function NavBar () {
+export default function NavBar() {
 
     let user = useSelector(state => state.user)
     let history = useHistory()
 
-    return(
-        <div class="ui inverted segment" style={{ backgroundColor: 'burlywood',
-        borderBottom:"1px solid black", }}>
-    
-            <HomepageButton class="item" /> 
+    return (
+        <div class="ui inverted segment"
+            style={{
+                backgroundColor: '#9f6d5c',
+                borderBottom: "1px solid black",
+            }}>
+
+            <HomepageButton class="item" />
             <MessageBoardButton class="item" />
-            {user != null ? <WeatherPageButton class="item" /> : null }
-            {user != null ? <ProfileButton class="item"/> : <LoginButton class="item"/> }
-            {user != null ? <LogOutButton class="item"/> : <SignUpButton class="item" /> }
-        
-      </div>
+            {user != null ? <WeatherPageButton class="item" /> : null}
+            {user != null ? <ProfileButton class="item" /> : <LoginButton class="item" />}
+            {user != null ? <LogOutButton class="item" /> : <SignUpButton class="item" />}
+
+        </div>
     )
 }
