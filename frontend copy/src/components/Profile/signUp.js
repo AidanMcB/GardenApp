@@ -73,8 +73,13 @@ export default function SignUp(props) {
 
 	return (
 		<Grid centered columns={2}>
-			<Grid.Column>
-				<Header as="h1" textAlign="center">
+			<Grid.Column style={{
+				padding:"100px"
+			}}>
+				<Header as="h1" textAlign="center"
+				style={{
+					color:"black"
+				}}>
 					Sign Up
                 </Header>
 				{errorMessage != undefined ? <Message color='red'>{errorMessage}</Message> : null}
@@ -114,8 +119,8 @@ export default function SignUp(props) {
 						<Label>City</Label>
 						<Form.Input
 							fluid
-							icon="user"
-							iconPosition="left"
+							// icon="user"
+							// iconPosition="left"
 							placeholder="City"
 							name="city"
 							onChange={(e) => setValue("city", e.target.value)}
@@ -123,8 +128,8 @@ export default function SignUp(props) {
 						<Label>Zip Code</Label>
 						<Form.Input
 							fluid
-							icon="user"
-							iconPosition="left"
+							// icon="user"
+							// iconPosition="left"
 							placeholder="Zip Code"
 							name="zip"
 							onChange={(e) => setValue("zip", e.target.value)}

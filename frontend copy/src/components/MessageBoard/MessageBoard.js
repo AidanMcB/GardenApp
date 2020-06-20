@@ -68,20 +68,21 @@ export default function MessageBoard() {
                 borderRadius:"25px",
                 padding: "20px",
                 fontWeight:"bold",
-                backgroundColor:"tan"
+                backgroundColor:"#1b1c1d",
+                opacity:"75%"
             }}>
                 <Header
                     style={{
                         textAlign: "center",
                         color: "rgb(255,250,250)",
-                        fontFamily: "fantasy",
+                        // fontFamily: "fantasy",
                         fontSize: "46px",
                         textShadow: "1px 1px 0 black"
                     }}
                 >Message Board</Header>
                 <Header
                     style={{
-                        // color: "rgb(255,250,250)",
+                        color: "rgb(255,250,250)",
                         // fontFamily:"fantasy",
                         marginTop:"-10px",
                         // textShadow: "1px 1px 0 black"
@@ -99,7 +100,7 @@ export default function MessageBoard() {
                     padding: "20px",
                     marginBottom: "20px"
                 }}>
-                    <Label style={{ color:"black",border:"1px solid black",backgroundColor:"Green"}} size="big">{post.title}</Label>
+                    <Label style={{ color:"white",border:"1px solid black",backgroundColor:"Green"}} size="big">{post.title}</Label>
                     <Popup content="View garden" trigger={<Label ribbon style={{border:"1px solid black", marginLeft:"35px"}}
                         onClick={() => { user.id == post.user.id ? history.push('my_garden') : history.push(`/garden/${post.user.garden.id}`) }}
                     >By {post.user.username}</Label>} />

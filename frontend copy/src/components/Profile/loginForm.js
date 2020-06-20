@@ -57,7 +57,9 @@ export default function LoginForm(props) {
 	
 	return (
 		<Grid centered columns={2}>
-			<Grid.Column>
+			<Grid.Column style={{
+				padding:"100px"
+			}}>
 				<Header as="h1" textAlign="center">
 					Login
       </Header>

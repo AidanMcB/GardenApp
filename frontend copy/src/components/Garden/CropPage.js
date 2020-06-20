@@ -129,14 +129,17 @@ export default function CropPage(props) {
         <div class="crop show page" >
             <Grid
                 style={{
+                    border:"8px solid black",
+                    padding:"10px",
                     marginTop: "100px",
                     marginLeft: "280px",
-                    marginRight: "380px"
+                    marginRight: "380px",
+                    // backgroundColor:"rgb(34,139,34,0.15)"
                 }}
                 columns={2}
                 divided>
                 <Grid.Column >
-                    <div class="ui card" style={{ marginLeft: "20px" }}>
+                    <div class="ui card" style={{ marginLeft: "20px", border:"1px solid black" }}>
                         <div class="image"><img src={crop.image_path} /></div>
                         <div class="content">
                             <div class="header">{crop.name}</div>
@@ -182,43 +185,43 @@ export default function CropPage(props) {
                         <Header style={{
                             color: "white",
                             fontSize: "46px",
-                            fontFamily: "fantasy",
+                            // fontFamily: "fantasy",
                             textShadow: "1px 1px 0 black"
                         }}
                             as="h1">{crop.name} Information</Header>
-                        <Label size="big green">Days I've been growing:</Label>
+                        <Label size="big blue">Days I've been growing:</Label>
                         <p style={{
                         
                             display: "inline",
                             fontSize: "18px"
-                        }}>&emsp;{daysGrowing(crop.day_planted)} day</p>
+                        }}>&emsp;{daysGrowing(crop.day_planted)}{daysGrowing(crop.day_planted) > 1 ? " days" : " day"}</p>
                         <br /> <br />
-                        <Label size="big green">Amount Planted:</Label>
+                        <Label size="big blue">Amount Planted:</Label>
                         <p style={{
                             display:"inline",
                             fontSize:"18px"
                             }}>&emsp;{crop.number_planted}</p>
                         <br /> <br />
-                        <Label size="big green">Days Until Expected Harvest:</Label>
+                        <Label size="big blue">Days Until Expected Harvest:</Label>
                         <p style={{
                             display:"inline",
                             fontSize:"18px",
-                        }}>&emsp;{crop.growing_days == null ? (80 - (daysGrowing(crop.day_planted))) : (crop.growing_days - (daysGrowing(crop.day_planted)))}</p>
+                        }}>&emsp;{crop.growing_days == null ? (80 - (daysGrowing(crop.day_planted))) : (crop.growing_days - (daysGrowing(crop.day_planted))) } days</p>
                         <br /> <br />
-                        <Label size="big green">Current Height:</Label>
+                        <Label size="big blue">Current Height:</Label>
                         <p style={{
                             display:"inline",
                             fontSize:"18px",
                         }}>&emsp;{crop.current_height == null ? 0 + " inches" : crop.current_height + " inches"}</p>
                         <br /> <br />
-                        <Label size="big green">Quantity Returned</Label>
+                        <Label size="big blue">Quantity Returned</Label>
                         <p style={{
                          
                             display:"inline",
                             fontSize:"18px",
                         }}>&emsp;{crop.quantity_returned == null ? 0 : crop.quantity_returned}</p>
                         <br /> <br />
-                        <Label size="big green">Current Status of Crop</Label>
+                        <Label size="big blue">Current Status of Crop</Label>
                         <p style={{
                             display:"inline",
                             fontSize:"18px",
