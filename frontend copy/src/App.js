@@ -25,7 +25,7 @@ function App() {
 
 	// *CREATE A GARDEN* //
 	const createAGarden = (user) => {
-		fetch(`http://localhost:3000/gardens`, {
+		fetch(`/gardens`, {
 			credentials: 'include',
 			method: 'POST',
 			headers: {
@@ -41,7 +41,7 @@ function App() {
 	//loaded  OR the state changes
 	//to check to see if a user is logged in
 	useEffect(() => {
-		fetch(`http://localhost:3000/get_user`, {
+		fetch(`/get_user`, {
 			credentials: 'include'
 		})
 			.then(resp => resp.json())

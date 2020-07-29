@@ -24,7 +24,7 @@ export default function GardenPage(props) {
 
     // fetch specific garden crops
     useEffect(() => {
-        fetch(`http://localhost:3000/gardens/${gardenId}`)
+        fetch(`/gardens/${gardenId}`)
             .then(res => res.json())
             .then(garden => {
                 console.log(garden)
@@ -35,7 +35,7 @@ export default function GardenPage(props) {
 
 
     const handleClick = (id) => {
-        fetch(`http://localhost:3000/crops/${id}`)
+        fetch(`/crops/${id}`)
             .then(res => res.json())
             .then(crop => {
                 setCrop({

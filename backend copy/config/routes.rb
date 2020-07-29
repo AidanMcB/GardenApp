@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get('/signUp', to: 'authentication#signUp')
   post('/signUp', to: 'authentication#signUp')
 
-  
+  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+    !request.xhr? && request.format.html?
+  end
   
 end

@@ -33,7 +33,7 @@ export default function MessageBoard() {
 
     const handleDelete = (post) => {
         closeWindow()
-        fetch(`http://localhost:3000/posts/${post.id}`, {
+        fetch(`posts/${post.id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -45,7 +45,7 @@ export default function MessageBoard() {
             })
     }
     useEffect(() => {
-        fetch(`http://localhost:3000/posts`)
+        fetch(`/posts`)
             .then(res => res.json())
             .then(allPosts => {
                 console.log(allPosts)

@@ -18,7 +18,7 @@ export default function GardenPage(props) {
     // "rgb(34,139,34,0.65)"
     useEffect(() => {
         dispatch({ type: 'GARDEN_BACKGROUND', background: "rgb(34,139,34,0.65)"})
-        fetch(`http://localhost:3000/get_user`, {
+        fetch(`/get_user`, {
             credentials: 'include'
         })
             .then(resp => resp.json())
@@ -45,7 +45,7 @@ export default function GardenPage(props) {
     // let garden = user.city.garden.id
 
     const handleClick = (id) => {
-        fetch(`http://localhost:3000/crops/${id}`)
+        fetch(`/crops/${id}`)
             .then(res => res.json())
             .then(crop => {
                 setCrop({

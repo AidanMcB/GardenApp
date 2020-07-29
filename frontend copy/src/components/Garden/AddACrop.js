@@ -38,7 +38,7 @@ export default function AddACrop(props) {
             )
         } else {
             let cropInfo = chosenCrop.attributes
-            fetch(`http://localhost:3000/crops`, {
+            fetch(`/crops`, {
                 credentials: 'include',
                 method: 'POST',
                 headers: {

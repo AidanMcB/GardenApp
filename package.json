@@ -1,0 +1,34 @@
+{
+  "name": "gardenapp2",
+  "version": "1.0.0",
+  "description": "garden app ",
+  "main": "index.js",
+  "proxy": "http://localhost:3001",
+  "dependencies": {
+    "react-native-linear-gradient": "^2.5.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "cd client && yarn install && yarn build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "yarn build && yarn deploy && echo 'Client built!'"
+  },
+  "engines": {
+    "yarn": "1.22.4",
+    "npm": "6.14.5",
+    "node": "12.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AidanMcB/GardenApp.git"
+  },
+  "keywords": [
+    "garden"
+  ],
+  "author": "Aidan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AidanMcB/GardenApp/issues"
+  },
+  "homepage": "https://github.com/AidanMcB/GardenApp#readme"
+}

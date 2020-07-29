@@ -6,4 +6,9 @@ class ApplicationController < ActionController::API
     #         #redirect
     #     else
     # end
+
+    def fallback_index_html
+        render :file => 'public/index.html'
+    end
+      
 end
