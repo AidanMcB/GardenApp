@@ -1,4 +1,0 @@
-### Frontend ###
-Set up error handling for when requests can not reach a server 
-Style for Mobile devices
-Deploy 

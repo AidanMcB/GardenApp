@@ -84,7 +84,7 @@ function App() {
 				<Route exact path="/add_crop" component={AddACrop} />
 
 			</BrowserRouter>
-		</div>
+		</div >
 	);
 }
 
