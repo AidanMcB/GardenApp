@@ -37,12 +37,15 @@ export default function SignUp(props) {
 			},
 			body: JSON.stringify({ newUserInfo })
 		})
-			.then(resp => resp.json())
+			.then(resp => {
+				if(resp.ok){
+					return resp.json()
+				} else {
+					throw new Error('Could not hit the server');
+				}
+			})
 			.then(x => {
-				console.log("user signing up", x)
-
 				if (x.success) {
-					console.log(x.user)
 					//check here as well!!!
 					localStorage.zip = x.user.zip
 					dispatch({ type: 'SIGN_UP', user: x.user })
@@ -50,9 +53,12 @@ export default function SignUp(props) {
 					history.push("/")
 				}
 				else {
-					console.log(x.success == false)
 					dispatch({ type: 'FAIL_SIGN_UP', errorMessage: 'This username already exists' })
 				}
+			})
+			.catch( error => {
+				console.log(error)
+				dispatch({ type: 'FAIL_SERVER', errorMessage: 'Failed to Connect To The Server'})
 			})
 		}
 	}

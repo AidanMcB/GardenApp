@@ -14,10 +14,20 @@ export default function LogOutButton(props) {
             credentials: 'include',
             method: 'POST'
         })
-            .then(resp => resp.json())
+            .then(resp => {
+                if(resp.ok){
+                    return resp.json()
+                } else {
+                    throw new Error('Not conencted to the server')
+                }
+            })
             .then(response => {
                 dispatch({ type: 'LOGOUT' })
                 history.push('/')
+            })
+            .catch( error => {
+                console.log(error)
+                dispatch({ type: 'FAIL_SERVER', errorMessage: "Failed to Connect to the Server"})
             })
             localStorage.clear()
     }

@@ -44,7 +44,13 @@ function App() {
 		fetch(`http://localhost:3000/get_user`, {
 			credentials: 'include'
 		})
-			.then(resp => resp.json())
+			.then(resp => {
+				if (resp.ok) {
+					return resp.json()
+				} else {
+					throw new Error('No user logged in')
+				}
+			})
 			.then(userLogin => {
 				// if there is a user, send action to go in as user(.user?)
 				if (userLogin.error == undefined) {
@@ -52,6 +58,9 @@ function App() {
 					dispatch({ type: 'LOGIN', user: userLogin })
 					dispatch({ type: 'ACCESS_GARDEN', crops: userLogin.garden.crops })
 				}
+			})
+			.catch( error => {
+				console.log(error)
 			})
 		//add a .then or fetch inside
 
@@ -64,9 +73,9 @@ function App() {
 			backgroundColor: "rgb(34,139,34,0.50)",
 			// backgroundColor: "rgb(255,250,250)",
 			backgroundSize: '100% auto',
-			height:"100vh",
-			overflow:"scroll"
-			
+			height: "100vh",
+			overflow: "scroll"
+
 		}}>
 			<BrowserRouter >
 				<NavBar />

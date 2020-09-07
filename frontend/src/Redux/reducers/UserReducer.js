@@ -16,6 +16,11 @@ const UserReducer = (state, action) => {
                 ...state,
                 errorMessage: action.errorMessage
             }
+        case 'FAIL_SERVER':
+            return {
+                ...state,
+                errorMessage: action.errorMessage
+            }
         case 'INVALID_ZIP_CODE':
             return {
                 ...state,

@@ -8,7 +8,6 @@ const CropReducer = (state, action) => {
             }
             break
         case 'GARDEN_BACKGROUND':
-            console.log(action.background)
             return {
                 ...state,
                 background: {
@@ -28,7 +27,6 @@ const CropReducer = (state, action) => {
             }
             break
         case 'SET_A_GARDEN':
-            console.log(action.garden)
             return {
                 ...state,
                 garden: action.garden
@@ -47,7 +45,6 @@ const CropReducer = (state, action) => {
             }
             break
         case 'UPDATE_CROPS':
-            console.log(action.crop)
             let index = state.crops.findIndex( crop => crop.id == action.crop.id)
             return {
                 ...state,
@@ -68,7 +65,6 @@ const CropReducer = (state, action) => {
                 crops: [...state.crops.filter(crop => crop.id != action.crop.id)]
             }
     }
-    console.log(state)
     return state
 }
 export default CropReducer

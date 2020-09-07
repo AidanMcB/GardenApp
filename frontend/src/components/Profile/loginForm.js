@@ -27,9 +27,14 @@ export default function LoginForm(props) {
 				'Accept': 'application/json'
 			}, body: JSON.stringify({ userInfo })
 		})
-			.then(resp => resp.json())
+			.then(resp => {
+				if (resp.ok) {
+					return resp.json();
+				  } else {
+					throw new Error('Something went wrong with the server');
+				  }	
+			})
 			.then(response => {
-				console.log(response)
 				if (response.success) {
 					//check this here!!!!
 					dispatch({ type: 'LOGIN', user: response.user })
@@ -39,9 +44,13 @@ export default function LoginForm(props) {
 				}
 				else {
 					dispatch({ type: 'FAIL_LOGIN', errorMessage: 'Incorrect Username or Password' })
-					
 				}
 			})
+			.catch((error) => {
+				console.log(error)
+				dispatch({ type: 'FAIL_SERVER', errorMessage: 'Failed to Connect To The Server'})
+			  });
+
 	}
 
 	let [user, setUser] = useState({
@@ -77,7 +86,7 @@ export default function LoginForm(props) {
 							autoComplete="off"
 							role="presentation"
 							fluid
-							id={randomId}
+							id={`${randomId}`}
 							icon="user"
 							iconPosition="left"
 							placeholder="Username"

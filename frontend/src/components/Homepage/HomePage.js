@@ -64,7 +64,8 @@ const getWidth = () => {
         borderStyle:"solid", 
         marginTop: '21.5em', 
         textShadow:"2px 2px 0 #000"}}
-      color='huge brown'>
+      color='brown'
+      size='huge'>
         <a style={{color:"white", textShadow:"1.5px 1.5px 0 #000"}} href="/signUp" >Sign Up for an Account</a>
         <Icon name='right arrow' />
       </Button>
@@ -289,12 +290,12 @@ const getWidth = () => {
                 <Header as='h4' inverted>
                   Aidan McBride
                 </Header>
-                <p>
+                <div>
                   If you enjoyed this web application, check out my other projects on GitHub and YouTube, or send me an email.
                   <List link inverted>
                   <List.Item as='a' href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSHwCnhfggPzbPKWXnLMqnWmcLsfhGxsBMwWPPvvbFDZjwLndSvpPVrVPVJBtLqXcGbVBLrM">aidankmcbride@gmail.com</List.Item>
                   </List>
-                </p>
+                </div>
               </Grid.Column>
             </Grid.Row>
           </Grid>
