@@ -13,6 +13,7 @@ import NewPost from './components/MessageBoard/NewPost'
 import { BrowserRouter, Route, useHistory, Switch } from 'react-router-dom'
 import SignUp from './components/Profile/signUp'
 import AddACrop from './components/Garden/AddACrop'
+import ErrorPage from './components/ErrorPages/ErrorPage'
 import { useSelector, useDispatch } from 'react-redux'
 
 function App() {
@@ -91,6 +92,8 @@ function App() {
 				<Route exact path="/garden/:id" component={GardenPage} />
 				<Route exact path="/my_garden" component={MyGardenPage} />
 				<Route exact path="/add_crop" component={AddACrop} />
+
+				<Route exact path="/error_page" component={ErrorPage} /> 
 
 			</BrowserRouter>
 		</div>
