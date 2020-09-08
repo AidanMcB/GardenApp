@@ -24,7 +24,6 @@ export default function NavBar() {
                 opacity: "90%",
                 borderBottom: "1px solid black",
             }}>
-            {errorMessage != undefined ? <Message color='red'>{errorMessage}</Message> : null}
             <HomepageButton Name="item" />
             <MessageBoardButton className="item" />
             {user != null ? <WeatherPageButton className="item" /> : null}

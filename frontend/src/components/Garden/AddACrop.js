@@ -36,6 +36,10 @@ export default function AddACrop(props) {
             setErrorMessage(
                 errorMessage = "You haven't added any crops yet!"
             )
+        } else if (user === null) {
+            setErrorMessage(
+                errorMessage = "A user is not currently logged in"
+            )
         } else {
             let cropInfo = chosenCrop.attributes
             fetch(`http://localhost:3000/crops`, {
@@ -57,24 +61,33 @@ export default function AddACrop(props) {
                     garden_id: user.garden.id
                 })
             })
-                .then(resp => resp.json())
+                .then(resp => {
+                    if(resp.ok){
+                        return resp.json()
+                    } else {
+                        throw new Error('You have been disconnected from the server')
+                    }
+                })
                 .then(newCrop => {
                     dispatch({ type: 'ADD_CROP_TO_MY_GARDEN', newCrop })
                     //user.garden.id
                     history.push(`/my_garden`)
                 })
+                .catch(error => {
+                    setErrorMessage(
+                        errorMessage = 'You have been disconnected from the server!'
+                    )
+                })
         }
 
     }
     return (
-        
-        // consider switching to a search bar?
         //consider adding confirmation
-        <div class="wholePage" style={{ textAlign: "center" }}>
-            <div class="ui action input">
+        <div className="wholePage" style={{ textAlign: "center" }}>
+            <div className="ui action input">
                 <input onChange={(e) => changeSearch({ search: e.target.value })}
                     type="text" placeholder="Search..." />
-                <button class="ui button"
+                <button className="ui button"
                     onClick={() => GetCrop(search.search)}
                 >Search</button>
             </div>
@@ -82,8 +95,8 @@ export default function AddACrop(props) {
             {errorMessage != "" ? <Message color="red">{errorMessage}</Message> : null}
             <div style={{ 
                 textAlign: "center" }}>
-                {searchResults != [] ? searchResults.map(crop => (
-                    <div >
+                {searchResults != [] ? searchResults.map( (crop, index) => (
+                    <div key={index} >
                         <Segment style={{
                             backgroundColor:"rgb(34,139,34,0.50)",
                             marginLeft:"80px",
@@ -98,7 +111,7 @@ export default function AddACrop(props) {
                             <br /> <br />
 
                             <img
-                                class="ui medium centered image"
+                                className="ui medium centered image"
                                 // style={{ backgroundImage: `url(${MissouriDepAgLogo})` }}
                                
                                 src={crop.attributes.main_image_path != "/assets/baren_field_square-7e8d9de27d478a05b7f6b54b6c5014900d3e5d06e4c06532672af836d40346f0.jpg" ? crop.attributes.main_image_path : MissouriDepAgLogo}
