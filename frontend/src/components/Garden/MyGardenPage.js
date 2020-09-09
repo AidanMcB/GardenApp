@@ -23,7 +23,6 @@ export default function GardenPage(props) {
         })
             .then(resp => resp.json())
             .then(userLogin => {
-                console.log(userLogin)
                 if (userLogin.error == undefined) {
                     localStorage.zip = userLogin.zip
                     dispatch({ type: 'LOGIN', user: userLogin })
@@ -33,9 +32,6 @@ export default function GardenPage(props) {
                 }
             })
     }, [])
-
-
-    console.log("current user", user)
 
     let dispatch = useDispatch()
 
@@ -58,9 +54,7 @@ export default function GardenPage(props) {
     if (user == undefined || user == null) {
         return <h1>loading...</h1>
     }
-    // console.log(crops, garden)
     return (
-
         //this page may only render if user is logged in
         <div >
         <Container style={{
@@ -98,8 +92,8 @@ export default function GardenPage(props) {
             <Grid style={{ 
                 marginLeft: "10px",
                  marginRight: "10px" }} columns={6} divided>
-                {crops.map(crop =>
-                    <Grid.Column>
+                {crops.map((crop, index) =>
+                    <Grid.Column key={index}>
                         <Container
                         size="small"
                             style={{
@@ -114,13 +108,14 @@ export default function GardenPage(props) {
                             <p>({crop.number_planted})</p>
                             <label>Planted:</label>
                             <br />
-                            <text>{crop.day_planted.substr(0, 10)}</text>
+                            <p>{crop.day_planted.substr(0, 10)}</p>
                             <Image  
                             style={{
                                 height:"200px",
                                 width:"200px"
                             }}
-                            size="circular medium" src={crop.image_path}/>
+                            circular
+                            size="medium" src={crop.image_path}/>
                         </Container>
                     </Grid.Column>
                 )}
