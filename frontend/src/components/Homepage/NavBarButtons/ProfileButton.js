@@ -9,7 +9,6 @@ export default function ProfileButton (props) {
 
     let user = useSelector(state => state.user)
     let garden = useSelector(state => state.user.garden)
-    console.log(garden)
     let history = useHistory()
     return (
         <Button
