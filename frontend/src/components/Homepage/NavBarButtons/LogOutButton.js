@@ -33,6 +33,7 @@ export default function LogOutButton(props) {
     }
     return (
         <Button
+            className="logout-btn"
             color="green"
             floated="right"
             style={{ marginRight: '01em',

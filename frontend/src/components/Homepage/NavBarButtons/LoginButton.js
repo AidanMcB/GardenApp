@@ -7,6 +7,7 @@ export default function LoginButton() {
 
     return(
         <Button
+        className="login-btn"
         color="green"
         floated="right"
         style={{ marginRight: '01em',

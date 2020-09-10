@@ -8,6 +8,7 @@ export default function WeatherPageButton() {
 
     return(
         <Button
+        className="weather-btn"
         style={{ marginLeft: '01em',
         border:"1px solid green" }}
         color="green"

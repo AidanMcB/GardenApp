@@ -12,6 +12,7 @@ export default function ProfileButton (props) {
     let history = useHistory()
     return (
         <Button
+        className="profile-btn"
         color="green"
         floated="right"
         style={{ marginRight: '01em',

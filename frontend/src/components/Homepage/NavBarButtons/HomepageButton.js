@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Button, Icon } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 
+
 export default function HomepageButton() {
 
     let history = useHistory()
@@ -11,6 +12,7 @@ export default function HomepageButton() {
    
     return(
         <Button
+        className="home-btn"
         color="green"
         style={{ marginLeft: '01em',
         border:"1px solid green" }}

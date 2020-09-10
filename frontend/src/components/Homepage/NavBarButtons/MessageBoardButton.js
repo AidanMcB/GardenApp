@@ -7,6 +7,7 @@ export default function MessageBoard() {
 
     return(
         <Button
+        className="msg-board-btn"
         color="green"
         // floated="left"
         style={{ marginLeft: '01em',

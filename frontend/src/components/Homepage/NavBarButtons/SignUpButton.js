@@ -7,6 +7,7 @@ export default function SignUpButton() {
 
     return(
         <Button
+        className="signup-btn"
         color="green"
         floated="right"
         style={{ marginRight: '01em',
