@@ -1,0 +1,7 @@
+### Frontend ###
+Set up error handling for when requests can not reach a server 
+    -consider changing userInfo from wrapped in an object to just an object 
+        -*this will require updating controllers in backend
+Make error messages go away when new route is selected/ new component loaded
+Style for Mobile devices
+Deploy 
