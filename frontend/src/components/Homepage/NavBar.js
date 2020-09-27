@@ -44,7 +44,7 @@ export default function NavBar() {
     let user = useSelector(state => state.user)
     const errorMessage = useSelector(state => state.errorMessage)
     let history = useHistory()
-    const [btnSize, setBtnSize] = useState("")
+    const [btnSize, setBtnSize] = useState("medium")
     const [btnPadding, setBtnPad] = useState("auto")
 
     const isDesktopOrLaptop = useMediaQuery({
