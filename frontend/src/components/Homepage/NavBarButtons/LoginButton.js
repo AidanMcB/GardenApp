@@ -5,14 +5,14 @@ import { useHistory } from 'react-router-dom'
 export default function LoginButton() {
     let history = useHistory()
 
-    return(
+    return (
         <Button
-        className="login-btn"
-        color="green"
-        floated="right"
-        style={{ marginRight: '01em',
-        border:"1px solid green" }}
-        onClick={() => history.push('/login')}>
+            className="login-btn"
+            color="green"
+            style={{
+                border: "1px solid green"
+            }}
+            onClick={() => history.push('/login')}>
             Login
         </Button>
     )

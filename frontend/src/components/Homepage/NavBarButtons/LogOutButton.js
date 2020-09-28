@@ -15,7 +15,7 @@ export default function LogOutButton(props) {
             method: 'POST'
         })
             .then(resp => {
-                if(resp.ok){
+                if (resp.ok) {
                     return resp.json()
                 } else {
                     throw new Error('Not conencted to the server')
@@ -25,19 +25,19 @@ export default function LogOutButton(props) {
                 dispatch({ type: 'LOGOUT' })
                 history.push('/')
             })
-            .catch( error => {
+            .catch(error => {
                 console.log(error)
-                dispatch({ type: 'FAIL_SERVER', errorMessage: "Failed to Connect to the Server"})
+                dispatch({ type: 'FAIL_SERVER', errorMessage: "Failed to Connect to the Server" })
             })
-            localStorage.clear()
+        localStorage.clear()
     }
     return (
         <Button
             className="logout-btn"
             color="green"
-            floated="right"
-            style={{ marginRight: '01em',
-            border:"1px solid green", }}
+            style={{
+                border: "1px solid green",
+            }}
             onClick={HandleLogOut}>
             Log Out
         </Button>

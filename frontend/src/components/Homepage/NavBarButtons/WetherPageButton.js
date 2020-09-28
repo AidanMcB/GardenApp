@@ -6,13 +6,14 @@ export default function WeatherPageButton() {
 
     let history = useHistory()
 
-    return(
+    return (
         <Button
-        className="weather-btn"
-        style={{ marginLeft: '01em',
-        border:"1px solid green" }}
-        color="green"
-        onClick={() => history.push('/weather')}>
+            className="weather-btn"
+            style={{
+                border: "1px solid green"
+            }}
+            color="green"
+            onClick={() => history.push('/weather')}>
             Weather    <Icon fitted name="cloud"></Icon>
         </Button>
     )

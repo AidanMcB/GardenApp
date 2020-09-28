@@ -14,8 +14,7 @@ export default function ProfileButton (props) {
         <Button
         className="profile-btn"
         color="green"
-        // floated="right"
-        style={{ marginRight: '01em',
+        style={{
         border:"1px solid green" }}
         onClick={() => history.push(`/my_garden`)}
         >

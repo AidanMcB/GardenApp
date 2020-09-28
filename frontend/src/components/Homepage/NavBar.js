@@ -1,5 +1,6 @@
 import React, { useState, useReducer, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+// NavBar
 import LogOutButton from './NavBarButtons/LogOutButton'
 import ProfileButton from './NavBarButtons/ProfileButton'
 import HomepageButton from './NavBarButtons/HomepageButton'
@@ -8,13 +9,16 @@ import LoginButton from './NavBarButtons/LoginButton'
 import SignUpButton from './NavBarButtons/SignUpButton'
 import MessageBoardButton from './NavBarButtons/MessageBoardButton'
 import { useSelector } from 'react-redux'
+// SideBar 
+import SideBarBtn from './SideBar/SideBarBtn'
 import {
     Menu,
     Message,
     Button,
     Icon,
+    Image,
     Sidebar,
-    Segment,
+    Segment
 } from 'semantic-ui-react'
 import { createMedia } from "@artsy/fresnel";
 // Styles 
@@ -26,12 +30,13 @@ export default function NavBar() {
 
     const { MediaContextProvider, Media } = createMedia({
         breakpoints: {
-          sm: 0,
-          md: 768,
-          lg: 1024,
-          xl: 1192,
+            sm: 0,
+            md: 768,
+            ml: 890,
+            lg: 1024,
+            xl: 1192,
         },
-      })
+    })
 
     const dispatch = useDispatch()
 
@@ -61,35 +66,80 @@ export default function NavBar() {
     let user = useSelector(state => state.user)
     const errorMessage = useSelector(state => state.errorMessage)
     let history = useHistory()
+    const [visible, setVisible] = useState(false)
+
 
     return (
         <>
             <MediaContextProvider >
-                <Media at="lg">
-                <Menu at="lg"
-                    style={{
+                <Media greaterThanOrEqual="ml">
+                    <Menu
+                        style={{
+                            padding: ".5em",
+                            marginBottom: ".75em",
+                            backgroundColor: "#1b1c1d",
+                            opacity: "90%",
+                            borderBottom: "1px solid black",
+                        }}>
+                        <Menu.Item  >
+                            <HomepageButton className="item" />
+                        </Menu.Item>
+                        <Menu.Item>
+                            <MessageBoardButton className="item" />
+                        </Menu.Item>
+                        <Menu.Item>
+                            {user != null ? <WeatherPageButton className="item" /> : null}
+                        </Menu.Item>
+                        <Menu.Item position="right">
+                            {user != null ? <ProfileButton className="item" /> : <LoginButton className="item" />}
+                        </Menu.Item>
+                        <Menu.Item >
+                            {user != null ? <LogOutButton className="item" /> : <SignUpButton className="item" />}
+                        </Menu.Item>
+                    </Menu>
+                </Media>
+                <Media lessThan="ml">
+                    <Menu style={{
                         padding: ".5em",
                         marginBottom: ".75em",
                         backgroundColor: "#1b1c1d",
                         opacity: "90%",
                         borderBottom: "1px solid black",
                     }}>
-                    <Menu.Item  >
-                        <HomepageButton className="item" />
-                    </Menu.Item>
-                    <Menu.Item>
-                        <MessageBoardButton className="item" />
-                    </Menu.Item>
-                    <Menu.Item>
-                        {user != null ? <WeatherPageButton className="item" /> : null}
-                    </Menu.Item>
-                    <Menu.Item position="right">
-                        {user != null ? <ProfileButton className="item" /> : <LoginButton className="item" />}
-                    </Menu.Item>
-                    <Menu.Item >
-                        {user != null ? <LogOutButton className="item" /> : <SignUpButton className="item" />}
-                    </Menu.Item>
-                </Menu>
+                        {/* <Button
+                            className="side-bar-dropdown"
+                            color="green"
+                            size="small"
+                            style={{
+                                border: "1px solid green",
+                            }}
+                            onClick={() => setVisible(!visible)}>
+                            <Icon fitted name="list"></Icon>
+                        </Button> */}
+                        <Sidebar.Pushable>
+                            <Sidebar
+                                as={Menu}
+                                animation="overlay"
+                                icon="labeled"
+                                inverted
+                                vertical
+                                visible={visible}
+                            />
+                            <Sidebar.Pusher
+                                onClick={() => setVisible(!visible)}
+                                >
+                                <Menu>
+                                    <Menu.Item onClick={() => setVisible(!visible)}>
+                                        <Icon name="list" />
+                                    </Menu.Item>
+                                    <Menu.Menu>
+                                        <Menu.Item>One</Menu.Item>
+                                        <Menu.Item>Two</Menu.Item>
+                                    </Menu.Menu>
+                                </Menu>
+                            </Sidebar.Pusher>
+                        </Sidebar.Pushable>
+                    </Menu>
                 </Media>
             </MediaContextProvider>
         </>

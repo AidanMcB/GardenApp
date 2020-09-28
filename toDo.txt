@@ -20,12 +20,18 @@ IN PROGRESS
 
     - determine best practice 
     - execute for entire app 
+    - consider changing message board icon
 
 - Expand background + homepage bg image to be responsive 
     - non scroll 
 - Error messsage on posting on message board 
 - Make error messages go away when new route is selected/ new component loaded
 - Deploy 
+
+-- Notes --
+// CSS transition 
+// javascript30 
+// udemy big O JavaScript Algorithms and Data Strucures 
 
 
 COMPLETE 

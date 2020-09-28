@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Button, Icon } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 
-
-export default function HomepageButton() {
+export default function HomeBtn() {
 
     let history = useHistory()
     let background = useSelector(state => state.background)
@@ -15,7 +14,7 @@ export default function HomepageButton() {
             className="home-btn"
             color="green"
             style={{
-                border: "1px solid green"
+                // border: "1px solid green"
             }}
             onClick={() => history.push('/')}>
             Home <Icon fitted name="home"></Icon>
