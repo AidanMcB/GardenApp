@@ -1,7 +1,32 @@
 ### Frontend ###
-Set up error handling for when requests can not reach a server 
-    -consider changing userInfo from wrapped in an object to just an object 
-        -*this will require updating controllers in backend
-Make error messages go away when new route is selected/ new component loaded
-Style for Mobile devices
-Deploy 
+IN PROGRESS
+- Style for Mobile devices
+    - compare resize styling in recovery-advisor 
+        => incorporates hidden component with sm, smDown, md, mdUp, etc 
+        => Function inhereted from props onSideBarOpen, pass props for pages (set open sidebar = true )
+        =>   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
+             defaultMatches: true,
+            });
+        => define a const (open isMd ? false : openSidebar)
+        => Is the navbar in its proper form, List elements?
+
+    ====== Possible Imports ======
+    import PropTypes from 'prop-types';
+    import clsx from 'clsx';
+    import { makeStyles, useTheme } from '@material-ui/core/styles';    
+    import { useMediaQuery } from '@material-ui/core';
+    import { Topbar, Footer, Sidebar } from './components';
+    ==============================================
+
+    - determine best practice 
+    - execute for entire app 
+
+- Expand background + homepage bg image to be responsive 
+    - non scroll 
+- Error messsage on posting on message board 
+- Make error messages go away when new route is selected/ new component loaded
+- Deploy 
+
+
+COMPLETE 
+- Set up error handling for when requests can not reach a server 
