@@ -15,7 +15,7 @@ import SignUp from './components/Profile/signUp'
 import AddACrop from './components/Garden/AddACrop'
 import ErrorPage from './components/ErrorPages/ErrorPage'
 import { useSelector, useDispatch } from 'react-redux'
-
+import Test from './components/Test'
 function App() {
 
 	let user = useSelector(state => state.user)
@@ -80,6 +80,7 @@ function App() {
 		}}>
 			<BrowserRouter >
 				<NavBar />
+				<Route exact path="/test" component={Test} />
 				<Route exact path="/message_board" component={MessageBoard} />
 				<Route exact path="/newPost" component={NewPost} />
 				<Route exact path='/' component={HomePage} />
