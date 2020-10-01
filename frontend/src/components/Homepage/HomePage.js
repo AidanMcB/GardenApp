@@ -92,34 +92,24 @@ class DesktopContainer extends Component {
     const { fixed } = this.state
 
     return (
-      <Responsive style={{ marginTop: "-15px" }} getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
+      <Responsive style={{ marginTop: "-15px" }} getWidth={getWidth} style={{width:"100%"}}>
         <Visibility
           once={false}
           onBottomPassed={this.showFixedMenu}
           onBottomPassedReverse={this.hideFixedMenu}
         >
-          <Segment
-            inverted
+          <Container
             textAlign='center'
             style={{
+              width:"100%",
               backgroundImage: `url(${veggieVillage})`,
               backgroundSize: 'cover',
-              minHeight: 700,
-              padding: '1em 0em'
+              padding: '1em 0em',
             }}
             vertical
           >
-            {/* <Menu
-                fixed={fixed ? 'top' : null}
-                inverted={!fixed}
-                pointing={!fixed}
-                secondary={!fixed}
-                size='large'
-              >
-                
-              </Menu> */}
             <HomepageHeading />
-          </Segment>
+          </Container>
         </Visibility>
 
         {children}
@@ -174,7 +164,7 @@ ResponsiveContainer.propTypes = {
 export default function HomePage() {
   return (
     <ResponsiveContainer >
-      <Segment style={{
+      <Container style={{
         padding: '8em 0em',
       }} vertical>
         <Grid container stackable verticalAlign='middle'>
@@ -208,14 +198,14 @@ export default function HomePage() {
                   borderStyle: "solid",
                   textShadow: "2px 2px 0 #000"
                 }}
-                color='brown' size='huge'><a style={{ color: "white" }} href="message_board">Message Board</a></Button>
+                color='brown' size='huge'><a style={{ color: "white" }} href="/message_board">Message Board</a></Button>
             </Grid.Column>
           </Grid.Row>
         </Grid>
-      </Segment>
+      </Container>
 
-      <Segment style={{ padding: '0em', backgroundColor: 'tan' }} vertical>
-        <Grid celled='internally' columns='equal' stackable>
+      <Container style={{ padding: '0em', backgroundColor: 'tan', width:"100%" }} vertical>
+        <Grid celled='internally' columns='equal' stackable style={{width:"100%"}}>
           <Grid.Row textAlign='center'>
             <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
               <Header as='h3' style={{ fontSize: '2em' }}>
@@ -235,7 +225,7 @@ export default function HomePage() {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-      </Segment>
+      </Container>
 
       <Segment style={{ padding: '8em 0em' }} vertical>
         <Container text>

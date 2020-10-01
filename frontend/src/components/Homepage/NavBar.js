@@ -76,7 +76,6 @@ export default function NavBar() {
                     <Menu
                         style={{
                             padding: ".5em",
-                            marginBottom: ".75em",
                             backgroundColor: "#1b1c1d",
                             opacity: "90%",
                             borderBottom: "1px solid black",
@@ -98,7 +97,7 @@ export default function NavBar() {
                         </Menu.Item>
                     </Menu>
                 </Media>
-                <Media lessThan="ml">
+                <Media lessThan="ml" >
                     <SideBarElement />
                 </Media>
             </MediaContextProvider>

@@ -22,8 +22,10 @@ IN PROGRESS
     - execute for entire app 
     - consider changing message board icon
 
+-Find a better place for logout logic, maybe in App.js component 
 - Expand background + homepage bg image to be responsive 
     - non scroll 
+    - Determine the padding on the background, specifically on mobile
 - Error messsage on posting on message board 
 - Make error messages go away when new route is selected/ new component loaded
 - Deploy 
