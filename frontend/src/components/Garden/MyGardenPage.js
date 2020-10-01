@@ -17,7 +17,7 @@ export default function GardenPage(props) {
 
     // "rgb(34,139,34,0.65)"
     useEffect(() => {
-        dispatch({ type: 'GARDEN_BACKGROUND', background: "rgb(34,139,34,0.65)"})
+        dispatch({ type: 'GARDEN_BACKGROUND', background: "rgb(34,139,34,0.65)" })
         fetch(`http://localhost:3000/get_user`, {
             credentials: 'include'
         })
@@ -56,52 +56,50 @@ export default function GardenPage(props) {
     }
     return (
         //this page may only render if user is logged in
-        <div >
-        <Container style={{
-             marginTop: "40px",
-                border: "2px solid black",
-                borderRadius:"25px",
-                padding: "20px",
-                fontWeight:"bold",
-                backgroundColor:"#1b1c1d",
-                opacity:"75%"
-        }}>
-            <Header  size="huge" 
-                style={{
-                    textAlign: "center",
-                    color:"rgb(255,250,250)",
-                    fontSize:"46px",
-                    // fontFamily:"fantasy",
-                    textShadow:"1px 1px 0 black" 
-                }}>{user.username}'s Garden
+        <div>
+            <div className="header-container" style={{ textAlign: "center" }}>
+                <Container style={{
+                    marginBottom: "1.5em",
+                    border: "2px solid black",
+                    borderRadius: "25px",
+                    padding: "20px",
+                    fontWeight: "bold",
+                    backgroundColor: "#1b1c1d",
+                    opacity: "75%"
+                }}>
+                    <Header size="huge"
+                        style={{
+                            textAlign: "center",
+                            color: "rgb(255,250,250)",
+                            fontSize: "46px",
+                            textShadow: "1px 1px 0 black"
+                        }}>{user.username}'s Garden
             </Header>
-            </Container>
-        <br />
-
-                <Button 
-                style={{
-                    marginLeft:"47%",
-                    color:"white",
-                    backgroundColor:"darkgreen",
-                    padding:"10px",
-                    marginBottom:"20px"
-                }}
-                // color="blue"
-                onClick={() => history.push('/add_crop')}>
-                Add a Crop</Button>
-            <Grid style={{ 
+                </Container>
+                <Button
+                    style={{
+                        color: "white",
+                        backgroundColor: "darkgreen",
+                        padding: "10px",
+                        marginBottom: "20px"
+                    }}
+                    onClick={() => history.push('/add_crop')}>
+                    Add a Crop</Button>
+            </div>
+            <br />
+            <Grid style={{
                 marginLeft: "10px",
-                 marginRight: "10px" }} columns={6} divided>
+                marginRight: "10px"
+            }} columns={6} divided>
                 {crops.map((crop, index) =>
                     <Grid.Column key={index}>
                         <Container
-                        size="small"
+                            size="small"
                             style={{
                                 padding: "10px",
                                 border: "2px solid green",
                                 borderRadius: "25px",
                                 backgroundColor: "rgb(255,250,250, .55)",
-                                // background: "rgb(34,139,34,0.55)"
                             }}
                             onClick={() => handleClick(crop.id)}>
                             <Header >{crop.name}</Header>
@@ -109,13 +107,7 @@ export default function GardenPage(props) {
                             <label>Planted:</label>
                             <br />
                             <p>{crop.day_planted.substr(0, 10)}</p>
-                            <Image  
-                            style={{
-                                height:"200px",
-                                width:"200px"
-                            }}
-                            circular
-                            size="medium" src={crop.image_path}/>
+                            <Image fluid rounded src={crop.image_path} />
                         </Container>
                     </Grid.Column>
                 )}

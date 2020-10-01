@@ -58,10 +58,8 @@ export default function MessageBoard() {
     if (posts == undefined) {
         return <h1>loading...</h1>
     }
-    // console.log(posts)
-    // console.log(user)
     return (
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center", height: "200vh" }}>
             <Container style={{
                 marginTop: "40px",
                 border: "2px solid black",
@@ -69,23 +67,21 @@ export default function MessageBoard() {
                 padding: "20px",
                 fontWeight:"bold",
                 backgroundColor:"#1b1c1d",
-                opacity:"75%"
+                opacity:"75%",
+                zIndex:"-3",
             }}>
                 <Header
                     style={{
                         textAlign: "center",
                         color: "rgb(255,250,250)",
-                        // fontFamily: "fantasy",
                         fontSize: "46px",
-                        textShadow: "1px 1px 0 black"
+                        textShadow: "1px 1px 0 black",
                     }}
                 >Message Board</Header>
                 <Header
                     style={{
                         color: "rgb(255,250,250)",
-                        // fontFamily:"fantasy",
                         marginTop:"-10px",
-                        // textShadow: "1px 1px 0 black"
                     }}> Share your garden with the world</Header>
 
             </Container>
@@ -151,7 +147,7 @@ export default function MessageBoard() {
                 onClick={() => history.push('/newPost')}>
                 Write Your Own Post
         </Button>
-        </div >
+        </div>
 
     )
 }
