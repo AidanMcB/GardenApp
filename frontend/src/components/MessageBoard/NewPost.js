@@ -38,35 +38,26 @@ export default function NewPost() {
             style={{
                 marginRight: "10%",
                 marginLeft: "10%"
-            }}
-
-        //  className='ui input focus'
-        >
-            <Label 
-                size="big blue"
-            >Title:</Label>
+            }}>
+            <Label className="big blue" >Title:</Label>
             <br /> <br />
             <Form.Input
                 style={{
                     width: "80%",
                     fontSize: "14px",
                     border: " 1px solid"
-
                 }}
                 placeholder="Title of your post"
                 name='title'
             ></Form.Input>
             <br />
             <Label
-                style={{
-                    border: "1px solid"
-                }}
-                size="big blue">Tell the world about your garden:</Label>
+                style={{ border: "1px solid" }}
+                className="big blue">Tell the world about your garden:</Label>
             <br /> <br />
             <Form.Input
                 type="textarea"
                 control={TextArea}
-                // minHeight="300px"
                 style={{
                     height: "300px",
                     fontSize: "16px",
@@ -77,27 +68,22 @@ export default function NewPost() {
             ></Form.Input>
             <br /> <br />
             <Label
-                style={{
-                    border: "1px solid"
-                }}
-                size="big blue">Add a Photo of your garden</Label>
+                style={{ border: "1px solid" }}
+                className="big blue">Add a Photo of your garden</Label>
             <br /> <br />
             <Form.Input
                 onChange={(e) => fileSelectedHandler(e)}
                 type='file'
                 accept='image/png, image/jpeg'
                 name='newImage'
-                style={{
-                    border: " 1px solid"
-                }}
+                style={{ border: " 1px solid" }}
             ></Form.Input>
             <br />
             <Button
-                style={{
-                    border: "1px solid"
-                }}
-                size="big green">Post</Button>
-        </Form >
+                style={{ border: "1px solid" }}
+                className="big green">Post
+            </Button>
+        </Form>
     )
 
 }

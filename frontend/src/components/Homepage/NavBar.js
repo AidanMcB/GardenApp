@@ -10,8 +10,9 @@ import SignUpButton from './NavBarButtons/SignUpButton'
 import MessageBoardButton from './NavBarButtons/MessageBoardButton'
 import { useSelector } from 'react-redux'
 // SideBar 
-import SideBarBtn from './SideBar/SideBarBtn'
+import SideBarElement from './SideBar/SideBarElement'
 import {
+    Header,
     Menu,
     Message,
     Button,
@@ -68,10 +69,9 @@ export default function NavBar() {
     let history = useHistory()
     const [visible, setVisible] = useState(false)
 
-
     return (
         <>
-            <MediaContextProvider >
+            <MediaContextProvider>
                 <Media greaterThanOrEqual="ml">
                     <Menu
                         style={{
@@ -99,50 +99,9 @@ export default function NavBar() {
                     </Menu>
                 </Media>
                 <Media lessThan="ml">
-                    <Menu style={{
-                        padding: ".5em",
-                        marginBottom: ".75em",
-                        backgroundColor: "#1b1c1d",
-                        opacity: "90%",
-                        borderBottom: "1px solid black",
-                    }}>
-                        {/* <Button
-                            className="side-bar-dropdown"
-                            color="green"
-                            size="small"
-                            style={{
-                                border: "1px solid green",
-                            }}
-                            onClick={() => setVisible(!visible)}>
-                            <Icon fitted name="list"></Icon>
-                        </Button> */}
-                        <Sidebar.Pushable>
-                            <Sidebar
-                                as={Menu}
-                                animation="overlay"
-                                icon="labeled"
-                                inverted
-                                vertical
-                                visible={visible}
-                            />
-                            <Sidebar.Pusher
-                                onClick={() => setVisible(!visible)}
-                                >
-                                <Menu>
-                                    <Menu.Item onClick={() => setVisible(!visible)}>
-                                        <Icon name="list" />
-                                    </Menu.Item>
-                                    <Menu.Menu>
-                                        <Menu.Item>One</Menu.Item>
-                                        <Menu.Item>Two</Menu.Item>
-                                    </Menu.Menu>
-                                </Menu>
-                            </Sidebar.Pusher>
-                        </Sidebar.Pushable>
-                    </Menu>
+                    <SideBarElement />
                 </Media>
             </MediaContextProvider>
         </>
     )
 }
-{/* </div> */ }

@@ -33,6 +33,8 @@ IN PROGRESS
 // javascript30 
 // udemy big O JavaScript Algorithms and Data Strucures 
 
+-- Resources -- 
+https://github.com/artsy/fresnel
 
 COMPLETE 
 - Set up error handling for when requests can not reach a server 
