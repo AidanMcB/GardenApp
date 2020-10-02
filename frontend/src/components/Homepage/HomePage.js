@@ -106,7 +106,6 @@ class DesktopContainer extends Component {
               backgroundSize: 'cover',
               padding: '1em 0em',
             }}
-            vertical
           >
             <HomepageHeading />
           </Container>
@@ -166,7 +165,7 @@ export default function HomePage() {
     <ResponsiveContainer >
       <Container style={{
         padding: '8em 0em',
-      }} vertical>
+      }} >
         <Grid container stackable verticalAlign='middle'>
           <Grid.Row >
             <Grid.Column width={8}>
@@ -203,8 +202,7 @@ export default function HomePage() {
           </Grid.Row>
         </Grid>
       </Container>
-
-      <Container style={{ padding: '0em', backgroundColor: 'tan', width:"100%" }} vertical>
+      <Container style={{ padding: '0em', backgroundColor: 'tan', width:"100%" }} >
         <Grid celled='internally' columns='equal' stackable style={{width:"100%"}}>
           <Grid.Row textAlign='center'>
             <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
