@@ -7,7 +7,14 @@ import HomePage from './components/Homepage/HomePage'
 import ProfilePage from './components/Profile/ProfilePage'
 import MessageBoard from './components/MessageBoard/MessageBoard'
 import MyGardenPage from './components/Garden/MyGardenPage'
+
+import SideBar from './components/Homepage/SideBar/SideBarElement'
 import NavBar from './components/Homepage/NavBar'
+
+import {
+	Sidebar
+} from 'semantic-ui-react'
+
 import GardenPage from './components/Garden/GardenPage'
 import NewPost from './components/MessageBoard/NewPost'
 import { BrowserRouter, Route, useHistory, Switch } from 'react-router-dom'
@@ -15,7 +22,8 @@ import SignUp from './components/Profile/signUp'
 import AddACrop from './components/Garden/AddACrop'
 import ErrorPage from './components/ErrorPages/ErrorPage'
 import { useSelector, useDispatch } from 'react-redux'
-
+import Test from './components/Test'
+import SideBarElement from './components/Homepage/SideBar/SideBarElement';
 function App() {
 
 	let user = useSelector(state => state.user)
@@ -80,6 +88,7 @@ function App() {
 		}}>
 			<BrowserRouter >
 				<NavBar />
+				<Route exact path="/test" component={Test} />
 				<Route exact path="/message_board" component={MessageBoard} />
 				<Route exact path="/newPost" component={NewPost} />
 				<Route exact path='/' component={HomePage} />
@@ -94,7 +103,7 @@ function App() {
 				<Route exact path="/add_crop" component={AddACrop} />
 
 				<Route exact path="/error_page" component={ErrorPage} /> 
-
+				
 			</BrowserRouter>
 		</div>
 	);

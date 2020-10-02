@@ -7,9 +7,9 @@ export default function SignUpButton() {
 
     return(
         <Button
+        className="signup-btn"
         color="green"
-        floated="right"
-        style={{ marginRight: '01em',
+        style={{ 
         border:"1px solid green" }}
         onClick={() => history.push('/signUp')}>
             Sign Up

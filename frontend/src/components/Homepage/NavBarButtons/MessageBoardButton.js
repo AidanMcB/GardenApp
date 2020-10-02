@@ -5,13 +5,14 @@ import { useHistory } from 'react-router-dom'
 export default function MessageBoard() {
     let history = useHistory()
 
-    return(
+    return (
         <Button
-        color="green"
-        // floated="left"
-        style={{ marginLeft: '01em',
-        border:"1px solid green" }}
-        onClick={() => history.push('/message_board')}>
+            className="msg-board-btn"
+            color="green"
+            style={{
+                border: "1px solid green"
+            }}
+            onClick={() => history.push('/message_board')}>
             Message Board  <Icon fitted name="list"></Icon>
         </Button>
     )
