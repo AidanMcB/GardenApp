@@ -96,7 +96,6 @@ export default function SideBarElement() {
                         <Menu.Item position='right' as='a' href='/signUp'>
                         <Icon name="signup"></Icon>
                             Sign Up </Menu.Item>}
-
                 </Sidebar>
 
             </Menu>

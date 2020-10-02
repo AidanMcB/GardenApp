@@ -71,7 +71,6 @@ export default function SignUp(props) {
 		city: '',
 		zip: ''
 	})
-	// console.log("signup function", user)
 
 	let setValue = (key, value) => {
 		setUser({ ...user, [key]: value })
@@ -79,9 +78,7 @@ export default function SignUp(props) {
 
 	return (
 		<Grid centered columns={2}>
-			<Grid.Column style={{
-				padding:"100px"
-			}}>
+			<Grid.Column style={{ padding:"2em" }} computer={10} tablet={12} mobile={8}>
 				<Header as="h1" textAlign="center"
 				style={{
 					color:"black"
@@ -140,7 +137,6 @@ export default function SignUp(props) {
 							name="zip"
 							onChange={(e) => setValue("zip", e.target.value)}
 						/>
-
 						<Button color="blue" fluid size="large">
 							Sign Up
                     </Button>
