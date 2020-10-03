@@ -76,8 +76,8 @@ export default function LoginForm(props) {
 	})
 	//mobile 16 tablet 8 computer 4  || largreScreen={2} widescreen={1}
 	return (
-		<Grid centered columns={2} padded>
-			<Grid.Column style={{ padding: "5em" }} mobile={16} tablet={14} computer={8}>
+		<Grid centered columns={2}>
+			<Grid.Column style={{ padding: "5em" }} mobile={16} tablet={14} computer={6}>
 				<Header as="h1" textAlign="center"> Login </Header>
 				{errorMessage != undefined ? <Message color='red'>{errorMessage}</Message> : null}
 				<Segment>

@@ -77,8 +77,8 @@ export default function SignUp(props) {
 	}
 
 	return (
-		<Grid centered columns={2}>
-			<Grid.Column style={{ padding:"2em" }} computer={10} tablet={12} mobile={8}>
+		<Grid centered columns={2} padded>
+			<Grid.Column style={{ padding:"2em" }} computer={8} tablet={12} mobile={14}>
 				<Header as="h1" textAlign="center"
 				style={{
 					color:"black"
