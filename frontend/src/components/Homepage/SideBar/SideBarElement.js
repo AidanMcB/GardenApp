@@ -52,14 +52,14 @@ export default function SideBarElement() {
             <Menu style={{
                 padding: ".5em",
                 backgroundColor: "#1b1c1d",
-                opacity: "90%",
                 borderBottom: "1px solid black",
-            }}>
+            }}><Menu.Item position="right" style={{margin:"-1em"}}>
                 <Sidebar.Pusher >
-                    <Button disabled={visible} onClick={() => setVisible(!visible)}>
-                        <Icon name="list"></Icon>
+                    <Button color="green" disabled={visible} onClick={() => setVisible(!visible)}>
+                        <Icon fitted name="options"></Icon>
                     </Button>
                 </Sidebar.Pusher>
+                </Menu.Item>
                 <Sidebar
                     as={Menu}
                     style={{
@@ -87,13 +87,15 @@ export default function SideBarElement() {
                     {user != null ? <Menu.Item position='right' as='a' href='/my_garden'>
                         <Icon name='user' /> {user.username} </Menu.Item> :
                         <Menu.Item position='right' as='a' href='/login'>
+                        <Icon name="sign in"></Icon>
                             Login</Menu.Item>
                     }
                     {user != null ? <Menu.Item position='right' onClick={HandleLogOut}>
+                        <Icon name="log out" ></Icon>
                         Log Out </Menu.Item> :
                         <Menu.Item position='right' as='a' href='/signUp'>
+                        <Icon name="signup"></Icon>
                             Sign Up </Menu.Item>}
-
                 </Sidebar>
 
             </Menu>

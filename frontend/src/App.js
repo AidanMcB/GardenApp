@@ -80,10 +80,11 @@ function App() {
 	return (
 		<div style={{
 			backgroundColor: "rgb(34,139,34,0.50)",
-			// backgroundColor: "rgb(255,250,250)",
 			backgroundSize: '100% auto',
 			height: "100vh",
-			overflow: "scroll"
+			// width: "100%",
+			// overflowX: "hidden",
+			// overflowY: "scroll"
 
 		}}>
 			<BrowserRouter >

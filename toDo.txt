@@ -31,6 +31,7 @@ IN PROGRESS
 - Deploy 
 
 -- Notes --
+// Appears to work on everything except GalaxyFold
 // CSS transition 
 // javascript30 
 // udemy big O JavaScript Algorithms and Data Strucures 
