@@ -83,8 +83,8 @@ function App() {
 			backgroundSize: '100% auto',
 			height: "100vh",
 			// width: "100%",
-			overflowX: "hidden",
-			overflowY: "scroll"
+			// overflowX: "hidden",
+			// overflowY: "scroll"
 
 		}}>
 			<BrowserRouter >
