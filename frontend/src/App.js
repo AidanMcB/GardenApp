@@ -10,7 +10,6 @@ import MyGardenPage from './components/Garden/MyGardenPage'
 
 import SideBar from './components/Homepage/SideBar/SideBarElement'
 import NavBar from './components/Homepage/NavBar'
-
 import {
 	Sidebar
 } from 'semantic-ui-react'
@@ -25,6 +24,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import Test from './components/Test'
 import SideBarElement from './components/Homepage/SideBar/SideBarElement';
 function App() {
+
+	document.body.style = 'background:	rgb(34,139,34,0.50)';
 
 	let user = useSelector(state => state.user)
 	let background = useSelector(state => state.background)
@@ -79,13 +80,8 @@ function App() {
 	//crop page floating outside or inside
 	return (
 		<div style={{
-			backgroundColor: "rgb(34,139,34,0.50)",
 			backgroundSize: '100% auto',
-			height: "100%",
-			// width: "100%",
-			// overflowX: "hidden",
-			// overflowY: "scroll"
-
+			height: "100%"
 		}}>
 			<BrowserRouter >
 				<NavBar />

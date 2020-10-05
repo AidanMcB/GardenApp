@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import a_sky_image from '../images/a_sky_image.jpeg'
 import skyimage from '../images/skyimage.jpg'
 import { Grid, Container, Header, Message, Image, Button, Search, Input, Label, Popup } from 'semantic-ui-react'
+import { createMedia } from "@artsy/fresnel";
 
 
 export default function WeatherPage() {
@@ -105,6 +106,16 @@ export default function WeatherPage() {
                   : "NW";
   }
 
+  const { MediaContextProvider, Media } = createMedia({
+    breakpoints: {
+        sm: 0,
+        md: 768,
+        ml: 890,
+        lg: 1024,
+        xl: 1192,
+    },
+})
+
   //figure out why loading time is so long
   //decide what to for when a user isnt logged in on the home page
   console.log(localStorage.zip, weather)
@@ -113,23 +124,15 @@ export default function WeatherPage() {
   }
   return (
     console.log(weather),
-    <Container style={{
-    backgroundImage: `url(${skyimage})`,
-    backgroundSize:'cover',
-    height:"100%",
-    width:"100%",
-    marginTop:"-25px"
-    
+       <div className="weather-page" style={{
+          backgroundImage: `url(${skyimage})`,
+          backgroundSize:'cover',
        }}>
-    {/* <Image size="large" src={a_sky_image} /> */}
-    {/* <Image size="large" src={skyimage} /> */}
-       <div style={{
-         width:"100%",
-         height:"100%"
-       }}>
-      <Container style={{
+       <MediaContextProvider>
+       <Media greaterThanOrEqual="ml">
+      <div style={{
         marginBottom: "30px",
-        marginTop:"25px",
+        marginTop:"90px",
         border: "2px solid black",
         borderRadius: "25px",
         padding: "20px",
@@ -145,11 +148,12 @@ export default function WeatherPage() {
             color: "rgb(255,250,250)",
             // color: "#9f6d5c",
             textShadow: "2px 2px black",
-            marginTop:"0px"
           }}
         >
           Today's forecast for {weather.city}, {localStorage.zip} </Header>
-      </Container>
+      </div>
+      </Media>
+      </MediaContextProvider>
       <Grid divided columns={2}
       style={{
         justifyContent:"center"
@@ -309,6 +313,5 @@ export default function WeatherPage() {
         </Grid.Column>
       </Grid>
       </div>
-    </Container>
   )
 }

@@ -5,7 +5,7 @@ import AddACrop from './AddACrop'
 import { useHistory } from 'react-router-dom'
 import { useParams } from 'react-router'
 import UserReducer from '../../Redux/reducers/UserReducer'
-
+import { createMedia } from "@artsy/fresnel";
 export default function GardenPage(props) {
 
     let history = useHistory()
@@ -51,6 +51,17 @@ export default function GardenPage(props) {
             })
     }
 
+    const { MediaContextProvider, Media } = createMedia({
+        breakpoints: {
+            sm: 0,
+            md: 768,
+            ml: 890,
+            lg: 1024,
+            xl: 1192,
+        },
+    })
+
+
     if (user == undefined || user == null) {
         return <h1>loading...</h1>
     }
@@ -58,7 +69,10 @@ export default function GardenPage(props) {
         //this page may only render if user is logged in
         <div>
             <div className="header-container" style={{ textAlign: "center" }}>
+            <MediaContextProvider>
+            <Media greaterThanOrEqual="ml">
                 <Container style={{
+                    marginTop: "1.5em",
                     marginBottom: "1.5em",
                     border: "2px solid black",
                     borderRadius: "25px",
@@ -74,8 +88,33 @@ export default function GardenPage(props) {
                             fontSize: "46px",
                             textShadow: "1px 1px 0 black"
                         }}>{user.username}'s Garden
-            </Header>
+                    </Header>
                 </Container>
+            </Media>
+             <Media lessThan='ml'>
+                <Container style={{
+                    display: "inline-block",
+                    marginTop: "1.5em",
+                    marginBottom: "1.5em",
+                    border: "2px solid black",
+                    borderRadius: "25px",
+                    padding: "10px",
+                    fontWeight: "bold",
+                    backgroundColor: "#1b1c1d",
+                    opacity: "75%",
+                    width:"50%"
+                }}>
+                    <Header size="huge"
+                        style={{
+                            textAlign: "center",
+                            color: "rgb(255,250,250)",
+                            fontSize: "26px",
+                            textShadow: "1px 1px 0 black"
+                        }}>{user.username}'s Garden
+                    </Header>
+                </Container>
+            </Media>
+            </MediaContextProvider>
                 <Button
                     style={{
                         color: "white",
@@ -90,7 +129,8 @@ export default function GardenPage(props) {
             <Grid style={{
                 marginLeft: "10px",
                 marginRight: "10px"
-            }} columns={6} divided>
+            }}  divided>
+                <Grid.Row columns={6} only='computer large screen'>
                 {crops.map((crop, index) =>
                     <Grid.Column key={index}>
                         <Container
@@ -99,6 +139,7 @@ export default function GardenPage(props) {
                                 padding: "10px",
                                 border: "2px solid green",
                                 borderRadius: "25px",
+                                marginBottom: '5px',
                                 backgroundColor: "rgb(255,250,250, .55)",
                             }}
                             onClick={() => handleClick(crop.id)}>
@@ -111,6 +152,34 @@ export default function GardenPage(props) {
                         </Container>
                     </Grid.Column>
                 )}
+                </Grid.Row>
+                <Grid.Row columns={3} only='mobile tablet'>
+                {crops.map((crop, index) =>
+                    <Grid.Column key={index} style={{padding:'0', 
+                                margin: '0px 0px 10px 0px',}}>
+                        <Container
+                            
+                            style={{
+                                textAlign: "center",
+                                width: "100%",
+                                height: "100%",
+                                margin: '0',
+                                padding: "5px",
+                                // border: "2px solid green",
+                                borderRadius: "5px",
+                                backgroundColor: "rgb(255,250,250, .55)",
+                            }}
+                            onClick={() => handleClick(crop.id)}>
+                            <Header >{crop.name}</Header>
+                            {/* <p>({crop.number_planted})</p> */}
+                            {/* <label>Planted:</label>
+                            <br />
+                            <p>{crop.day_planted.substr(0, 10)}</p> */}
+                            <Image fluid rounded src={crop.image_path} />
+                        </Container>
+                    </Grid.Column>
+                )}
+                </Grid.Row>
             </Grid>
         </div>
     )
