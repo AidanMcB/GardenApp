@@ -84,6 +84,9 @@ export default function SideBarElement() {
                         <Icon name='list' />
                                     Message Board
                                 </Menu.Item>
+                    {user != null ? <Menu.Item position='right' as='a' href='/weather' >
+                        <Icon name='cloud'></Icon>Weather
+                    </Menu.Item> : null }
                     {user != null ? <Menu.Item position='right' as='a' href='/my_garden'>
                         <Icon name='user' /> {user.username} </Menu.Item> :
                         <Menu.Item position='right' as='a' href='/login'>

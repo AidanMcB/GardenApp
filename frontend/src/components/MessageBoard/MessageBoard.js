@@ -53,8 +53,6 @@ export default function MessageBoard() {
             })
     }, [])
 
-
-
     if (posts == undefined) {
         return <h1>loading...</h1>
     }
