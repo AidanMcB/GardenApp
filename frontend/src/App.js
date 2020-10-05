@@ -81,7 +81,7 @@ function App() {
 		<div style={{
 			backgroundColor: "rgb(34,139,34,0.50)",
 			backgroundSize: '100% auto',
-			height: "100vh",
+			height: "100%",
 			// width: "100%",
 			// overflowX: "hidden",
 			// overflowY: "scroll"
