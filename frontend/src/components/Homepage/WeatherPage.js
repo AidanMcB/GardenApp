@@ -30,7 +30,6 @@ export default function WeatherPage() {
     city: ''
   })
 
-
   //consider moving this so it render's automatically?
   let API_key = "03b80556af981e9f9a6a57906ecf2438"
   let API_address = "http://api.openweathermap.org/data/2.5/weather?zip="
