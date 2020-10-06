@@ -188,8 +188,8 @@ export default function WeatherPage() {
           height: "100%",
         }} >
         <Grid.Column
-          computer={6}
-          tablet={6}
+          computer={8}
+          tablet={8}
           mobile={12}
           style={{
             backgroundColor: "rgb(255,250,250, .55)",
@@ -334,16 +334,15 @@ export default function WeatherPage() {
               backgroundColor: "green",
               color: "white"
             }} size="big" >Current Weather Advisories:</Label>
-          {/* <marquee behavior="scroll" direction="left"></marquee> */}
           <ul>
             {/* under 40F */}
-            <h1>{weather.temperature < 40 ? <li> It's getting cold! Put a frost cloth out to sheild your crops from the weather</li> : null}</h1>
+            <h2>{weather.temperature < 40 ? <li> It's getting cold! Put a frost cloth out to sheild your crops from the weather</li> : null}</h2>
             {/* No rain vs rain */}
-            <h1>{weather.main != "Rain" ? <li>Don't forget to water!</li> : <li>No need to water, the rain will take care of it today</li>}</h1>
+            <h2>{weather.main != "Rain" ? <li>Don't forget to water!</li> : <li>No need to water, the rain will take care of it today</li>}</h2>
             {/* Over 75 and no rain */}
-            <h1>{weather.temperature > 75 && weather.main != <li>Rain</li> ? <li>It's hot today, be sure to water a little extra</li> : null}</h1>
+            <h2>{weather.temperature > 75 && weather.main != <li>Rain</li> ? <li>It's hot today, be sure to water a little extra</li> : null}</h2>
             {/* Windy */}
-            <h1>{weather.windSpeed > 15 ? <li>It's getting windy! Consider moving potted plants or putting up a wind break</li> : null}</h1>
+            <h2>{weather.windSpeed > 15 ? <li>It's getting windy! Consider moving potted plants or putting up a wind break</li> : null}</h2>
             <h1></h1>
           </ul>
 

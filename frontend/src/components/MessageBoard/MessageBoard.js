@@ -59,56 +59,58 @@ export default function MessageBoard() {
     return (
         <div style={{ textAlign: "center", height: "200vh" }}>
             <Container style={{
+                width:"80%",
                 marginTop: "40px",
                 border: "2px solid black",
-                borderRadius:"25px",
+                borderRadius: "25px",
                 padding: "20px",
-                fontWeight:"bold",
-                backgroundColor:"#1b1c1d",
-                opacity:"75%",
-                zIndex:"-3",
+                fontWeight: "bold",
+                backgroundColor: "#1b1c1d",
+                opacity: "75%",
+                zIndex: "-3",
             }}>
                 <Header
                     style={{
                         textAlign: "center",
                         color: "rgb(255,250,250)",
-                        fontSize: "46px",
+                        fontSize: "3em",
                         textShadow: "1px 1px 0 black",
                     }}
                 >Message Board</Header>
                 <Header
                     style={{
                         color: "rgb(255,250,250)",
-                        marginTop:"-10px",
+                        marginTop: "-10px",
                     }}> Share your garden with the world</Header>
 
             </Container>
 
             <br /> <br /> <br />
-            {posts.map(post => (
-                <Container style={{
-                    backgroundColor: "rgb(255,250,250, 0.75)",
-                    border: "2px solid white",
-                    borderRadius: "25px",
-                    boxShadow: "5px 5px",
-                    padding: "20px",
-                    marginBottom: "20px"
-                }}>
-                    <Label style={{ color:"white",border:"1px solid black",backgroundColor:"Green"}} size="big">{post.title}</Label>
-                    <Popup content="View garden" trigger={<Label ribbon style={{border:"1px solid black", marginLeft:"35px"}}
-                        onClick={() => { user.id == post.user.id ? history.push('my_garden') : history.push(`/garden/${post.user.garden.id}`) }}
-                    >By {post.user.username}</Label>} />
+            {posts.map((post, index) => (
+                <Container key={index}
+                    style={{
+                        backgroundColor: "rgb(255,250,250, 0.75)",
+                        border: "2px solid white",
+                        borderRadius: "25px",
+                        boxShadow: "5px 5px",
+                        padding: "20px",
+                        marginBottom: "20px"
+                    }}>
+                    <div className="label-div" style={{display:"inline"}}>
+                    <Label style={{ maxWidth:"75%",color: "white", border: "1px solid black", backgroundColor: "Green" }} size="big">{post.title}</Label>
+                
                     {user == null || user.id == undefined || user.id != post.user_id ?
                         null
                         :
-                        <div>
+                        <div style={{ display:"inline", float:"right", marginTop:"0em" }}>
                             <Button
-                                style={{ marginTop: "-40px",
-                                border:"1px solid black" }}
+                                style={{
+                                    border: "1px solid black",
+                                    padding:".75em",
+                                }}
                                 onClick={openWindow}
-                                // onClick={(() => handleDelete(post))}
-                                size="medium red"
-                                floated="right">
+                                size="small"
+                                color="red">
                                 <Icon fitted name="x"></Icon>
                             </Button>
                             <Confirm
@@ -118,33 +120,54 @@ export default function MessageBoard() {
                             />
                         </div>
                     }
+                    </div>
                     <br /> <br />
-                    <div style={{ display: "flex" }}>
+                    <div style={{ display: "flex",
+                    flexWrap:"wrap",
+                       justifyContent: "center",
+                            alignItems: "center"}}>
                         <Segment
                             style={{
-                                border:"1px solid black",
+                                flex:"50%",
+                                border: "1px solid black",
                                 fontSize: "16px",
                                 backgroundColor: "rgb(255,255,255, 0.7)"
                             }}>{post.body}</Segment>
-                        <Image
-                            style={{ padding: "10px",
-                            border:"1px solid black" }}
-                            size='large'
-                            
-                            src={post.url} />
+                        <Container className="img-div" style={{
+                            flex:"50%",
+                            margin:"0",
+                            height:"100%",
+                            width: "100",
+                          
+                        }}>
+                            <Image
+                                style={{
+                                    padding: ".25em",
+                                    border: "1px solid black",
+                                }}
+                                fluid
+                                src={post.url} />
+                        </Container>
                     </div>
+                    <Popup content="View garden" trigger={
+                    <Label ribbon style={{ border: "1px solid black", float:"right", margin:".25em 0 0 0" }}
+                        onClick={() => { user.id == post.user.id ? history.push('my_garden') : history.push(`/garden/${post.user.garden.id}`) }}
+                    >By {post.user.username}</Label>} />
                     <br></br> <br></br>
+                    
                 </Container>
             ))
             }
             <Button
                 style={{
-                    border:"1px solid black"
+                    border: "1px solid black",
+                    marginBottom:"2em"
                 }}
                 color="blue"
                 onClick={() => history.push('/newPost')}>
                 Write Your Own Post
         </Button>
+        
         </div>
 
     )
