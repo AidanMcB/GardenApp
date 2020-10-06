@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-import a_sky_image from '../images/a_sky_image.jpeg'
 import skyimage from '../images/skyimage.jpg'
 import { Grid, Container, Header, Message, Image, Button, Search, Input, Label, Popup } from 'semantic-ui-react'
 import { createMedia } from "@artsy/fresnel";
-
 
 export default function WeatherPage() {
 
@@ -107,13 +105,13 @@ export default function WeatherPage() {
 
   const { MediaContextProvider, Media } = createMedia({
     breakpoints: {
-        sm: 0,
-        md: 768,
-        ml: 890,
-        lg: 1024,
-        xl: 1192,
+      sm: 0,
+      md: 768,
+      ml: 890,
+      lg: 1024,
+      xl: 1192,
     },
-})
+  })
 
   //figure out why loading time is so long
   //decide what to for when a user isnt logged in on the home page
@@ -123,50 +121,86 @@ export default function WeatherPage() {
   }
   return (
     console.log(weather),
-       <div className="weather-page" style={{
-          backgroundImage: `url(${skyimage})`,
-          backgroundSize:'cover',
-       }}>
-       <MediaContextProvider>
-       <Media greaterThanOrEqual="ml">
-      <div style={{
-        marginBottom: "30px",
-        marginTop:"90px",
-        border: "2px solid black",
-        borderRadius: "25px",
-        padding: "20px",
-        fontWeight: "bold",
-        backgroundColor: "#1b1c1d",
-        opacity: "75%"
-      }}>
-        <Header
-          as="h1"
-          style={{
-            fontSize: "48px",
-            textAlign: "center",
-            color: "rgb(255,250,250)",
-            // color: "#9f6d5c",
-            textShadow: "2px 2px black",
-          }}
-        >
-          Today's forecast for {weather.city}, {localStorage.zip} </Header>
-      </div>
-      </Media>
+    <div className="weather-page" style={{
+    }}>
+      <img src={skyimage} style={{
+        height: "100%",
+        zIndex:"-1",
+        position: "fixed",
+        top: "0",
+        left: "0",
+        /* Preserve aspet ratio */
+        minWidth: "100%",
+        minHeight: "100%",
+      }} />
+      <br />
+      <MediaContextProvider>
+        <Media greaterThanOrEqual="ml">
+          <div style={{
+            margin:"0px auto 30px auto",
+            border: "2px solid black",
+            borderRadius: "25px",
+            padding: "20px",
+            fontWeight: "bold",
+            textAlign:"center",
+            width:"60%",
+            backgroundColor: "#1b1c1d",
+            opacity: "75%"
+          }}>
+            <Header
+              as="h1"
+              style={{
+                fontSize: "48px",
+                color: "rgb(255,250,250)",
+                textShadow: "2px 2px black",
+              }}
+            >
+              Today's forecast for {weather.city}, {localStorage.zip} </Header>
+          </div>
+        </Media>
+        <Media lessThan="ml">
+          <div style={{
+            margin:"0px auto 30px auto",
+            width:"85%",
+            border: "2px solid black",
+            borderRadius: "25px",
+            padding: "15px",
+            fontWeight: "bold",
+            backgroundColor: "#1b1c1d",
+            opacity: "75%"
+          }}>
+            <Header
+              as="h1"
+              style={{
+                fontSize: "26px",
+                textAlign: "center",
+                color: "rgb(255,250,250)",
+                textShadow: "2px 2px black",
+              }}
+            >
+              Today's forecast for {weather.city}, {localStorage.zip} </Header>
+          </div>
+        </Media>
       </MediaContextProvider>
-      <Grid divided columns={2}
-      style={{
-        justifyContent:"center"
-      }} >
-        <Grid.Column style={{
-          backgroundColor: "rgb(255,250,250, .55)",
-          border: "2px solid black",
-          borderRadius: "25px",
-          boxShadow: "5px 5px",
-          padding: "20px",
-          marginBottom: "20px",
-          marginRight:"5%",
-          width:"35%"
-        }}>
+      <Grid centered
+        style={{
+          // justifyContent: "center",
+          height: "100%",
+        }} >
+        <Grid.Column
+          computer={6}
+          tablet={6}
+          mobile={12}
+          style={{
+            backgroundColor: "rgb(255,250,250, .55)",
+            border: "2px solid black",
+            borderRadius: "25px",
+            boxShadow: "5px 5px",
+            padding: "20px",
+            marginBottom: "20px",
+            // marginRight: "5%",
+            // width: "35%"
+          }}>
           <Label
             style={{
               backgroundColor: "green",
@@ -215,7 +249,7 @@ export default function WeatherPage() {
             color: "black",
             // textShadow: "1px 1px black"
           }}
-          >&emsp;{() => console.log(weather.windDirection)}
+          >&emsp;
             {getCardinal(weather.windDirection)}</h1>
           <br /> <br />
           <Label style={{
@@ -265,9 +299,9 @@ export default function WeatherPage() {
             // textShadow: "1px 1px black"
           }}
           >&emsp;{weather.cloudy}%</h1>
-        
+
           <br />  <br />
-            <Label style={{
+          <Label style={{
             backgroundColor: "green",
             color: "white"
           }}
@@ -279,24 +313,29 @@ export default function WeatherPage() {
           }}
           >&emsp;{weather.description}</h1>
         </Grid.Column>
-        <Grid.Column 
-        style={{
-          backgroundColor: "rgb(255,250,250, .55)",
-          border: "2px solid black",
-          borderRadius: "25px",
-          boxShadow: "5px 5px",
-          padding: "20px",
-          marginBottom: "20px",
-          width:"35%"
-        }}>
-          
-            <Label
+        <Grid.Column></Grid.Column>
+        <Grid.Column
+          computer={6}
+          tablet={6}
+          mobile={14}
+          style={{
+            backgroundColor: "rgb(255,250,250, .55)",
+            border: "2px solid black",
+            borderRadius: "25px",
+            boxShadow: "5px 5px",
+            padding: "20px",
+            marginBottom: "20px",
+            marginLeft: "0",
+            width: "35%"
+          }}>
+
+          <Label
             style={{
-            backgroundColor: "green",
-            color: "white"
-          }} size="big" >Current Weather Advisories:</Label>
-            {/* <marquee behavior="scroll" direction="left"></marquee> */}
-            <ul>
+              backgroundColor: "green",
+              color: "white"
+            }} size="big" >Current Weather Advisories:</Label>
+          {/* <marquee behavior="scroll" direction="left"></marquee> */}
+          <ul>
             {/* under 40F */}
             <h1>{weather.temperature < 40 ? <li> It's getting cold! Put a frost cloth out to sheild your crops from the weather</li> : null}</h1>
             {/* No rain vs rain */}
@@ -306,11 +345,10 @@ export default function WeatherPage() {
             {/* Windy */}
             <h1>{weather.windSpeed > 15 ? <li>It's getting windy! Consider moving potted plants or putting up a wind break</li> : null}</h1>
             <h1></h1>
-            </ul>
+          </ul>
 
-          
         </Grid.Column>
       </Grid>
-      </div>
+    </div>
   )
 }
