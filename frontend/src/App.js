@@ -26,6 +26,8 @@ import SideBarElement from './components/Homepage/SideBar/SideBarElement';
 function App() {
 
 	document.body.style = 'background:	rgb(34,139,34,0.50)';
+	// let rootEl = document.querySelector('#root')
+	// rootEl.style = 'height: 100%'
 
 	let user = useSelector(state => state.user)
 	let background = useSelector(state => state.background)
@@ -89,7 +91,7 @@ function App() {
 				<Route exact path="/message_board" component={MessageBoard} />
 				<Route exact path="/newPost" component={NewPost} />
 				<Route exact path='/' component={HomePage} />
-				<Route exact path="/weather" component={WeatherPage} />
+				<Route exact path="/weather" sm component={WeatherPage} />
 				<Route exact path="/crops/:id" component={CropPage} />
 				<Route exact path="/login" component={() => <LoginForm />} />
 				<Route exact path="/signUp" component={() => <SignUp />} />
