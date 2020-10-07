@@ -13,9 +13,7 @@ import {
   Icon,
   Image,
   List,
-  Menu,
   Segment,
-  Sidebar,
   Visibility,
 } from 'semantic-ui-react'
 // Assets
@@ -287,9 +285,10 @@ const HomepageLayout = () => (
               Aidan McBride
               </Header>
               <div>
-                  If you enjoyed this web application, check out my other projects on GitHub and YouTube, or send me an email.              
+                  If you enjoyed this web application, check out my other projects on GitHub and YouTube, or send me an email.         
                 <List link inverted>
                   <List.Item as='a' href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSHwCnhfggPzbPKWXnLMqnWmcLsfhGxsBMwWPPvvbFDZjwLndSvpPVrVPVJBtLqXcGbVBLrM">aidankmcbride@gmail.com</List.Item>
+                  <List.Item as='a' href="http://aidan-mcbride.com/">My Personal Website</List.Item>
                 </List>
               </div>
             </Grid.Column>

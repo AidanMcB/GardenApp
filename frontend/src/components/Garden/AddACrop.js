@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import MissouriDepAgLogo from '../images/MissouriDepAgLogo.png'
-import veggieVillage from '../images/veggieVillage.png'
-import { Grid, Image, Button, Message, Search, Input, Label, Popup, Segment } from 'semantic-ui-react'
-import UserReducer from '../../Redux/reducers/UserReducer'
+import {  Button, Message, Label, Segment } from 'semantic-ui-react'
 
 export default function AddACrop(props) {
 

@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 // NavBar
 import LogOutButton from './NavBarButtons/LogOutButton'
@@ -12,15 +12,7 @@ import { useSelector } from 'react-redux'
 // SideBar 
 import SideBarElement from './SideBar/SideBarElement'
 import {
-    Container,
-    Header,
     Menu,
-    Message,
-    Button,
-    Icon,
-    Image,
-    Sidebar,
-    Segment
 } from 'semantic-ui-react'
 import { createMedia } from "@artsy/fresnel";
 // Styles 

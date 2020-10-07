@@ -8,26 +8,19 @@ import ProfilePage from './components/Profile/ProfilePage'
 import MessageBoard from './components/MessageBoard/MessageBoard'
 import MyGardenPage from './components/Garden/MyGardenPage'
 
-import SideBar from './components/Homepage/SideBar/SideBarElement'
 import NavBar from './components/Homepage/NavBar'
-import {
-	Sidebar
-} from 'semantic-ui-react'
 
 import GardenPage from './components/Garden/GardenPage'
 import NewPost from './components/MessageBoard/NewPost'
-import { BrowserRouter, Route, useHistory, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, useHistory } from 'react-router-dom'
 import SignUp from './components/Profile/signUp'
 import AddACrop from './components/Garden/AddACrop'
 import ErrorPage from './components/ErrorPages/ErrorPage'
 import { useSelector, useDispatch } from 'react-redux'
 import Test from './components/Test'
-import SideBarElement from './components/Homepage/SideBar/SideBarElement';
 function App() {
 
 	document.body.style = 'background:	rgb(34,139,34,0.50)';
-	// let rootEl = document.querySelector('#root')
-	// rootEl.style = 'height: 100%'
 
 	let user = useSelector(state => state.user)
 	let background = useSelector(state => state.background)
