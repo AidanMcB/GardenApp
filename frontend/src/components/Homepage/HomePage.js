@@ -88,7 +88,7 @@ class DesktopContainer extends Component {
 
   render() {
     const { children } = this.props
-    const { fixed } = this.state
+    // const { fixed } = this.state
 
     return (
       <Media greaterThan='mobile'>
@@ -122,13 +122,9 @@ DesktopContainer.propTypes = {
 class MobileContainer extends Component {
   state = {}
 
-  handleSidebarHide = () => this.setState({ sidebarOpened: false })
-
-  handleToggle = () => this.setState({ sidebarOpened: true })
-
   render() {
     const { children } = this.props
-    const { sidebarOpened } = this.state
+
 
     return (
       <Media at='mobile'>

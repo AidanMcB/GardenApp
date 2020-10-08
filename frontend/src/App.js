@@ -23,7 +23,6 @@ function App() {
 	document.body.style = 'background:	rgb(34,139,34,0.50)';
 
 	let user = useSelector(state => state.user)
-	let background = useSelector(state => state.background)
 
 	let dispatch = useDispatch()
 	let history = useHistory()
