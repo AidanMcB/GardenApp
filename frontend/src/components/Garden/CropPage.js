@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import { useHistory } from 'react-router-dom'
-import { Modal, Header, Checkbox, Form, Label, Grid, Image, Button, Segment, Card, Icon, Item, Input, CardDescription } from 'semantic-ui-react'
+import { Modal, Header, Form, Label, Grid, Button, Icon, Input } from 'semantic-ui-react'
 
 export default function CropPage(props) {
 

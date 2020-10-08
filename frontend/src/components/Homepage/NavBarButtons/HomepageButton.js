@@ -7,8 +7,6 @@ import { useHistory } from 'react-router-dom'
 export default function HomepageButton() {
 
     let history = useHistory()
-    let background = useSelector(state => state.background)
-    let dispatch = useDispatch()
 
     return (
         <Button

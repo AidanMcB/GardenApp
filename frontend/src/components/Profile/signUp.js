@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import {
 	Button,
@@ -9,7 +9,7 @@ import {
 	Segment,
 	Label,
 } from 'semantic-ui-react';
-import { useSelector, useDispatch, connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 export default function SignUp(props) {
 

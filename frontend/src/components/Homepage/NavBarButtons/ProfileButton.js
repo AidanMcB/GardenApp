@@ -1,14 +1,13 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { Button, Icon } from 'semantic-ui-react'
-import { useDispatch, useSelector} from 'react-redux'
-import UserReducer from '../../../Redux/reducers/UserReducer'
+import { useSelector} from 'react-redux'
+
 
 
 export default function ProfileButton (props) {
 
     let user = useSelector(state => state.user)
-    let garden = useSelector(state => state.user.garden)
     let history = useHistory()
     return (
         <Button

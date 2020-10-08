@@ -1,8 +1,5 @@
-import PostsReducer from "./PostsReducer"
-
 const UserReducer = (state, action) => {
  
-    let user = action.user
     switch (action.type) {
         case 'LOGIN':
             return {
