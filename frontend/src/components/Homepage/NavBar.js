@@ -60,7 +60,6 @@ export default function NavBar() {
     let user = useSelector(state => state.user)
     const errorMessage = useSelector(state => state.errorMessage)
     let history = useHistory()
-    const [visible, setVisible] = useState(false)
 
     return (
         <>
