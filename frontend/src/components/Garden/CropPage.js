@@ -85,22 +85,11 @@ export default function CropPage(props) {
 
     }
 
-    const extra = (
-        <a>
-            <Icon name='user' />
-          16 Friends
-        </a>
-    )
-
     //build these logos out on figma.com 
     //full sun => sun outline
     //partials sun =>
     //full shade
-    const sun = (
-        <a>
-            <Icon name="sun outline" />
-        </a>
-    )
+  
 
     // let today = new Date();
     // let dd = today.getDate();

@@ -8,7 +8,6 @@ import {
 	Segment,
 	Label,
 } from 'semantic-ui-react';
-import { createMedia } from "@artsy/fresnel";
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
@@ -65,15 +64,6 @@ export default function LoginForm(props) {
 	}
 	let randomId = Math.floor((Math.random() * 10000) + 1);
 
-	const { MediaContextProvider, Media } = createMedia({
-		breakpoints: {
-			sm: 0,
-			md: 768,
-			ml: 890,
-			lg: 1024,
-			xl: 1192,
-		},
-	})
 	//mobile 16 tablet 8 computer 4  || largreScreen={2} widescreen={1}
 	return (
 		<Grid centered columns={2}>
