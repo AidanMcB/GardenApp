@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 export default function LogOutButton(props) {
 
     let dispatch = useDispatch()
-    let user = useSelector(state => state.user)
     let history = useHistory()
 
     function HandleLogOut() {
