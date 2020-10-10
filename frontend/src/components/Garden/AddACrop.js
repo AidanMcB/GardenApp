@@ -28,7 +28,7 @@ export default function AddACrop(props) {
 
     // ** LOGIC FOR ADDING A CROP TO THE GARDEN ** //
     const AddCrop = (chosenCrop, amount) => {
-        console.log(amount)
+        console.log(user, chosenCrop)
         if (amount < 1) {
             console.log("you haven't added any crops!")
             setErrorMessage(

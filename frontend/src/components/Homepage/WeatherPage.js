@@ -202,7 +202,7 @@ export default function WeatherPage() {
               backgroundColor: "green",
               color: "white"
             }}
-            size="big">Current temperature in {localStorage.zip}</Label>
+            size="big">Current temperature</Label>
           <h1 style={{
             display: "inline",
             color: "black",

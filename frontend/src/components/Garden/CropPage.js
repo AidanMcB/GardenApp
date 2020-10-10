@@ -89,7 +89,7 @@ export default function CropPage(props) {
     //full sun => sun outline
     //partials sun =>
     //full shade
-  
+
 
     // let today = new Date();
     // let dd = today.getDate();
@@ -115,29 +115,26 @@ export default function CropPage(props) {
     }
     return (
         // console.log(crop, user),
-        <div class="crop show page" >
+        <div className="crop show page" >
             <Grid
                 style={{
-                    border:"8px solid black",
-                    padding:"10px",
-                    marginTop: "100px",
-                    marginLeft: "280px",
-                    marginRight: "380px",
+                    // padding:"10px",
+                    margin: "auto"
                     // backgroundColor:"rgb(34,139,34,0.15)"
                 }}
                 columns={2}
                 divided>
-                <Grid.Column >
-                    <div class="ui card" style={{ marginLeft: "20px", border:"1px solid black" }}>
-                        <div class="image"><img alt={crop.name} src={crop.image_path} /></div>
-                        <div class="content">
-                            <div class="header">{crop.name}</div>
-                            <div class="meta">
+                <Grid.Column>
+                    <div className="ui card" style={{ margin: "auto", border: "1px solid black" }}>
+                        <div className="image"><img alt={crop.name} src={crop.image_path} /></div>
+                        <div className="content">
+                            <div className="header">{crop.name}</div>
+                            <div className="meta">
                                 <br />
                                 <Label>Date Planted:</Label><br />
                                 {crop.day_planted.substr(0, 10)}
                             </div>
-                            <div class="description">
+                            <div className="description">
                                 <Label>Description:</Label><br />
                                 {crop.description}
                             </div> <br />
@@ -154,77 +151,77 @@ export default function CropPage(props) {
                                 {crop.growing_days == null ? 80 : crop.growing_days}
                             </div> <br />
                         </div>
-                        <div class="extra content">
+                        <div className="extra content">
                             <a>
-                                <i aria-hidden="true" class="sun outline icon">  </i>
+                                <i aria-hidden="true" className="sun outline icon">  </i>
                                 {crop.sun_requirements}
                             </a>
                         </div>
                     </div>
-                    {user.id === crop.garden.user_id ?
-                        <Button
-                            color="red"
-                            onClick={() => handleDelete(crop)}
-                            style={{ marginLeft: "35px" }}>
-                            Remove Crop From My Garden </Button>
-                        : null}
                 </Grid.Column>
-                <Grid.Column style={{}}>
+                <Grid.Column>
                     <div>
                         <Header style={{
                             color: "white",
-                            fontSize: "46px",
-                            // fontFamily: "fantasy",
-                            textShadow: "1px 1px 0 black"
+                            fontSize: "3em",
+                            textShadow: "1px 1px black"
                         }}
-                            as="h1">{crop.name} Information</Header>
-                        <Label size="big blue">Days I've been growing:</Label>
+                            as="h1">Details:</Header>
+                        <Label size="big" color="blue">Days I've been growing:</Label>
                         <p style={{
-                        
                             display: "inline",
                             fontSize: "18px"
                         }}>&emsp;{daysGrowing(crop.day_planted)}{daysGrowing(crop.day_planted) > 1 ? " days" : " day"}</p>
                         <br /> <br />
-                        <Label size="big blue">Amount Planted:</Label>
+                        <Label size="big" color="blue">Amount Planted:</Label>
                         <p style={{
-                            display:"inline",
-                            fontSize:"18px"
-                            }}>&emsp;{crop.number_planted}</p>
+                            display: "inline",
+                            fontSize: "18px"
+                        }}>&emsp;{crop.number_planted}</p>
                         <br /> <br />
-                        <Label size="big blue">Days Until Expected Harvest:</Label>
+                        <Label size="big" color="blue">Days Until Expected Harvest:</Label>
                         <p style={{
-                            display:"inline",
-                            fontSize:"18px",
-                        }}>&emsp;{crop.growing_days == null ? (80 - (daysGrowing(crop.day_planted))) : (crop.growing_days - (daysGrowing(crop.day_planted))) } days</p>
+                            display: "inline",
+                            fontSize: "18px",
+                        }}>&emsp;{crop.growing_days == null ? (80 - (daysGrowing(crop.day_planted))) : (crop.growing_days - (daysGrowing(crop.day_planted)))} days</p>
                         <br /> <br />
-                        <Label size="big blue">Current Height:</Label>
+                        <Label size="big" color="blue">Current Height:</Label>
                         <p style={{
-                            display:"inline",
-                            fontSize:"18px",
+                            display: "inline",
+                            fontSize: "18px",
                         }}>&emsp;{crop.current_height == null ? 0 + " inches" : crop.current_height + " inches"}</p>
                         <br /> <br />
-                        <Label size="big blue">Quantity Returned</Label>
+                        <Label size="big" color="blue">Quantity Returned</Label>
                         <p style={{
-                         
-                            display:"inline",
-                            fontSize:"18px",
+                            display: "inline",
+                            fontSize: "18px",
                         }}>&emsp;{crop.quantity_returned == null ? 0 : crop.quantity_returned}</p>
                         <br /> <br />
-                        <Label size="big blue">Current Status of Crop</Label>
+                        <Label size="big" color="blue">Current Status of Crop</Label>
                         <p style={{
-                            display:"inline",
-                            fontSize:"18px",
+                            display: "inline",
+                            fontSize: "18px",
                         }}>&emsp;{crop.status_of_plant}</p>
                         <br /> <br />
                         {user.id === crop.garden.user_id ?
                             <div>
-                                {/* <Label>Update Crop Info</Label> */}
-
-                                <Button style={{ marginBottom: "30px" }}
+                                <Button style={{}}
                                     onClick={openWindow}>
                                     Update Crop Info
                                 </Button>
                             </div>
+                            : null}
+                        <br />
+                        <Button onClick={() => history.push('/my_garden')}>
+                            Back to My Garden
+                        </Button>
+                        <br /> <br />
+                        {user.id === crop.garden.user_id ?
+                            <Button
+                                color="red"
+                                onClick={() => handleDelete(crop)}
+                                style={{}}>
+                                Remove Crop From My Garden </Button>
                             : null}
                         <Modal open={form}>
                             <Form style={{
@@ -235,21 +232,21 @@ export default function CropPage(props) {
                                 marginBottom: "20px"
                             }}>
                                 <Form.Field style={{ textAlign: "center" }}>
-                                    <Label size="large blue">Current Height:</Label>
+                                    <Label size="large" color="blue">Current Height:</Label>
                                     <br /> <br />
                                     <Input
                                         onChange={(e) => setValue("current_height", e.target.value)}
                                         placeholder={crop.current_height} />
                                 </Form.Field>
                                 <Form.Field style={{ textAlign: "center" }}>
-                                    <Label size="large blue">Quantity Returned</Label>
+                                    <Label size="large" color="blue">Quantity Returned</Label>
                                     <br /><br />
                                     <Input
                                         onChange={(e) => setValue("quantity_returned", e.target.value)}
                                         placeholder={crops.qunatity_returned} />
                                 </Form.Field>
                                 <Form.Field>
-                                    <Label size="large blue">Current Status of Crop</Label>
+                                    <Label size="large" color="blue">Current Status of Crop</Label>
                                     <br /><br />
                                     <Input
                                         onChange={(e) => setValue("status_of_plant", e.target.value)}
@@ -259,6 +256,9 @@ export default function CropPage(props) {
                                     color="green"
                                     onClick={() => updateCrop(editedCrop)}
                                     type='submit'>Submit</Button>
+                                <Button color='black' onClick={() => openForm(false)}>
+                                    Nope
+                                </Button>
                             </Form>
                         </Modal>
 

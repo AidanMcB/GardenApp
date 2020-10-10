@@ -38,7 +38,7 @@ export default function NavBar() {
                 <Media greaterThanOrEqual="ml">
                     <Menu
                         style={{
-                            padding: ".5em",
+                            padding: ".25em",
                             backgroundColor: "#1b1c1d",
                             opacity: "90%",
                             borderBottom: "1px solid black",
