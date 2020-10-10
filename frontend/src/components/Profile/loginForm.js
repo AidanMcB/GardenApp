@@ -69,7 +69,7 @@ export default function LoginForm(props) {
 		<Grid centered columns={2}>
 			<Grid.Column style={{ padding: "5em" }} mobile={16} tablet={14} computer={6}>
 				<Header as="h1" textAlign="center"> Login </Header>
-				{errorMessage != undefined ? <Message color='red'>{errorMessage}</Message> : null}
+				{errorMessage !== undefined ? <Message color='red'>{errorMessage}</Message> : null}
 				<Segment>
 					<Form size="large"
 						autoComplete="off"
