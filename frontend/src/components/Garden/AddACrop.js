@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import MissouriDepAgLogo from '../images/MissouriDepAgLogo.png'
-import {  Button, Message, Label, Segment } from 'semantic-ui-react'
+import {  Button, Header, Message, Label, Segment } from 'semantic-ui-react'
 
 export default function AddACrop(props) {
 
@@ -28,7 +28,7 @@ export default function AddACrop(props) {
 
     // ** LOGIC FOR ADDING A CROP TO THE GARDEN ** //
     const AddCrop = (chosenCrop, amount) => {
-        console.log(amount)
+        console.log(user, chosenCrop)
         if (amount < 1) {
             console.log("you haven't added any crops!")
             setErrorMessage(
@@ -81,7 +81,8 @@ export default function AddACrop(props) {
     }
     return (
         //consider adding confirmation
-        <div className="wholePage" style={{ textAlign: "center" }}>
+        <div className="wholePage" style={{ marginTop:"2em",textAlign: "center" }}>
+        <Header as="h2" style={{ color:"white", textShadow:"1px 1px black"}}> Find just what you're looking for!</Header>
             <div className="ui action input">
                 <input onChange={(e) => changeSearch({ search: e.target.value })}
                     type="text" placeholder="Search..." />
@@ -90,10 +91,10 @@ export default function AddACrop(props) {
                 >Search</button>
             </div>
             <br /><br />
-            {errorMessage != "" ? <Message color="red">{errorMessage}</Message> : null}
+            {errorMessage !== "" ? <Message color="red">{errorMessage}</Message> : null}
             <div style={{ 
                 textAlign: "center" }}>
-                {searchResults != [] ? searchResults.map( (crop, index) => (
+                {searchResults !== [] ? searchResults.map( (crop, index) => (
                     <div key={index} >
                         <Segment style={{
                             backgroundColor:"rgb(34,139,34,0.50)",
@@ -110,10 +111,7 @@ export default function AddACrop(props) {
 
                             <img
                                 className="ui medium centered image"
-                                // style={{ backgroundImage: `url(${MissouriDepAgLogo})` }}
-                               
-                                src={crop.attributes.main_image_path != "/assets/baren_field_square-7e8d9de27d478a05b7f6b54b6c5014900d3e5d06e4c06532672af836d40346f0.jpg" ? crop.attributes.main_image_path : MissouriDepAgLogo}
-                                // alt={MissouriDepAgLogo}
+                                src={crop.attributes.main_image_path !== "/assets/baren_field_square-7e8d9de27d478a05b7f6b54b6c5014900d3e5d06e4c06532672af836d40346f0.jpg" ? crop.attributes.main_image_path : MissouriDepAgLogo}
                                 alt={crop.attributes.name}
                             />
                             <br />

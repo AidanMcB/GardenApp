@@ -25,7 +25,7 @@ export default function SignUp(props) {
 	const handleSignUp = (newUserInfo, e) => {
 		e.preventDefault()
 		console.log(newUserInfo.zip)
-		if(isValidUSZip(newUserInfo.zip) == false){
+		if(isValidUSZip(newUserInfo.zip) === false){
 			dispatch({type: 'INVALID_ZIP_CODE', errorMessage: 'Invalid Zip Code. Must be a valid U.S. zip code with 5 numeric digits'})
 		}else{
 		fetch('http://localhost:3000/signUp', {
@@ -85,7 +85,7 @@ export default function SignUp(props) {
 				}}>
 					Sign Up
                 </Header>
-				{errorMessage != undefined ? <Message color='red'>{errorMessage}</Message> : null}
+				{errorMessage !== undefined ? <Message color='red'>{errorMessage}</Message> : null}
 				<Segment>
 					<Form size="large"
 						onSubmit={(e) => (handleSignUp(user, e))}>

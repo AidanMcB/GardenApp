@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { useParams } from 'react-router'
 import skyimage from '../images/skyimage.jpg'
-import { Grid, Container, Header, Message, Image, Button, Search, Input, Label, Popup } from 'semantic-ui-react'
+import { Grid, Header, Label } from 'semantic-ui-react'
 import { createMedia } from "@artsy/fresnel";
 
 export default function WeatherPage() {
 
-  let user = useSelector(state => state.user)
-  let params = useParams()
   let [weather, setWeather] = useState({
     //farenheit
     temperature: '',
@@ -71,7 +67,7 @@ export default function WeatherPage() {
 
     return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
   }
-  // console.log(msToTime(300000))
+ 
   function timeConverter(seconds) {
     let date = new Date(seconds * 1000);
     let timestr = date.toLocaleTimeString();
@@ -206,7 +202,7 @@ export default function WeatherPage() {
               backgroundColor: "green",
               color: "white"
             }}
-            size="big">Current temperature in {localStorage.zip}</Label>
+            size="big">Current temperature</Label>
           <h1 style={{
             display: "inline",
             color: "black",
@@ -343,7 +339,6 @@ export default function WeatherPage() {
             <h2>{weather.temperature > 75 && weather.main != <li>Rain</li> ? <li>It's hot today, be sure to water a little extra</li> : null}</h2>
             {/* Windy */}
             <h2>{weather.windSpeed > 15 ? <li>It's getting windy! Consider moving potted plants or putting up a wind break</li> : null}</h2>
-            <h1></h1>
           </ul>
 
         </Grid.Column>

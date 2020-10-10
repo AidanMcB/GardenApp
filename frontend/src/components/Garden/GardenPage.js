@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Header, Container, Grid, Image, Button, Segment } from 'semantic-ui-react'
-import AddACrop from './AddACrop'
+import { Header, Container, Grid, Image } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
-import { useParams } from 'react-router'
-import UserReducer from '../../Redux/reducers/UserReducer'
+
 
 export default function GardenPage(props) {
 
@@ -45,7 +43,7 @@ export default function GardenPage(props) {
             })
     }
 
-    if (user == undefined) {
+    if (user === undefined) {
         return <h1>loading...</h1>
     }
     console.log(crops, garden)

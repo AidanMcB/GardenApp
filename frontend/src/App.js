@@ -12,20 +12,17 @@ import NavBar from './components/Homepage/NavBar'
 
 import GardenPage from './components/Garden/GardenPage'
 import NewPost from './components/MessageBoard/NewPost'
-import { BrowserRouter, Route, useHistory } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import SignUp from './components/Profile/signUp'
 import AddACrop from './components/Garden/AddACrop'
 import ErrorPage from './components/ErrorPages/ErrorPage'
-import { useSelector, useDispatch } from 'react-redux'
+import {  useDispatch } from 'react-redux'
 import Test from './components/Test'
 function App() {
 
 	document.body.style = 'background:	rgb(34,139,34,0.50)';
 
-	let user = useSelector(state => state.user)
-
 	let dispatch = useDispatch()
-	let history = useHistory()
 
 	// *CREATE A GARDEN* //
 	const createAGarden = (user) => {
@@ -57,7 +54,7 @@ function App() {
 			})
 			.then(userLogin => {
 				// if there is a user, send action to go in as user(.user?)
-				if (userLogin.error == undefined) {
+				if (userLogin.error === undefined) {
 					localStorage.zip = userLogin.zip
 					dispatch({ type: 'LOGIN', user: userLogin })
 					dispatch({ type: 'ACCESS_GARDEN', crops: userLogin.garden.crops })

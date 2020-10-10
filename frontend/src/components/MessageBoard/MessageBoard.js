@@ -38,7 +38,6 @@ export default function MessageBoard() {
         })
             .then(res => res.json())
             .then(delResp => {
-                // console.log(delResp)
                 if (delResp.success) {
                     dispatch({ type: 'DELETE_POST', post })
                 }
@@ -53,7 +52,7 @@ export default function MessageBoard() {
             })
     }, [])
 
-    if (posts == undefined) {
+    if (posts === undefined) {
         return <h1>loading...</h1>
     }
     return (
@@ -99,7 +98,7 @@ export default function MessageBoard() {
                     <div className="label-div" style={{display:"inline"}}>
                     <Label style={{ maxWidth:"75%",color: "white", border: "1px solid black", backgroundColor: "Green" }} size="big">{post.title}</Label>
                 
-                    {user == null || user.id == undefined || user.id != post.user_id ?
+                    {user === null || user.id === undefined || user.id !== post.user_id ?
                         null
                         :
                         <div style={{ display:"inline", float:"right", marginTop:"0em" }}>
@@ -151,7 +150,7 @@ export default function MessageBoard() {
                     </div>
                     <Popup content="View garden" trigger={
                     <Label ribbon style={{ border: "1px solid black", float:"right", margin:".25em 0 0 0" }}
-                        onClick={() => { user.id == post.user.id ? history.push('my_garden') : history.push(`/garden/${post.user.garden.id}`) }}
+                        onClick={() => { user.id === post.user.id ? history.push('my_garden') : history.push(`/garden/${post.user.garden.id}`) }}
                     >By {post.user.username}</Label>} />
                     <br></br> <br></br>
                     

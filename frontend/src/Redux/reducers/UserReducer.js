@@ -7,7 +7,6 @@ const UserReducer = (state, action) => {
                 user: action.user,
                 errorMessage: undefined
             }
-            break
         case 'FAIL_LOGIN':
             return {
                 ...state,
@@ -28,7 +27,6 @@ const UserReducer = (state, action) => {
                 ...state,
                 user: null
             }
-            break
         case 'SIGN_UP':
             
             return {
@@ -36,13 +34,11 @@ const UserReducer = (state, action) => {
                 user: action.user,
                 errorMessage: undefined
             }
-            break
         case 'FAIL_SIGN_UP':
             return {
                 ...state,
                 errorMessage: action.errorMessage
             }
-            break
     }
     return state
 }
