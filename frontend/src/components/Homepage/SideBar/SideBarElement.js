@@ -2,22 +2,17 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import {
-    Header,
     Menu,
-    Message,
     Button,
     Icon,
-    Image,
     Sidebar,
-    Segment
 } from 'semantic-ui-react'
 
 export default function SideBarElement() {
 
     let user = useSelector(state => state.user)
-    const errorMessage = useSelector(state => state.errorMessage)
+    // const errorMessage = useSelector(state => state.errorMessage)
     let history = useHistory()
-    let background = useSelector(state => state.background)
     let dispatch = useDispatch()
 
     const [visible, setVisible] = useState(false)

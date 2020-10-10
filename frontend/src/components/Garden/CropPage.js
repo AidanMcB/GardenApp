@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import { useHistory } from 'react-router-dom'
-import { Modal, Header, Form, Label, Grid, Button, Icon, Input } from 'semantic-ui-react'
+import { Modal, Header, Form, Label, Grid, Button, Input } from 'semantic-ui-react'
 
 export default function CropPage(props) {
 
@@ -110,7 +110,7 @@ export default function CropPage(props) {
         return diffDays
     }
 
-    if (crop == undefined || user == null || crop.garden == undefined) {
+    if (crop === undefined || user === null || crop.garden === undefined) {
         return <h1>loading...</h1>
     }
     return (
@@ -129,7 +129,7 @@ export default function CropPage(props) {
                 divided>
                 <Grid.Column >
                     <div class="ui card" style={{ marginLeft: "20px", border:"1px solid black" }}>
-                        <div class="image"><img src={crop.image_path} /></div>
+                        <div class="image"><img alt={crop.name} src={crop.image_path} /></div>
                         <div class="content">
                             <div class="header">{crop.name}</div>
                             <div class="meta">
@@ -161,7 +161,7 @@ export default function CropPage(props) {
                             </a>
                         </div>
                     </div>
-                    {user.id == crop.garden.user_id ?
+                    {user.id === crop.garden.user_id ?
                         <Button
                             color="red"
                             onClick={() => handleDelete(crop)}
@@ -216,14 +216,14 @@ export default function CropPage(props) {
                             fontSize:"18px",
                         }}>&emsp;{crop.status_of_plant}</p>
                         <br /> <br />
-                        {user.id == crop.garden.user_id ?
+                        {user.id === crop.garden.user_id ?
                             <div>
                                 {/* <Label>Update Crop Info</Label> */}
 
                                 <Button style={{ marginBottom: "30px" }}
                                     onClick={openWindow}>
                                     Update Crop Info
-                    </Button>
+                                </Button>
                             </div>
                             : null}
                         <Modal open={form}>

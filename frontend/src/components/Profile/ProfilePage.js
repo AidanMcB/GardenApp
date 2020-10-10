@@ -8,13 +8,12 @@ export default function ProfilePage(props) {
     let user = useSelector(state => state.user)
     let history = useHistory()
 
-    if(user == undefined){
+    if(user === undefined){
         return <h1>loading...</h1>
     }
     console.log(user)
     return (
         <Header as='h2'>
-            {/* consider generating a logo to use as a avatar */}
             <Image circular src='/images/avatar/large/patrick.png' /> 
             {user.username}
             <button

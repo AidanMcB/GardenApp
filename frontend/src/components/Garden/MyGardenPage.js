@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Header, Grid, Image, Button, Segment, Container } from 'semantic-ui-react'
+import { Header, Grid, Image, Button, Container } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 import { createMedia } from "@artsy/fresnel";
+
 export default function GardenPage(props) {
 
     let history = useHistory()
-
     let [crop, setCrop] = useState()
     let user = useSelector(state => state.user)
     let crops = useSelector(state => state.displayedCrops)
-    let background = useSelector(state => state.background)
+    let dispatch = useDispatch()
 
-    // "rgb(34,139,34,0.65)"
     useEffect(() => {
         dispatch({ type: 'GARDEN_BACKGROUND', background: "rgb(34,139,34,0.65)" })
         fetch(`http://localhost:3000/get_user`, {
@@ -20,7 +19,7 @@ export default function GardenPage(props) {
         })
             .then(resp => resp.json())
             .then(userLogin => {
-                if (userLogin.error == undefined) {
+                if (userLogin.error === undefined) {
                     localStorage.zip = userLogin.zip
                     dispatch({ type: 'LOGIN', user: userLogin })
                     dispatch({ type: 'DISPLAYED_CROPS', crops: userLogin.garden.crops })
@@ -30,12 +29,6 @@ export default function GardenPage(props) {
             })
     }, [])
 
-    let dispatch = useDispatch()
-
-    let changeBackground = () => {
-        dispatch({ type: 'GARDEN_BACKGROUND', background: background })
-    }
-    // let garden = user.city.garden.id
 
     const handleClick = (id) => {
         fetch(`http://localhost:3000/crops/${id}`)
@@ -59,7 +52,7 @@ export default function GardenPage(props) {
     })
 
 
-    if (user == undefined || user == null) {
+    if (user === undefined || user === null) {
         return <h1>loading...</h1>
     }
     return (
@@ -150,6 +143,16 @@ export default function GardenPage(props) {
                                 }}>{user.username}'s Garden
                             </Header>
                         </Container>
+                        <Button
+                            style={{
+                                display:"block",
+                                margin:"auto",
+                                color: "white",
+                                backgroundColor: "darkgreen",
+                                padding: "10px",
+                            }}
+                            onClick={() => history.push('/add_crop')}>
+                            Add a Crop</Button>
                     </div>
                     <br />
                     <Grid style={{
