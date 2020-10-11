@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a6c407d2.chunk.css",
+    "main.js": "/static/js/main.46aea343.chunk.js",
+    "main.js.map": "/static/js/main.46aea343.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.a4743908.js",
+    "runtime-main.js.map": "/static/js/runtime-main.a4743908.js.map",
+    "static/css/2.7df41cd5.chunk.css": "/static/css/2.7df41cd5.chunk.css",
+    "static/js/2.7218b6e7.chunk.js": "/static/js/2.7218b6e7.chunk.js",
+    "static/js/2.7218b6e7.chunk.js.map": "/static/js/2.7218b6e7.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.292d1c339b958b4560f73796cfc45313.js": "/precache-manifest.292d1c339b958b4560f73796cfc45313.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.7df41cd5.chunk.css.map": "/static/css/2.7df41cd5.chunk.css.map",
+    "static/css/main.a6c407d2.chunk.css.map": "/static/css/main.a6c407d2.chunk.css.map",
+    "static/js/2.7218b6e7.chunk.js.LICENSE.txt": "/static/js/2.7218b6e7.chunk.js.LICENSE.txt",
+    "static/media/MissouriDepAgLogo.png": "/static/media/MissouriDepAgLogo.fc2bf65c.png",
+    "static/media/semantic.min.css": "/static/media/outline-icons.ef60a4f6.woff",
+    "static/media/skyimage.jpg": "/static/media/skyimage.d7aa85c4.jpg",
+    "static/media/veggieGarden.jpg": "/static/media/veggieGarden.41d3ee34.jpg",
+    "static/media/veggieVillage.png": "/static/media/veggieVillage.0c510033.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a4743908.js",
+    "static/css/2.7df41cd5.chunk.css",
+    "static/js/2.7218b6e7.chunk.js",
+    "static/css/main.a6c407d2.chunk.css",
+    "static/js/main.46aea343.chunk.js"
+  ]
+}
