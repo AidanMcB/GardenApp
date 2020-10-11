@@ -7,7 +7,6 @@
   "author": "Aidan McBride <aidankmcbride@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "install-client": "npm install --prefix client",
     "build": "cd client && yarn install && yarn build && cd ..",
     "deploy": "cp -a client/build/. public/",
     "postinstall": "yarn build && yarn deploy && echo 'Client built!'"
