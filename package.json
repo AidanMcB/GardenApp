@@ -7,9 +7,9 @@
   "author": "Aidan McBride <aidankmcbride@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "cd frontend && npm install && npm build && cd ..",
+    "build": "cd frontend && yarn install && yarn build && cd ..",
     "deploy": "cp -a frontend/build/. public/",
-    "postinstall": "npm build && npm deploy && echo 'Client built!'"
+    "postinstall": "yarn build && yarn deploy && echo 'Client built!'"
   },
   "engines": {
     "yarn": "1.22.4",
