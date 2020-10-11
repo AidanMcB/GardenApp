@@ -7,8 +7,8 @@
   "author": "Aidan McBride <aidankmcbride@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "cd client && yarn install && yarn build && cd ..",
-    "deploy": "cp -a client/build/. public/",
+    "build": "cd fronted && yarn install && yarn build && cd ..",
+    "deploy": "cp -a frontend/build/. public/",
     "postinstall": "yarn build && yarn deploy && echo 'Client built!'"
   },
   "engines": {
