@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :gardens
   resources :posts 
   resources :comments
+  
+  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+    !request.xhr? && request.format.html?
+  end
 
   post('/login', to: 'authentication#login')
   get('/login', to: 'authentication#login')

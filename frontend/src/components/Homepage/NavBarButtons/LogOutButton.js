@@ -9,7 +9,7 @@ export default function LogOutButton(props) {
     let history = useHistory()
 
     function HandleLogOut() {
-        fetch(`http://localhost:3000/logout`, {
+        fetch(`/logout`, {
             credentials: 'include',
             method: 'POST'
         })

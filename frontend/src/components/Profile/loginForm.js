@@ -19,7 +19,7 @@ export default function LoginForm(props) {
 	// *LOGIN FUNCTION* //
 	const handleLogin = (userInfo, e) => {
 		e.preventDefault()
-		fetch('http://localhost:3000/login', {
+		fetch('/login', {
 			credentials: 'include',
 			method: 'POST',
 			headers: {

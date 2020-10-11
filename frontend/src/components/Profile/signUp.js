@@ -28,7 +28,7 @@ export default function SignUp(props) {
 		if(isValidUSZip(newUserInfo.zip) === false){
 			dispatch({type: 'INVALID_ZIP_CODE', errorMessage: 'Invalid Zip Code. Must be a valid U.S. zip code with 5 numeric digits'})
 		}else{
-		fetch('http://localhost:3000/signUp', {
+		fetch('/signUp', {
 			credentials: 'include',
 			method: 'POST',
 			headers: {

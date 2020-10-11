@@ -41,7 +41,7 @@ export default function CropPage(props) {
     // let crop = crops.find(crop => crop.id == params.id)
 
     useEffect(() => {
-        fetch(`http://localhost:3000/crops/${params.id}`)
+        fetch(`/crops/${params.id}`)
             .then(res => res.json())
             .then(crop => {
                 setCrop({
@@ -54,7 +54,7 @@ export default function CropPage(props) {
 
     const updateCrop = (cropInfo) => {
         closeWindow()
-        fetch(`http://localhost:3000/crops/${cropInfo.id}`, {
+        fetch(`/crops/${cropInfo.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ export default function CropPage(props) {
     }
 
     const handleDelete = (crop) => {
-        fetch(`http://localhost:3000/crops/${crop.id}`, {
+        fetch(`/crops/${crop.id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

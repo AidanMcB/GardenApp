@@ -17,7 +17,7 @@ export default function SideBarElement() {
 
     const [visible, setVisible] = useState(false)
     function HandleLogOut() {
-        fetch(`http://localhost:3000/logout`, {
+        fetch(`/logout`, {
             credentials: 'include',
             method: 'POST'
         })

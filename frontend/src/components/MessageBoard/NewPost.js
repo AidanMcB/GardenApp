@@ -14,7 +14,7 @@ export default function NewPost() {
     const uploadImageHandler = (e) => {
         e.preventDefault()
         let body = new FormData(e.target)
-        fetch('http://localhost:3000/posts', {
+        fetch('/posts', {
             method: 'POST',
             body: body,
             credentials: 'include'
