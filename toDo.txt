@@ -20,3 +20,6 @@ https://github.com/artsy/fresnel
 
 COMPLETE 
 - Set up error handling for when requests can not reach a server 
+-- Commands 
+
+git revert --strategy resolve 62e89927520b81fa309b13cf90eac648aff8468b
