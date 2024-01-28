@@ -1,10 +1,28 @@
+### Backyard Gardens
+
+## About
+
+This is the frontend repository of my module 5 assignment for the coding boot camp Flatiron.
+This project was built using React and Ruby on Rails. In this repository lives the frontend React app and Redux state management.
+Backyard Gardens is a place for gardeners to track their garden's progress year over year and communicate with other gardeners. By keeping track of the crops you grow, how high they grow and how much result they yield, users can plan for next year with insight from real data. The application also integrates with a farming API to select what crops you are growing, as well as OpenWeatherAPI to monitor the weather in your area.
+
+## Starting the Application
+
+To run this application locally, first install the necessary dependencies from `package.json`.
+`npm run start`
+Next, run the server at port :3001.
+`npm run start`
+To continue on the application, you must login with an existing account, or create a new one. To do this, look in the `backend/README.md` file for instructions on starting the backend Ruby on Rails server.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -12,12 +30,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### `npm build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -27,7 +45,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### `npm eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
@@ -63,6 +81,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ad
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `yarn build` fails to minify
+### `npm build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
